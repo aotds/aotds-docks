@@ -71,9 +71,9 @@ dux.addSubscription((store) =>
       store => store.general.mass,
       store => store.streamlining.type,
       (ship_mass, streamlining ) => {
-            const mass = ceil( ship_mass * ( 
+            const mass = ceil( ship_mass * (
                 streamlining === 'none' ? 0
-                : streamlining === 'partial' ? 5 : 10 
+                : streamlining === 'partial' ? 5 : 10
             ) / 100 );
             const cost = 2 * mass;
 
