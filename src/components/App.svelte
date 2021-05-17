@@ -1,90 +1,93 @@
+<Ribbon />
 <Header />
 
-  <nav>
-    <input class="reset button small red" type="button"  value="reset" on:click={reset} />
+<nav>
+  <button class="button is-danger" type="button" on:click={reset}>reset</button>
 
-    <div class="spacer" />
-    <input type="button" class="button small notes" value="notes" on:click={toggle_notes} />
+  <div class="spacer" />
 
-    <ul class="button-group">
-    <input type="button" class="button small green" value="editor"
-      on:click={() => set_output(null)} />
-    <input type="button" class="button small green" value="json"
-      on:click={() => set_output('json')} />
-    <input type="button" class="button small green" value="print"
-      on:click={() => set_output('print')} />
-    </ul>
-  </nav>
+  <button class="button is-info about" on:click={toggle_notes}>about</button>
+
+  <div class="field has-addons">
+    <p class="control">
+      <button class="button" on:click={() => set_output(null)}>editor</button>
+    </p>
+    <p class="control">
+      <button class="button" on:click={() => set_output("json")}>json</button>
+    </p>
+    <p class="control">
+      <button class="button" on:click={() => set_output("print")}>print</button>
+    </p>
+  </div>
+</nav>
 
 {#if show_notes}
-<Notes show={show_notes} on:close={toggle_notes} />
+  <Notes show={show_notes} on:close={toggle_notes} />
 {/if}
 
-{#if output === 'json'}
-  <OutputJson ship={$ship}
-    on:close={() => set_output(null)}/>
-  {:else if output === 'print' }
-    <Print ship={$ship} />
+{#if output === "json"}
+  <OutputJson ship={$ship} on:close={() => set_output(null)} />
+{:else if output === "print"}
+  <Print ship={$ship} />
 {:else}
+  <main>
+    <ShipSpecs />
 
-<main>
+    <Propulsion
+      ftl={$ship.ftl}
+      engine={$ship.engine}
+      on:change_ftl={change_ftl}
+      on:change_engine={change_engine}
+    />
 
-  <ShipSpecs />
+    <Hull
+      ship_mass={$ship.general.mass}
+      {...$ship.structure.hull}
+      on:change_hull={change_hull}
+      screens={$ship.structure.screens}
+      armour={$ship.structure.armour}
+      on:set_screens={set_screens}
+      cargo={$ship.cargo}
+      streamlining={$ship.streamlining}
+      on:set_cargo={ship_dispatch}
+      on:ship_change={ship_dispatch}
+    />
 
-  <Propulsion
-    ftl={$ship.ftl}
-    engine={$ship.engine}
-    on:change_ftl={change_ftl}
-    on:change_engine={change_engine} />
+    <Section label="weaponry">
+      <Firecons
+        {...$ship.weaponry.firecons}
+        on:change_firecons={change_firecons}
+      />
 
-  <Hull
-    ship_mass={$ship.general.mass}
-    {...$ship.structure.hull}
-    on:change_hull={change_hull}
-    screens={$ship.structure.screens}
-    armour={$ship.structure.armour}
-    on:set_screens={set_screens}
-    cargo={$ship.cargo}
-    streamlining={$ship.streamlining}
-    on:set_cargo={ship_dispatch}
-    on:ship_change={ship_dispatch} />
+      <ADFC {...$ship.weaponry.adfc} />
 
-  <Section label="weaponry">
-    <Firecons
-      {...$ship.weaponry.firecons}
-      on:change_firecons={change_firecons} />
+      <AddWeapon />
 
-    <ADFC {...$ship.weaponry.adfc} />
+      {#each weapons as weapon (weapon.id)}
+        <Weapon {weapon} id={weapon.id} cost={weapon.cost} mass={weapon.mass} />
+      {/each}
+    </Section>
 
-    <AddWeapon />
-
-    {#each weapons as weapon (weapon.id)}
-      <Weapon {weapon} id={weapon.id} cost={weapon.cost} mass={weapon.mass} />
-    {/each}
-
-  </Section>
-
-  <Carrier {...$ship.carrier} />
-
-
-</main>
+    <Carrier {...$ship.carrier} />
+  </main>
   <footer>
-    Written by <a href="https://twitter.com/yenzie">Yanick Champoux</a>.
-    Code available on <a
-      href="https://github.com/yanick/aotds-shipyard">Github</a>
+    Written by <a href="https://twitter.com/yenzie">Yanick Champoux</a>. Code
+    available on
+    <a href="https://github.com/yanick/aotds-shipyard">Github</a>
   </footer>
-
 {/if}
+
 <script>
   import { setContext } from "svelte";
 
-  import Header from './Header.svelte';
+  import Header from "./Header.svelte";
+  import Ribbon from "./Ribbon.svelte";
   import shipStore from "../stores/ship";
-  import OutputJson from './Output/Json.svelte';
-  import Print from './Output/Print/index.svelte';
+  import OutputJson from "./Output/Json.svelte";
+  import Print from "./Output/Print/index.svelte";
 
-  import ShipSpecs from './ShipSpecs/index.svelte';
-  import Notes from './Notes.svelte';
+  import ShipSpecs from "./ShipSpecs/index.svelte";
+  import Notes from "./Notes.svelte";
   import ShipItem from "./ShipItem/index.svelte";
   import Field from "./Field/index.svelte";
   import Hull from "./Hull/index.svelte";
@@ -129,11 +132,11 @@
   setContext("ship_change", ship.dispatch);
 
   let show_notes = false;
-  const toggle_notes = () => show_notes = !show_notes;
+  const toggle_notes = () => (show_notes = !show_notes);
 
   let output = null;
 
-  const set_output = value => output = value;
+  const set_output = (value) => (output = value);
 
 </script>
 
@@ -159,7 +162,6 @@
     flex: 1;
   }
 
-
   :global(main > *) {
     grid-column: 1;
   }
@@ -174,7 +176,8 @@
     text-align: right;
   }
 
-  .notes {
+  .about {
     margin-right: 2em;
   }
+
 </style>

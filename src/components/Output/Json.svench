@@ -1,0 +1,13 @@
+<Json ship={{potato: 'grande'}}>
+</Json>
+
+<script>
+  import Json from './Json.svelte';
+
+</script>
+
+<style>
+div {
+  background-color: red;
+}
+</style>

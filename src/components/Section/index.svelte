@@ -1,12 +1,13 @@
 <div>
-<h2>{label}</h2>
-  <hr/>
+  <h2>{label}</h2>
+  <hr />
 </div>
 
 <slot />
 
 <script>
-    export let label;
+  export let label;
+
 </script>
 
 <style>
@@ -16,8 +17,12 @@
     align-items: baseline;
     gap: 1em;
   }
+  h2 {
+    font-weight: bold;
+  }
   hr {
     flex: 1;
-    heigth: 0px;
+    background: #333;
   }
-  </style>
+
+</style>
