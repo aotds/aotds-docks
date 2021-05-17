@@ -6,8 +6,8 @@
 
 <script>
 import { createEventDispatcher } from 'svelte';
-import ShipItem from '~C/ShipItem';
-import Field from '~C/Field';
+  import ShipItem from './ShipItem/index.svelte';
+  import Field from './Field/index.svelte';
 
     export let nbr, cost, mass = (0,0,0);
 

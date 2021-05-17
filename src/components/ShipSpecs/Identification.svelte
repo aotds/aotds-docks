@@ -14,8 +14,8 @@
 <script>
   import { getContext } from 'svelte';
 
-  import Field from '~C/Field';
-  import { candidate_ship_types } from '~/dux/ship_types';
+  import Field from '$lib/components/Field/index.svelte';
+  import { candidate_ship_types } from '../../dux/ship_types';
 
   export let ship = getContext('ship');
   let general;

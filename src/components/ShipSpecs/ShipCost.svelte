@@ -23,7 +23,7 @@
 
 <script>
   import { getContext } from "svelte";
-  import Field from "~C/Field";
+  import Field from "$lib/components/Field/index.svelte";
 
   export let ship = getContext("ship");
 

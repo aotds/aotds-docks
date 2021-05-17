@@ -3,10 +3,10 @@
 
 <script>
   import {getContext } from 'svelte';
-    import Arcs from '../Arcs';
-    import dux from '~/dux';
+  import Arcs from '../Arcs/index.svelte';
+    import dux from '$lib/dux';
   import { createEventDispatcher } from 'svelte';
-  
+
     const all_arcs = [ 'FS', 'F', 'FP', 'AP', 'A', 'AS' ];
 
     export let arcs = ['F'];

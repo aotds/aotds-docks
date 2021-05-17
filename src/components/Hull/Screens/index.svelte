@@ -15,9 +15,9 @@
 <script>
     import { createEventDispatcher } from 'svelte';
 
-    import Section from '~C/Section';
-    import Field from '~C/Field';
-    import ShipItem from '~C/ShipItem';
+  import Section from '$lib/components/Section/index.svelte';
+  import Field from '$lib/components/Field/index.svelte';
+  import ShipItem from '../../ShipItem/index.svelte';
 
     export let cost = 0;
     export let mass = 0;

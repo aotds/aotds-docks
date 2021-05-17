@@ -1,6 +1,6 @@
 import Updux from "updux";
 import { action, payload } from "ts-action";
-import u from "updeep";
+import u from "@yanick/updeep";
 import { createSelector } from "reselect";
 
 import ftl from "./ftl";
@@ -13,7 +13,7 @@ import structure from './structure';
 import cargo from './cargo';
 import streamlining from './streamlining';
 import carrier from './carrier';
-import { ceil } from '~/dux/utils';
+import { ceil } from './utils';
 
 const set_ship_mass = action("set_ship_mass", payload());
 const set_name = action("set_name", payload());
@@ -35,6 +35,8 @@ const initial = {
       cost: 10,
     },
   };
+
+console.log(Updux);
 
 const dux = new Updux({
   subduxes: { ftl, engine, weaponry, structure, cargo, streamlining, carrier },
