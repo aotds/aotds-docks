@@ -5,8 +5,8 @@
 </div>
 
 <script>
-  import Firecons from './Firecons';
-  import Screens from './Screens';
+  import Firecons from './Firecons/index.svelte';
+  import Screens from './Screens/index.svelte';
 
   export let firecons = 0;
   export let screens = {};

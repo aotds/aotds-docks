@@ -6,10 +6,10 @@
 <script>
   import { createEventDispatcher} from 'svelte';
 
-    import dux from '~/dux/structure/armour';
+    import dux from '$lib/dux/structure/armour';
 
-    import ShipItem from '~C/ShipItem/index.svelte';
-    import Field from '~C/Field/index.svelte';
+    import ShipItem from '$lib/components/ShipItem/index.svelte';
+    import Field from '$lib/components/Field/index.svelte';
 
     export let layer = 1;
     export let rating = 0;

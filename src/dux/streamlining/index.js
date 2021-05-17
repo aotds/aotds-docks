@@ -1,6 +1,6 @@
 import Updux from "updux";
 import { action, payload } from "ts-action";
-import u from "updeep";
+import u from "@yanick/updeep";
 import { createSelector } from "reselect";
 
 const dux = new Updux({
@@ -13,10 +13,10 @@ const dux = new Updux({
 
 const set_streamlining = action('set_streamlining',payload());
 
-dux.addMutation(set_streamlining, type => u({type}) );
+dux.addMutation(set_streamlining, type => u.update({type}) );
 
 const set_streamlining_cost_mass = action('set_streamlining_cost_mass',payload());
 
-dux.addMutation( set_streamlining_cost_mass, reqs => u(reqs) );
+dux.addMutation( set_streamlining_cost_mass, reqs => u.update(reqs) );
 
 export default dux.asDux;

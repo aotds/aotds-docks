@@ -1,15 +1,22 @@
+import { browser } from '$app/env';
 import { readable } from "svelte/store";
 import { compose, applyMiddleware } from "redux";
 
 import { calc_ship_req } from "../dux/utils";
 
-const composeEnhancers =
-  (window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
+let composeEnhancers = compose;
+
+if(browser) {
+    composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+}
 
 import shipDux from "../dux";
 
 export default () => {
-   let saved = window && window.localStorage.getItem('aotds-shipyard');
+   let saved;
+
+    if(browser) saved = window.localStorage.getItem('aotds-shipyard');
+
     if( saved ) {
         saved = JSON.parse(saved);
     }
@@ -38,7 +45,7 @@ export default () => {
       previous = current;
       console.log(current);
 
-      window && window.localStorage.setItem(
+      if(browser)window.localStorage.setItem(
           'aotds-shipyard', JSON.stringify(current)
       );
   });

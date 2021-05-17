@@ -1,6 +1,6 @@
 import Updux from "updux";
 import { action, payload } from "ts-action";
-import u from "updeep";
+import u from "@yanick/updeep";
 import { createSelector } from "reselect";
 import _ from 'lodash';
 
@@ -29,7 +29,7 @@ dux.addMutation(
             rating,
             cost: 2 * layer * rating,
             mass: 2 * rating,
-        })) 
+        }))
     )
 );
 

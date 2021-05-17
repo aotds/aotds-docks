@@ -1,0 +1,3 @@
+## Next
+
+* Switch to Sveltekit.

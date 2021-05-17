@@ -14,7 +14,7 @@
 </div>
 
 <script>
-  import { ceil } from '~/dux/utils';
+  import { ceil } from '$lib/dux/utils';
 
   export let ship_mass = 0;
   export let rating = 0;

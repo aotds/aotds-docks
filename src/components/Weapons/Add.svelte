@@ -50,7 +50,6 @@
         'FS', 'F', 'FP', 'AP', 'A', 'AS'
     ];
 
-    import fp from 'lodash/fp';
     import _ from 'lodash';
     import { createEventDispatcher } from 'svelte';
 

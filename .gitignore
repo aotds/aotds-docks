@@ -1,5 +1,8 @@
+.DS_Store
 node_modules
-.nyc_output
-pnpm-lock.yaml
-public/build
-public/bundle.*
+/.svelte
+/build
+/functions
+.svelte-kit/
+.vercel_build_output/
+package-lock.json

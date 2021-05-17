@@ -5,10 +5,10 @@
 </ShipItem>
 
   <script>
-  import get from 'lodash/get';
-  import ShipItem from '~C/ShipItem/index.svelte';
-  import Field from '~C/Field/index.svelte';
-  import dux from '~/dux/cargo';
+  import get from 'lodash/get.js';
+  import ShipItem from '$lib/components/ShipItem/index.svelte';
+  import Field from '$lib/components/Field/index.svelte';
+  import dux from '$lib/dux/cargo';
 
   import {getContext, createEventDispatcher} from 'svelte';
 

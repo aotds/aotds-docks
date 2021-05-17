@@ -22,15 +22,14 @@
 <script>
   import {getContext } from 'svelte';
     import Arc from '../../Weapons/Arc.svelte';
-    import Arcs from '../Arcs';
-    import { weapon_cost_mass } from '~/dux/weapons/rules';
-    import fp from 'lodash/fp';
+  import Arcs from '../Arcs/index.svelte';
+    import { weapon_cost_mass } from '$lib/dux/weapons/rules';
     import _ from 'lodash';
-    import ShipItem from '~C/ShipItem';
-    import Field from '~C/Field';
-    import dux from '~/dux';
+  import ShipItem from '$lib/components/ShipItem/index.svelte';
+  import Field from '$lib/components/Field/index.svelte';
+    import dux from '$lib/dux';
   import { createEventDispatcher } from 'svelte';
-  
+
     const all_arcs = [ 'FS', 'F', 'FP', 'AP', 'A', 'AS' ];
 
     export let weapon_type;
@@ -84,7 +83,7 @@
         });
 
         arcs = new_arcs;
-        
+
     }
 
     let i = 1;

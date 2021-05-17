@@ -13,9 +13,9 @@
 </Field>
 
 <script>
-  import Field from '~C/Field';
+  import Field from '../../Field/index.svelte';
   import {getContext } from 'svelte';
-  import dux from '~/dux';
+  import dux from '../../../dux';
 
   export let weapon_type = "beam";
   export let ship_change = getContext('ship_change') || ( () => {} );

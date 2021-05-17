@@ -23,11 +23,11 @@
 <script>
   import _ from 'lodash';
 
-  import Identification from './Identification';
-  import MainSystems from './MainSystems';
-  import Hull from './Hull';
-  import Weapons from './Weapons';
-  import Systems from './Systems';
+  import Identification from './Identification/index.svelte';
+  import MainSystems from './MainSystems/index.svelte';
+  import Hull from './Hull/index.svelte';
+  import Weapons from './Weapons/index.svelte';
+  import Systems from './Systems/index.svelte';
 
   export let ship;
 

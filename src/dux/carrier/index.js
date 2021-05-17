@@ -1,6 +1,6 @@
 import Updux from "updux";
 import { action, payload } from "ts-action";
-import u from "updeep";
+import u from "@yanick/updeep";
 import _ from 'lodash';
 import { createSelector } from "reselect";
 
@@ -19,27 +19,27 @@ const dux = new Updux({
 
 const set_squadron = action('set_squadron',payload());
 
-dux.addMutation(set_squadron, ({id,type}) => u({ squadrons: u.map(
+dux.addMutation(set_squadron, ({id,type}) => u.update({ squadrons: u.map(
     u.if(_.matches({id}), u({type, cost: 6 * _.find(squadron_types,{type}).cost, mass: 6 }))
 )}));
 
 const set_carrier_bays = action('set_carrier_bays', payload() );
 
 dux.addMutation( set_carrier_bays, bays => state => {
-    state = u({ 
-        bays, 
+    state = u.update({
+        bays,
         mass: 1.5*6*bays,
         cost: 3 * 1.5 * 6 * bays,
     })(state);
 
     if( state.squadrons.length > bays ) {
-        state = u({
+        state = u.update({
             squadrons: squadrons => squadrons.slice(0,bays)
-        }, state) 
+        }, state)
     }
 
     if( state.squadrons.length < bays ) {
-        state = u({
+        state = u.update({
             squadrons: squadrons => [ ...squadrons, ..._.times(
                 bays - state.squadrons.length, i => ({
                     id: 1 + i + state.squadrons.length,
@@ -47,7 +47,7 @@ dux.addMutation( set_carrier_bays, bays => state => {
                     mass: 6,
                     type: squadron_types[0].type,
                 })
-            )] }, state) 
+            )] }, state)
     }
 
     return state;

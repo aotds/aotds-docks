@@ -21,13 +21,13 @@
 <script>
     import { createEventDispatcher } from 'svelte';
 
-    import Section from '~C/Section';
-    import Field from '~C/Field';
-    import ShipItem from '~C/ShipItem';
-    import Screens from './Screens';
-    import Armour from './Armour';
-    import Cargo from './Cargo';
-    import Streamlining from './Streamlining';
+  import Section from '../Section/index.svelte';
+  import Field from '../Field/index.svelte';
+  import ShipItem from '../ShipItem/index.svelte';
+  import Screens from './Screens/index.svelte';
+  import Armour from './Armour/index.svelte';
+  import Cargo from './Cargo/index.svelte';
+  import Streamlining from './Streamlining/index.svelte';
 
     export let cost, mass, ship_mass, rating, screens, armour = (
         0, 0, 10, 1, [], []

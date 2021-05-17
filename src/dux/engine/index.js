@@ -1,6 +1,6 @@
 import Updux from 'updux';
 import  { action, payload } from 'ts-action';
-import u from 'updeep';
+import u from "@yanick/updeep";
 import { createSelector } from 'reselect';
 
 const set_engine = action('set_engine',payload());
@@ -14,8 +14,8 @@ const dux = new Updux({
     }
 });
 
-dux.addMutation(set_engine, engine => u(engine));
-dux.addMutation(set_drive_reqs, rate => u(rate));
+dux.addMutation(set_engine, engine => u.update(engine));
+dux.addMutation(set_drive_reqs, rate => u.update(rate));
 
 export function calc_drive_reqs(ship_mass,rating,advanced=false) {
     const mass = Math.ceil(rating * 0.05 * ship_mass);

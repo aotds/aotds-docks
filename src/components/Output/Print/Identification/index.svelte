@@ -10,8 +10,8 @@
 </div>
 
 <script>
-  import Cost from '~C/Cost';
-  import Mass from '~C/Mass';
+  import Cost from '../../../Cost.svelte';
+  import Mass from '$lib/components/Mass.svelte';
 
 export let ship_class;
 export let ship_type;

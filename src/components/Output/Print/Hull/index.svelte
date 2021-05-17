@@ -8,8 +8,8 @@
 </div>
 
 <script>
-  import Integrity from './Integrity';
-  import Armour from './Armour';
+  import Integrity from './Integrity/index.svelte';
+  import Armour from './Armour/index.svelte';
 
   export let structure = {};
   export let ship_mass = 0;

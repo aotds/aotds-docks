@@ -1,6 +1,6 @@
 import Updux from "updux";
 import { action, payload } from "ts-action";
-import u from "updeep";
+import u from "@yanick/updeep";
 import { createSelector } from "reselect";
 
 const dux = new Updux({
@@ -10,9 +10,9 @@ const dux = new Updux({
 });
 
 const set_screens = action('set_screens', payload() );
-dux.addMutation(set_screens, payload => u(payload) );
+dux.addMutation(set_screens, payload => u.update(payload) );
 
 const set_screens_reqs = action('set_screens_reqs', payload() );
-dux.addMutation(set_screens_reqs, payload => u(payload) );
+dux.addMutation(set_screens_reqs, payload => u.update(payload) );
 
 export default dux.asDux;

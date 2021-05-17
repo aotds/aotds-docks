@@ -1,6 +1,6 @@
 import Updux from "updux";
 import { action, payload } from "ts-action";
-import u from "updeep";
+import u from "@yanick/updeep";
 import { createSelector } from "reselect";
 import { weapon_cost_mass } from "../../weapons/rules";
 

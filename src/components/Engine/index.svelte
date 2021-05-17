@@ -13,9 +13,10 @@
 
 
 <script>
-    import Field from '~C/Field';
-    import ShipItem from '~C/ShipItem';
     import { createEventDispatcher } from 'svelte';
+
+  import Field from '$lib/components/Field/index.svelte';
+  import ShipItem from '$lib/components/ShipItem/index.svelte';
 
     export let cost;
     export let mass;

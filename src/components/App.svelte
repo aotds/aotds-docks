@@ -78,23 +78,23 @@
 <script>
   import { setContext } from "svelte";
 
-  import Header from './Header';
-  import shipStore from "~/stores/ship";
+  import Header from './Header.svelte';
+  import shipStore from "../stores/ship";
   import OutputJson from './Output/Json.svelte';
-  import Print from './Output/Print';
+  import Print from './Output/Print/index.svelte';
 
   import ShipSpecs from './ShipSpecs/index.svelte';
-  import Notes from './Notes';
+  import Notes from './Notes.svelte';
   import ShipItem from "./ShipItem/index.svelte";
   import Field from "./Field/index.svelte";
-  import Hull from "./Hull";
+  import Hull from "./Hull/index.svelte";
   import Firecons from "./Firecons.svelte";
   import Propulsion from "./Propulsion/index.svelte";
-  import Section from "~C/Section";
-  import Weapon from "~C/Weapon";
-  import Carrier from "~C/Carrier";
-  import ADFC from "~C/Weaponry/ADFC";
-  import AddWeapon from "~C/Weaponry/AddWeapon";
+  import Section from "./Section/index.svelte";
+  import Weapon from "./Weapon/index.svelte";
+  import Carrier from "./Carrier/index.svelte";
+  import ADFC from "./Weaponry/ADFC/index.svelte";
+  import AddWeapon from "./Weaponry/AddWeapon/index.svelte";
 
   const ship = shipStore();
 

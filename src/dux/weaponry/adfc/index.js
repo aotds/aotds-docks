@@ -1,6 +1,6 @@
 import Updux from "updux";
 import { action, payload } from "ts-action";
-import u from "updeep";
+import u from "@yanick/updeep";
 
 const dux = new Updux({
     initial: {
@@ -10,8 +10,8 @@ const dux = new Updux({
     },
 })
 
-dux.addMutation( action( 'set_adfc', payload() ), rating => 
-    u({ rating, mass: 2 * rating, cost: 8 * rating })
+dux.addMutation( action( 'set_adfc', payload() ), rating =>
+    u.update({ rating, mass: 2 * rating, cost: 8 * rating })
 );
 
 export default dux.asDux;

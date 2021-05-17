@@ -6,10 +6,10 @@
 
 
 <script>
-  import get from "lodash/get";
-  import ShipItem from "~C/ShipItem/index.svelte";
-  import Field from "~C/Field/index.svelte";
-  import dux from "~/dux";
+  import get from "lodash/get.js";
+  import ShipItem from "../../ShipItem/index.svelte";
+  import Field from "../../Field/index.svelte";
+  import dux from "../../../dux";
 
   import { getContext } from "svelte";
 

@@ -7,7 +7,7 @@
 </div>
 
 <script>
-  import Arcs from '~C/Weapon/Arcs';
+  import Arcs from '$lib/components/Weapon/Arcs/index.svelte';
   export let weapon_class = 1;
   export let arcs = [];
 </script>

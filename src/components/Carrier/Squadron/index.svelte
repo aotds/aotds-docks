@@ -11,11 +11,11 @@
 <script>
   import {getContext } from 'svelte';
 
-  import Section from "~C/Section/index.svelte";
-  import Field from "~C/Field/index.svelte";
-  import ShipItem from "~C/ShipItem/index.svelte";
-  import dux from '~/dux/carrier';
-  import squadron_types from '~/dux/carrier/squadron_types';
+  import Section from "$lib/components/Section/index.svelte";
+  import Field from "$lib/components/Field/index.svelte";
+  import ShipItem from "$lib/components/ShipItem/index.svelte";
+  import dux from '$lib/dux/carrier';
+  import squadron_types from '$lib/dux/carrier/squadron_types';
 
   const types = squadron_types.map( ({type}) => type );
 

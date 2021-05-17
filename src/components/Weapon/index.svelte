@@ -16,17 +16,16 @@
 
     import Arc from '../Weapons/Arc.svelte';
     import { weapon_cost_mass } from '../../dux/weapons/rules.js';
-    import fp from 'lodash/fp';
     import _ from 'lodash';
     import { createEventDispatcher } from 'svelte';
-    import ShipItem from '~C/ShipItem';
-    import Field from '~C/Field';
-    import Beam from './Beam';
-    import Submunition from './Submunition';
-    import PointDefenceSystem from './PointDefenceSystem';
-    import Scattergun from './Scattergun';
-    import Needle from './Needle';
-    import dux from '~/dux';
+  import ShipItem from '../ShipItem/index.svelte';
+  import Field from '../Field/index.svelte';
+  import Beam from './Beam/index.svelte';
+  import Submunition from './Submunition/index.svelte';
+  import PointDefenceSystem from './PointDefenceSystem/index.svelte';
+  import Scattergun from './Scattergun/index.svelte';
+  import Needle from './Needle/index.svelte';
+  import dux from '../../dux';
 
   const weapon_component = {
     beam: Beam,
