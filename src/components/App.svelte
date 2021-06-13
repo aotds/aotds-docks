@@ -2,7 +2,9 @@
 <Header />
 
 <nav>
-  <button class="button is-danger" type="button" on:click={reset}>reset</button>
+  <button class="button is-danger" type="button" on:click={reset}
+    >reset</button
+  >
 
   <div class="spacer" />
 
@@ -16,7 +18,9 @@
       <button class="button" on:click={() => set_output("json")}>json</button>
     </p>
     <p class="control">
-      <button class="button" on:click={() => set_output("print")}>print</button>
+      <button class="button" on:click={() => set_output("print")}
+        >print</button
+      >
     </p>
   </div>
 </nav>
@@ -64,7 +68,12 @@
       <AddWeapon />
 
       {#each weapons as weapon (weapon.id)}
-        <Weapon {weapon} id={weapon.id} cost={weapon.cost} mass={weapon.mass} />
+        <Weapon
+          {weapon}
+          id={weapon.id}
+          cost={weapon.cost}
+          mass={weapon.mass}
+        />
       {/each}
     </Section>
 
@@ -73,7 +82,7 @@
   <footer>
     Written by <a href="https://twitter.com/yenzie">Yanick Champoux</a>. Code
     available on
-    <a href="https://github.com/yanick/aotds-shipyard">Github</a>
+    <a href="https://github.com/aotds/aotds-shipyard">Github</a>
   </footer>
 {/if}
 
@@ -135,7 +144,6 @@
   let output = null;
 
   const set_output = (value) => (output = value);
-
 </script>
 
 <style>
@@ -177,5 +185,4 @@
   .about {
     margin-right: 2em;
   }
-
 </style>
