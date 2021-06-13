@@ -2,7 +2,7 @@
   <Field label={`squadron ${id}`}>
     <select bind:value={type}>
       {#each types as type (type)}
-        <option>{type}</option> 
+        <option>{type}</option>
       {/each}
     </select>
   </Field>
@@ -21,13 +21,13 @@
 
   export let id = 1;
   export let type = "standard";
-  export let ftl = false; 
+  export let ftl = false;
   export let cost =0;
   export let mass = 0;
 
-  export let ship_change = getContext('ship_change') || ( () => {} );
+  export let ship = getContext('ship');
 
-  $: ship_change( dux.actions.set_squadron({ id, type, }) );
+  $: ship?.dispatch_action('set_squadron',{ id, type, });
 
 </script>
 

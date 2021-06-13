@@ -4,21 +4,16 @@
 
 
 <script>
-  import { createEventDispatcher} from 'svelte';
+    import { getContext} from 'svelte';
 
-    import dux from '$lib/dux/structure/armour';
-
-    import ShipItem from '$lib/components/ShipItem/index.svelte';
     import Field from '$lib/components/Field/index.svelte';
 
     export let layer = 1;
     export let rating = 0;
 
-    const dispatch = createEventDispatcher();
+    const ship = getContext('ship');
 
-    $: dispatch( 'ship_change',
-        dux.actions.set_armour_layer({layer,rating})
-    );
+    $: ship?.dispatch_action( 'set_armour_layer', {layer,rating} );
 
 </script>
 

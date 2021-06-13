@@ -16,19 +16,17 @@
 </ShipItem>
 
   <script>
-  import get from 'lodash/get.js';
   import ShipItem from '$lib/components/ShipItem/index.svelte';
   import Field from '$lib/components/Field/index.svelte';
-  import dux from '$lib/dux/streamlining';
 
   import {getContext } from 'svelte';
 
   export let type = 'none';
   export let cost = 0;
   export let mass = 0;
-  export let ship_change = getContext('ship_change') || ( () => {} );
+  export let ship = getContext('ship');
 
-  $: ship_change( dux.actions.set_streamlining(type));
+  $: ship?.dispatch_action( 'set_streamlining', type);
 
   </script>
 

@@ -1,30 +1,28 @@
 <ShipItem {cost} {mass}>
   <Field label="cargo">
-    <input type="number" min="0" bind:value={space}/>
+    <input type="number" min="0" bind:value={space} />
   </Field>
 </ShipItem>
 
-  <script>
-  import get from 'lodash/get.js';
-  import ShipItem from '$lib/components/ShipItem/index.svelte';
-  import Field from '$lib/components/Field/index.svelte';
-  import dux from '$lib/dux/cargo';
+<script>
+  import ShipItem from "$lib/components/ShipItem/index.svelte";
+  import Field from "$lib/components/Field/index.svelte";
 
-  import {getContext, createEventDispatcher} from 'svelte';
+  import { getContext } from "svelte";
 
-  const ship = getContext('ship');
+  export let ship = getContext("ship");
 
   export let space = 0;
   export let cost = 0;
   export let mass = 0;
 
-  const dispatch = createEventDispatcher();
-  $: dispatch( 'set_cargo', dux.actions.set_cargo( space ) );
+  $: ship?.dispatch_action("set_cargo", space);
 
-  </script>
+</script>
 
-  <style>
+<style>
   input {
     width: 5em;
   }
-  </style>
+
+</style>

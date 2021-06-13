@@ -1,24 +1,27 @@
-
 <Field label="weapon type">
-<select bind:value={weapon_type}>
+  <select bind:value={weapon_type}>
     <option>beam</option>
     <option value="submunition">submunition pack</option>
     <option value="pds">point defence system</option>
     <option>scattergun</option>
     <option value="needle">needle weapon</option>
-</select>
+  </select>
 
-<input type="button" value="add weapon" class="button small blue" on:click={ add_weapon }/>
-
+  <input
+    type="button"
+    value="add weapon"
+    class="button small blue"
+    on:click={add_weapon}
+  />
 </Field>
 
 <script>
-  import Field from '../../Field/index.svelte';
-  import {getContext } from 'svelte';
-  import dux from '../../../dux';
+  import { getContext } from "svelte";
+  import Field from "../../Field/index.svelte";
 
   export let weapon_type = "beam";
-  export let ship_change = getContext('ship_change') || ( () => {} );
+  export let ship = getContext("ship");
 
-  const add_weapon = () => ship_change( dux.actions.add_weapon(weapon_type) );
+  const add_weapon = () => ship?.dispatch_action("add_weapon", weapon_type);
+
 </script>

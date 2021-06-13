@@ -1,3 +1,4 @@
+import matches from 'lodash/matches.js';
 import Updux from "updux";
 import { action, payload } from "ts-action";
 import u from "@yanick/updeep";
@@ -43,7 +44,7 @@ const set_weapon = action("set_weapon", payload());
 
 dux.addMutation(set_weapon, (payload) =>
   u.map(
-    u.if(_.matches({ id: payload.id }), (state) => with_reqs(u(payload, state)))
+    u.if(matches({ id: payload.id }), (state) => with_reqs(u(payload, state)))
   )
 );
 

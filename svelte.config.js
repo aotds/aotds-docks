@@ -1,4 +1,5 @@
 import adapter from '@sveltejs/adapter-static';
+import analyze from 'rollup-plugin-analyzer';
 
 /** @type {import('@sveltejs/kit').Config} */
 export default {
@@ -13,6 +14,7 @@ export default {
         vite: {
     build: {
         rollupOptions: {
+            plugins: [ analyze() ],
 //            external: ['updux','@yanick/updeep']
         }
     }

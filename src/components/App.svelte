@@ -129,8 +129,6 @@
 
   const ship_dispatch = ({ detail }) => ship.dispatch(detail);
 
-  setContext("ship_change", ship.dispatch);
-
   let show_notes = false;
   const toggle_notes = () => (show_notes = !show_notes);
 
