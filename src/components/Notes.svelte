@@ -1,44 +1,49 @@
-  <aside transition:fly={{x: -800, opacity: 1}}>
-    <div>
-      <input type="button" class="button small red" value="close"
-        on:click={close}/>
-    </div>
-    <h3>welcome to the docks</h3>
+<aside transition:fly={{ x: -800, opacity: 1 }}>
+  <div>
+    <input
+      type="button"
+      class="button small red"
+      value="close"
+      on:click={close}
+    />
+  </div>
+  <h3>welcome to the docks</h3>
 
-    <p>
-      This app is a ship builder for the game
-      <a href="https://shop.groundzerogames.co.uk/rules.html">Full Thrust</a>
-      .
-    </p>
+  <p>
+    This app is a ship builder for the game
+    <a href="https://shop.groundzerogames.co.uk/rules.html">Full Thrust</a>
+    .
+  </p>
 
-    <p>
-      The app, beside any exception mentioned here, is trying to follow the
-      <a href="http://members.ozemail.com.au/~laranzu/fullthrust/rules/">
-        Cross Dimensions rules
-      </a>
-      as closely as possible.
-    </p>
+  <p>
+    The app, beside any exception mentioned here, is trying to follow the
+    <a href="http://members.ozemail.com.au/~laranzu/fullthrust/rules/">
+      Cross Dimensions rules
+    </a>
+    as closely as possible.
+  </p>
 
+  <p>
+    The app is mostly developed for Firefox. I also check as much as I can
+    that I don't mess things too badly on Chrome. For the other browsers...
+    caveat emptor.
+  </p>
 
-    <p>The app is mostly developed for Firefox. I also check as much as I
-    can that I don't mess things too badly on Chrome. For the other
-    browsers... caveat emptor.</p>
+  <p>
+    Written by
+    <a href="https://twitter.com/yenzie">Yanick Champoux</a>
+    . Code available on
+    <a href="https://github.com/aotds/aotds-shipyard">Github</a>
+  </p>
+</aside>
 
-    <p>
-      Written by
-      <a href="https://twitter.com/yenzie">Yanick Champoux</a>
-      . Code available on
-      <a href="https://github.com/yanick/aotds-shipyard">Github</a>
-    </p>
-  </aside>
+<script>
+  import { fly } from "svelte/transition";
+  import { createEventDispatcher } from "svelte";
 
-  <script>
-    import { fly } from 'svelte/transition';
-    import {createEventDispatcher} from 'svelte';
-
-    const dispatch = createEventDispatcher();
-    const close = () => dispatch('close');
-  </script>
+  const dispatch = createEventDispatcher();
+  const close = () => dispatch("close");
+</script>
 
 <style>
   aside {
@@ -64,6 +69,6 @@
     margin: 0px;
   }
   div {
-  text-align: right;
+    text-align: right;
   }
 </style>
