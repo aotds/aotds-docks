@@ -24,10 +24,6 @@ h1 {
     font-size: var(--font-scale-14);
 }
 
-h2 {
-    font-size: var(--font-scale-12);
-}
-
 
 html, body {
 	position: relative;
@@ -111,4 +107,3 @@ input:focus, select:focus {
 input.short {
     width:5em;
 }
-
