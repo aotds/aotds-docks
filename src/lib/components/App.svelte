@@ -1,7 +1,10 @@
 <Ribbon />
+<Header />
 
 <script>
-import Ribbon from '$lib/components/Ribbon.svelte';
+import Ribbon from './Ribbon.svelte';
+import Header from './Header.svelte';
+
 
 </script>
 

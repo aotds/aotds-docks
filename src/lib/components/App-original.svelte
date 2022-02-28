@@ -1,6 +1,3 @@
-<Ribbon />
-<Header />
-
 <nav>
   <button class="button is-danger" type="button" on:click={reset}
     >reset</button
@@ -89,7 +86,6 @@
 <script>
   import { setContext } from "svelte";
 
-  import Header from "./Header.svelte";
   import Ribbon from "./Ribbon.svelte";
   import shipStore from "../stores/ship";
   import OutputJson from "./Output/Json.svelte";
