@@ -5,12 +5,7 @@ import analyze from 'rollup-plugin-analyzer';
 export default {
 	kit: {
 		// hydrate the <div id="svelte"> element in src/app.html
-		target: '#svelte',
         adapter: adapter(),
-        files: {
-            lib: './src',
-            assets: './public',
-        },
         vite: {
     build: {
         rollupOptions: {
