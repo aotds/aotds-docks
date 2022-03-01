@@ -24,9 +24,9 @@
   </p>
 
   <p>
-    The app is mostly developed for Firefox. I also check as much as I can
-    that I don't mess things too badly on Chrome. For the other browsers...
-    caveat emptor.
+    The app is mostly developed for Firefox. I also check as much as I can that
+    I don't mess things too badly on Chrome. For the other browsers... caveat
+    emptor.
   </p>
 
   <p>

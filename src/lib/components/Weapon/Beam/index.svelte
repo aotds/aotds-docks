@@ -93,7 +93,6 @@
     weapon_class,
     arcs: cache.split(":"),
   });
-
 </script>
 
 <style>
@@ -102,5 +101,4 @@
     flex-direction: column;
     margin-right: 1em;
   }
-
 </style>

@@ -1,4 +1,6 @@
-<h1>ship name: <div class="fill"></div> </h1>
+<h1>
+  ship name: <div class="fill" />
+</h1>
 
 <div class="details">
   <h2>{ship_class}-class, {ship_type}</h2>
@@ -10,12 +12,13 @@
 </div>
 
 <script>
-  import Cost from '../../../Cost.svelte';
-  import Mass from '$lib/components/Mass.svelte';
+  import Cost from "../../../Cost.svelte";
+  import Mass from "$lib/components/Mass.svelte";
 
-export let ship_class;
-export let ship_type;
-  export let cost, mass = ( 0, 0 );
+  export let ship_class;
+  export let ship_type;
+  export let cost,
+    mass = (0, 0);
 </script>
 
 <style>

@@ -7,7 +7,6 @@
 
 <script>
   export let label;
-
 </script>
 
 <style>
@@ -24,5 +23,4 @@
     flex: 1;
     background: #333;
   }
-
 </style>

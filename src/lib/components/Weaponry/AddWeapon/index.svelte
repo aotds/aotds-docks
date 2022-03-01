@@ -23,5 +23,4 @@
   export let ship = getContext("ship");
 
   const add_weapon = () => ship?.dispatch_action("add_weapon", weapon_type);
-
 </script>

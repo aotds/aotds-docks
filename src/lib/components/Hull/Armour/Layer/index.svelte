@@ -1,24 +1,22 @@
-<Field label={ `layer ${layer}` }>
-    <input type="number" min="0" bind:value={rating} />
+<Field label={`layer ${layer}`}>
+  <input type="number" min="0" bind:value={rating} />
 </Field>
 
-
 <script>
-    import { getContext} from 'svelte';
+  import { getContext } from "svelte";
 
-    import Field from '$lib/components/Field/index.svelte';
+  import Field from "$lib/components/Field/index.svelte";
 
-    export let layer = 1;
-    export let rating = 0;
+  export let layer = 1;
+  export let rating = 0;
 
-    const ship = getContext('ship');
+  const ship = getContext("ship");
 
-    $: ship?.dispatch_action( 'set_armour_layer', {layer,rating} );
-
+  $: ship?.dispatch_action("set_armour_layer", { layer, rating });
 </script>
 
 <style>
   input {
     width: 5em;
   }
-  </style>
+</style>

@@ -56,7 +56,6 @@
       ...detail,
     });
   };
-
 </script>
 
 <style>
@@ -124,5 +123,4 @@
   .weapon_row > :global(*) {
     margin-right: 2em;
   }
-
 </style>

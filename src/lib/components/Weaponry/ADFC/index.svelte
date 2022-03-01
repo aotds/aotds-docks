@@ -4,7 +4,6 @@
   </Field>
 </ShipItem>
 
-
 <script>
   import ShipItem from "../../ShipItem/index.svelte";
   import Field from "../../Field/index.svelte";
@@ -16,5 +15,5 @@
   export let mass = 0;
   export let ship = getContext("ship");
 
-  $: ship?.dispatch_action('set_adfc',rating);
+  $: ship?.dispatch_action("set_adfc", rating);
 </script>

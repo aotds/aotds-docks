@@ -5,8 +5,9 @@
       on:change={change_tonnage}
       type="number"
       min="10"
-      max="300" />
-    <span class="mass_symbol"></span>
+      max="300"
+    />
+    <span class="mass_symbol" />
 
     <div class="note" class:warning={!within_budget}>
       {#if within_budget}
@@ -18,7 +19,8 @@
 
 <div class="cost">
   <Field label="cost">
-    <span class="cost">{$ship.general.cost}</span></Field>
+    <span class="cost">{$ship.general.cost}</span></Field
+  >
 </div>
 
 <script>
@@ -60,8 +62,10 @@
     font-size: smaller;
   }
 
-  .mass,div.cost {
-    padding: 0px 2em; justify-self: right;
+  .mass,
+  div.cost {
+    padding: 0px 2em;
+    justify-self: right;
   }
 
   .mass {
@@ -71,7 +75,7 @@
     grid-column: 3;
   }
   span.cost:after {
-    content: '\00A4';
+    content: "\00A4";
     margin-left: 0.5em;
   }
 </style>

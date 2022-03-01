@@ -1,16 +1,14 @@
-  <Identification />
+<Identification />
 
-  <ShipCost />
-
+<ShipCost />
 
 <script>
   import Identification from "./Identification.svelte";
   import ShipCost from "./ShipCost.svelte";
-
 </script>
 
 <style>
-div {
-  background-color: red;
-}
+  div {
+    background-color: red;
+  }
 </style>

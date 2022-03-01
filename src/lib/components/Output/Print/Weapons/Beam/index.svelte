@@ -1,13 +1,13 @@
 <div>
   <Arcs selected={arcs} size="40">
-    <text x="50%" y="50%" >
-    {weapon_class}
+    <text x="50%" y="50%">
+      {weapon_class}
     </text>
   </Arcs>
 </div>
 
 <script>
-  import Arcs from '$lib/components/Weapon/Arcs/index.svelte';
+  import Arcs from "$lib/components/Weapon/Arcs/index.svelte";
   export let weapon_class = 1;
   export let arcs = [];
 </script>

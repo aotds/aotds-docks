@@ -1,5 +1,5 @@
-<Cost cost={12}/>
+<Cost cost={12} />
 
 <script>
-import Cost from './Cost.svelte';
+  import Cost from "./Cost.svelte";
 </script>

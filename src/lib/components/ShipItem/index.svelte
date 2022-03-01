@@ -1,7 +1,11 @@
-<div><slot /></div>
+<div class="ship-item">
+  <div><slot /></div>
 
-<div class="mass" bind:this={mass_el}>{mass}</div>
-<div class="cost" bind:this={cost_el}>{cost}</div>
+  <div class="reqs">
+    <div class="mass" bind:this={mass_el}>{mass}</div>
+    <div class="cost" bind:this={cost_el}>{cost}</div>
+  </div>
+</div>
 
 <script>
   import { tick } from "svelte";
@@ -21,23 +25,18 @@
 
   $: update_el(mass_el, mass);
   $: update_el(cost_el, cost);
-
 </script>
 
 <style>
   div {
     margin-bottom: 1em;
   }
+
   .cost,
   .mass {
-    padding: 0px 2em;
+    width: 4em;
+    padding: 0px 0.5em;
     text-align: right;
-  }
-  .cost {
-    grid-column: 3;
-  }
-  .mass {
-    grid-column: 2;
   }
 
   .ship-item {
@@ -87,4 +86,12 @@
     }
   }
 
+  .ship-item {
+    display: flex;
+  }
+  .reqs {
+    flex: 0;
+    width: 10em;
+    display: flex;
+  }
 </style>

@@ -1,10 +1,9 @@
-import AddWeapon from './Add.svelte';
+import AddWeapon from "./Add.svelte";
 
 export default {
-    title: "add weapon",
+  title: "add weapon",
 };
 
 export const beam = () => ({
-    Component: AddWeapon,
+  Component: AddWeapon,
 });
-

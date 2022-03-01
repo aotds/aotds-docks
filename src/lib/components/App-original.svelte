@@ -1,7 +1,5 @@
 <nav>
-  <button class="button is-danger" type="button" on:click={reset}
-    >reset</button
-  >
+  <button class="button is-danger" type="button" on:click={reset}>reset</button>
 
   <div class="spacer" />
 
@@ -15,9 +13,7 @@
       <button class="button" on:click={() => set_output("json")}>json</button>
     </p>
     <p class="control">
-      <button class="button" on:click={() => set_output("print")}
-        >print</button
-      >
+      <button class="button" on:click={() => set_output("print")}>print</button>
     </p>
   </div>
 </nav>
@@ -65,12 +61,7 @@
       <AddWeapon />
 
       {#each weapons as weapon (weapon.id)}
-        <Weapon
-          {weapon}
-          id={weapon.id}
-          cost={weapon.cost}
-          mass={weapon.mass}
-        />
+        <Weapon {weapon} id={weapon.id} cost={weapon.cost} mass={weapon.mass} />
       {/each}
     </Section>
 

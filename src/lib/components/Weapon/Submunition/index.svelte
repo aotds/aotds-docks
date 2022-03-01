@@ -1,37 +1,35 @@
 <label> submunition pack</label>
-<Arcs selected={arcs} on:click_arc={({detail}) => click_arc(detail)} />
+<Arcs selected={arcs} on:click_arc={({ detail }) => click_arc(detail)} />
 
 <script>
-  import {getContext } from 'svelte';
-  import Arcs from '../Arcs/index.svelte';
-    import dux from '$lib/dux';
-  import { createEventDispatcher } from 'svelte';
+  import { getContext } from "svelte";
+  import Arcs from "../Arcs/index.svelte";
+  import dux from "$lib/dux";
+  import { createEventDispatcher } from "svelte";
 
-    const all_arcs = [ 'FS', 'F', 'FP', 'AP', 'A', 'AS' ];
+  const all_arcs = ["FS", "F", "FP", "AP", "A", "AS"];
 
-    export let arcs = ['F'];
-    export let ship_change = getContext('ship_change') || ( () => {} );
+  export let arcs = ["F"];
+  export let ship_change = getContext("ship_change") || (() => {});
 
-    const click_arc = (arc) => {
-      if( arcs[0] === arc ) return;
-      arcs = [ arc ];
-    }
+  const click_arc = (arc) => {
+    if (arcs[0] === arc) return;
+    arcs = [arc];
+  };
 
-    const dispatch = createEventDispatcher();
-    let cache;
-    $: cache = arcs.join(":");
+  const dispatch = createEventDispatcher();
+  let cache;
+  $: cache = arcs.join(":");
 
-    $: dispatch( 'change', {
-      arcs: cache.split(":"),
-    })
+  $: dispatch("change", {
+    arcs: cache.split(":"),
+  });
 </script>
 
 <style>
-.arc {
+  .arc {
     display: flex;
     flex-direction: column;
     margin-right: 1em;
-}
-
-  </style>
-
+  }
+</style>

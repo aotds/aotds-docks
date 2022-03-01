@@ -17,12 +17,10 @@
   export let mass = 0;
 
   $: ship?.dispatch_action("set_cargo", space);
-
 </script>
 
 <style>
   input {
     width: 5em;
   }
-
 </style>

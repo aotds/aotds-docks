@@ -1,7 +1,7 @@
 <div>
-  {#each rows as row,i (i)}
+  {#each rows as row, i (i)}
     <div class="row">
-      {#each row as item,j (j)}
+      {#each row as item, j (j)}
         <div class="cell">
           {#if item}
             <img src="icons/crew-star.svg" alt="crew loss threshold" />
@@ -10,11 +10,10 @@
       {/each}
     </div>
   {/each}
-
 </div>
 
 <script>
-  import { ceil } from '$lib/dux/utils';
+  import { ceil } from "$lib/dux/utils";
 
   export let ship_mass = 0;
   export let rating = 0;
@@ -27,45 +26,40 @@
   $: cells = Array(rating).fill(false);
 
   let dcp;
-  $: dcp= ceil(ship_mass/20);
+  $: dcp = ceil(ship_mass / 20);
 
-  $: cells = divide(cells, dcp).map(
-    g => {
-      g[g.length-1] = true;
+  $: cells = divide(cells, dcp)
+    .map((g) => {
+      g[g.length - 1] = true;
       return g;
-    }
-  ).flat();
+    })
+    .flat();
 
   function divide(list, divider) {
-    if( divider <= 1 ) return [ list ];
+    if (divider <= 1) return [list];
 
     let div = list.length / divider;
     const mod = list.length % divider;
 
-    if(mod) div++;
+    if (mod) div++;
 
-    return [
-      list.slice(0,div),
-      ...divide( list.slice(div), divider-1 )
-    ]
+    return [list.slice(0, div), ...divide(list.slice(div), divider - 1)];
   }
 
   let rows = [];
-  $: rows = divide( cells, nbr_rows );
-
-
+  $: rows = divide(cells, nbr_rows);
 </script>
 
 <style>
   .row {
   }
-.cell {
-  display: inline-block;
-  margin-right: 0.5em;
-  width: 1em;
-  height: 1em;
-  border: 1px solid black;
-}
+  .cell {
+    display: inline-block;
+    margin-right: 0.5em;
+    width: 1em;
+    height: 1em;
+    border: 1px solid black;
+  }
   img {
     width: 1em;
   }
