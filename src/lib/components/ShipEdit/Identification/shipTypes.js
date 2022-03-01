@@ -20,7 +20,6 @@ const ship_types = [
   { name: "Attack Carrier", mass: [150, 300], abbrev: "CVA", carrier: true },
 ];
 
-export function candidate_ship_types(mass = 0, carrier = false) {
-    console.log({carrier});
+export function candidateShipTypes(mass = 0, carrier = false) {
   return ship_types.filter((c) => carrier == !!c.carrier).filter((c) => c.mass[0] <= mass).filter((c) => c.mass[1] >= mass);
 }

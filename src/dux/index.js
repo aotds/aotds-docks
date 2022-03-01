@@ -36,8 +36,6 @@ const initial = {
     },
   };
 
-console.log(Updux);
-
 const dux = new Updux({
   subduxes: { ftl, engine, weaponry, structure, cargo, streamlining, carrier },
   initial
