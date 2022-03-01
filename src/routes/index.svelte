@@ -1,20 +1,9 @@
 <App />
 
-<svelte:head>
-  {#each stylesheets as href (href)}
-    <link rel="stylesheet" {href} />
-  {/each}
-</svelte:head>
-
 <script>
-  import { base } from "$app/paths";
-  import App from "../components/App.svelte";
+  import "../../static/fonts/faktos.css";
+  import "../../static/fonts/dosis/dosis.css";
+  import "../../static/global.css";
 
-  const stylesheets = [
-    "/bulma/bulma.css",
-    "/fonts/faktos.css",
-    "/fonts/dosis/dosis.css",
-    "/global.css",
-  ].map((ss) => base + ss);
-
+  import App from "$lib/components/App.svelte";
 </script>
