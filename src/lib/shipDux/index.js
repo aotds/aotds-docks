@@ -1,14 +1,13 @@
 import { Updux } from "updux";
 import u from 'updeep';
 
-import engine from "./engine.js";
+import propulsion from "./propulsion/index.js";
 import identification from "./identification.js";
-import reqs from "./reqs.js";
 
 const dux = new Updux({
   subduxes: {
     identification,
-    engine,
+    propulsion
   },
   initial: {
     reqs: { cost: 0, mass: 10, usedMass: 0 },

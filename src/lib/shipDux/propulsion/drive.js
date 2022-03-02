@@ -1,7 +1,7 @@
 import { Updux } from "updux";
 import u from "updeep";
 
-import reqs from "./reqs.js";
+import reqs from "../reqs.js";
 
 const dux = new Updux({
   subduxes: { reqs },

@@ -4,11 +4,14 @@
     <ShipCost {...$shipState.reqs} />
 </div>
 
+<Propulsion propulsion={$shipState.propulsion}/>
+
 <script>
     import { getContext } from "svelte";
 
     import Identification from "./Identification/index.svelte";
     import ShipCost from "./ShipCost.svelte";
+    import Propulsion from "./Propulsion/index.svelte";
 
     const { state: shipState } = getContext("ship");
 </script>
