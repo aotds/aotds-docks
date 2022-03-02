@@ -3,6 +3,7 @@ import u from 'updeep';
 
 import propulsion from "./propulsion/index.js";
 import identification from "./identification.js";
+import { calculateDriveReqs } from './propulsion/drive.js';
 
 const dux = new Updux({
   subduxes: {
@@ -18,5 +19,7 @@ const dux = new Updux({
 });
 
 dux.setMutation( 'setShipMass', mass => u({reqs: {mass}}) );
+
+dux.addReaction( calculateDriveReqs );
 
 export default dux;
