@@ -27,6 +27,7 @@ module.exports = {
           $app: path.resolve("./fake/app"),
           "\\$lib": path.resolve(__dirname, "../src/lib/"),
           $lib: path.resolve(__dirname, "../src/lib/"),
+          "\\$app/env": path.resolve(__dirname, "../fake/app/env.js"),
         },
       },
     };
