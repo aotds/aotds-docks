@@ -1,10 +1,10 @@
-<Meta title="Identification" component={Identification} argTypes={{}} />
+<Meta title="ShipEdit" component={ShipEdit} argTypes={{}} />
 
 <Story name="Primary" args={{}} />
 
 <Template let:args>
   <div style="width: 50em">
-    <Identification {...args} />
+    <ShipEdit />
   </div>
 </Template>
 
@@ -14,9 +14,8 @@
 
   import { setContext } from "svelte";
 
-  import Identification from "./index.svelte";
+  import ShipEdit from "./index.svelte";
+  import shipStore from "$lib/store/ship.js";
 
-  setContext("ship", {
-    dispatch: (type, detail) => action(type)(detail),
-  });
+  setContext("ship", shipStore());
 </script>

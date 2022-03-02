@@ -3,7 +3,7 @@
     <label>{label}</label>
   {/if}
   <slot>
-    <input type="text" {placeholder} {value} on:change />
+    <input type="text" {placeholder} bind:value on:change />
   </slot>
 </div>
 

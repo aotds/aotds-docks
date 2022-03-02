@@ -21,5 +21,8 @@ const ship_types = [
 ];
 
 export function candidateShipTypes(mass = 0, carrier = false) {
-  return ship_types.filter((c) => carrier == !!c.carrier).filter((c) => c.mass[0] <= mass).filter((c) => c.mass[1] >= mass);
+  return ship_types
+    .filter((c) => carrier == !!c.carrier)
+    .filter((c) => c.mass[0] <= mass)
+    .filter((c) => c.mass[1] >= mass);
 }

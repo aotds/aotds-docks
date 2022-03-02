@@ -1,11 +1,7 @@
 <div>
-  <Field
-    label="ship class"
-    value={shipClass}
-  />
-
+  <Field label="ship class" bind:value={shipClass} />
   <Field label="ship type">
-    <select value={shipType}>
+    <select bind:value={shipType}>
       {#each shipTypes as name (name)}
         <option>{name}</option>
       {/each}
@@ -14,20 +10,25 @@
 </div>
 
 <script>
+  import { getContext } from "svelte";
+
   import Field from "$lib/components/Field/index.svelte";
-    import { candidateShipTypes } from './shipTypes.js';
+  import { candidateShipTypes } from "./shipTypes.js";
 
-    export let shipClass = '';
-    export let shipType = '';
-    export let mass = 10;
-    export let isCarrier = false;
+  export let shipClass = "";
+  export let shipType = "";
+  export let mass = 10;
+  export let isCarrier = false;
 
-    $: shipTypes = candidateShipTypes(mass,isCarrier).map( ({name})=>name );
+  const ship = getContext("ship");
 
-    $: if( shipTypes.length >0 &&  !shipTypes.includes(shipType)) shipType= shipTypes[0];
+  $: shipTypes = candidateShipTypes(mass, isCarrier).map(({ name }) => name);
 
+  $: if (shipTypes.length > 0 && !shipTypes.includes(shipType))
+    shipType = shipTypes[0];
 
-
+  $: ship.dispatch.setShipType(shipType);
+  $: ship.dispatch.setShipClass(shipClass);
 </script>
 
 <style>
