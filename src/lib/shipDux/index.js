@@ -4,6 +4,7 @@ import u from 'updeep';
 import propulsion from "./propulsion/index.js";
 import identification from "./identification.js";
 import { calculateDriveReqs } from './propulsion/drive.js';
+import { ftlReqsReaction } from './propulsion/ftl.js';
 
 const dux = new Updux({
   subduxes: {
@@ -21,5 +22,6 @@ const dux = new Updux({
 dux.setMutation( 'setShipMass', mass => u({reqs: {mass}}) );
 
 dux.addReaction( calculateDriveReqs );
+dux.addReaction( ftlReqsReaction );
 
 export default dux;
