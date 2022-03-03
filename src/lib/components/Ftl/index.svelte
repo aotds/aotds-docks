@@ -2,7 +2,7 @@
   <Field label="FTL drive">
     {#each types as t (t)}
       <label
-        ><input type="radio" bind:group={type} value={t} on:change={change} />
+        ><input type="radio" bind:group={type} value={t} />
         {t}
       </label>
     {/each}
