@@ -1,6 +1,6 @@
 <Meta
-  title="Engine"
-  component={Engine}
+  title="ShipEdit/Propulsion/Drive"
+  component={Drive}
   argTypes={{
     rating: { type: "number", defaultValue: 6 },
     advanced: { type: "boolean", defaultValue: false },
@@ -12,7 +12,7 @@
 
 <Template let:args>
   <div style="width: 50em">
-    <Engine {...args} />
+    <Drive {...args} />
   </div>
 </Template>
 
@@ -22,10 +22,12 @@
 
   import { setContext } from "svelte";
 
-  import Engine from "./index.svelte";
+  import Drive from "./index.svelte";
 
   setContext("ship", {
-    dispatch: (type, detail) => action(type)(detail),
+      dispatch: {
+          setDrive: action('setDrive')
+      },
   });
 
   let advanced = false;

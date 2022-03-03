@@ -17,11 +17,10 @@
   export let advanced = false;
   export let rating = 0;
 
-  const ship = getContext("ship") || {
-    dispatch: (...args) => console.log(args),
-  };
+  const ship = getContext("ship");
 
-  $: ship.dispatch("setEngine", { rating, advanced });
+  console.log( ship.dispatch )
+  $: ship.dispatch.setDrive({ rating, advanced });
 </script>
 
 <style>
