@@ -66,22 +66,6 @@ dux.addSubscription((store) =>
   createSelector(calc_ship_req, (reqs) => store.dispatch(set_ship_reqs(reqs)))
 );
 
-dux.addSubscription((store) =>
-  createSelector(
-    (store) => store.general.mass,
-    (store) => store.streamlining.type,
-    (ship_mass, streamlining) => {
-      const mass = ceil(
-        (ship_mass *
-          (streamlining === "none" ? 0 : streamlining === "partial" ? 5 : 10)) /
-          100
-      );
-      const cost = 2 * mass;
-
-      store.dispatch(dux.actions.set_streamlining_cost_mass({ cost, mass }));
-    }
-  )
-);
 
 dux.addSubscription((store) =>
   createSelector(
