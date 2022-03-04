@@ -118,11 +118,6 @@ dux.addSubscription((store) =>
     (ship) => ship.structure.screens.standard,
     (ship) => ship.structure.screens.advanced,
     (mass, standard, advanced) => {
-      console.log({
-        mass,
-        standard,
-        advanced,
-      });
       const standard_mass = standard * Math.max(3, ceil(0.05 * mass));
       const advanced_mass = advanced * Math.max(4, ceil(0.075 * mass));
 
