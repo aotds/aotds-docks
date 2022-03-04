@@ -6,6 +6,7 @@ import identification from "./identification.js";
 import { calculateDriveReqs } from './propulsion/drive.js';
 import { ftlReqsReaction } from './propulsion/ftl.js';
 import structure from './structure/index.js';
+import { screenReqsReaction, screensReqsReaction } from './structure/screens.js'
 
 const dux = new Updux({
   subduxes: {
@@ -24,5 +25,6 @@ dux.setMutation( 'setShipMass', mass => u({reqs: {mass}}) );
 
 dux.addReaction( calculateDriveReqs );
 dux.addReaction( ftlReqsReaction );
+dux.addReaction( screenReqsReaction );
 
 export default dux;
