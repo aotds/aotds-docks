@@ -5,17 +5,18 @@ import propulsion from "./propulsion/index.js";
 import identification from "./identification.js";
 import { calculateDriveReqs } from './propulsion/drive.js';
 import { ftlReqsReaction } from './propulsion/ftl.js';
+import structure from './structure/index.js';
 
 const dux = new Updux({
   subduxes: {
     identification,
-    propulsion
+    propulsion,
+        structure
   },
   initial: {
     reqs: { cost: 0, mass: 10, usedMass: 0 },
   },
     actions: {
-        setShipMass: null,
     }
 });
 
