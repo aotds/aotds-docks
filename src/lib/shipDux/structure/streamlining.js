@@ -2,7 +2,6 @@ import { Updux } from "updux";
 import u from "updeep";
 
 import reqs from "../reqs.js";
-import { calculateDriveReqs } from "../propulsion/drive.js";
 
 const dux = new Updux({
     subduxes: {
