@@ -20,7 +20,6 @@ export default () => {
     duxStore.subscribe(() => {
       if (previous === duxStore.getState()) return;
       previous = duxStore.getState();
-      console.log("Setting!", previous);
       set(previous);
     });
   });

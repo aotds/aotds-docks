@@ -1,4 +1,4 @@
-<Meta title="Identification" component={Identification} argTypes={{}} />
+<Meta title="ShipEdit/Identification" component={Identification} argTypes={{}} />
 
 <Story name="Primary" args={{}} />
 
