@@ -129,18 +129,6 @@ dux.addSubscription((store) =>
   )
 );
 
-const calc_firecons_reqs = (nbr) => ({
-  cost: 4 * nbr,
-  mass: nbr,
-});
-
-const set_firecons = action("set_firecons", payload());
-dux.addMutation(set_firecons, (nbr) =>
-  u.updateIn("weaponry.firecons", {
-    nbr,
-    ...calc_firecons_reqs(nbr),
-  })
-);
 
 export default dux.asDux;
 
