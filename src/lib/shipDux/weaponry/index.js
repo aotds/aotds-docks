@@ -9,8 +9,10 @@ const dux = new Updux({
             stations: 0,
             reqs,
         },
+        adfc: { rating: 0, reqs },
     },
     actions: {
+        setADFC: null,
         setFirecons: null,
     },
 });
@@ -22,6 +24,17 @@ dux.setMutation("setFirecons", (stations) =>
             reqs: {
                 cost: 4 * stations,
                 mass: stations,
+            },
+        },
+    })
+);
+dux.setMutation("setADFC", (rating) =>
+    u({
+        adfc: {
+            rating,
+            reqs: {
+                cost: 8 * rating,
+                mass: 2 * rating,
             },
         },
     })
