@@ -2,6 +2,8 @@
     <Firecons {...firecons} />
 
     <ADFC {...adfc} />
+
+    <AddWeapon />
 </Section>
 
 <script>
@@ -13,9 +15,12 @@ import Field from '$lib/components/Field/index.svelte';
 
   import Firecons from './Firecons.svelte';
   import ADFC from './ADFC.svelte';
+    import AddWeapon from './AddWeapon.svelte';
 
   export let firecons = {};
   export let adfc = {};
+
+export let weapons = [];
 
 </script>
 

@@ -1,9 +1,12 @@
 import { Updux } from "updux";
 import u from "updeep";
 
+import weapons from './weapons.js';
+
 const reqs = { cost: 0, mass: 0 };
 
 const dux = new Updux({
+    subduxes: { weapons },
     initial: {
         firecons: {
             stations: 0,
