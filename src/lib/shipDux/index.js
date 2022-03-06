@@ -6,13 +6,14 @@ import identification from "./identification.js";
 import { calculateDriveReqs } from './propulsion/drive.js';
 import { ftlReqsReaction } from './propulsion/ftl.js';
 import structure from './structure/index.js';
+import carrier from './carrier.js';
 import { screenReqsReaction, screensReqsReaction } from './structure/screens.js'
 
 const dux = new Updux({
   subduxes: {
     identification,
     propulsion,
-        structure
+        structure, carrier
   },
   initial: {
     reqs: { cost: 0, mass: 10, usedMass: 0 },

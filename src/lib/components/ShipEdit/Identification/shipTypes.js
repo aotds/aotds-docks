@@ -1,5 +1,5 @@
 const ship_types = [
-  { name: "Scout", mass: [4, 10], abbrev: "SC" },
+  { name: "Scout", mass: [0, 10], abbrev: "SC" },
   { name: "Courier", mass: [4, 10], abbrev: "SC" },
   { name: "Corvette", mass: [8, 16], abbrev: "CT" },
   { name: "Frigate", mass: [14, 28], abbrev: "FF" },
@@ -14,7 +14,7 @@ const ship_types = [
   { name: "Heavy Battleship", mass: [120, 160], abbrev: "BDN" },
   { name: "Dreadnought", mass: [140, 180], abbrev: "DN" },
   { name: "Superdreadnought", mass: [160, 300], abbrev: "SDN" },
-  { name: "Escort Carrier", mass: [60, 140], abbrev: "CVE", carrier: true },
+  { name: "Escort Carrier", mass: [0, 140], abbrev: "CVE", carrier: true },
   { name: "Light Carrier", mass: [120, 180], abbrev: "CVL", carrier: true },
   { name: "Heavy Carrier", mass: [160, 300], abbrev: "CVH", carrier: true },
   { name: "Attack Carrier", mass: [150, 300], abbrev: "CVA", carrier: true },

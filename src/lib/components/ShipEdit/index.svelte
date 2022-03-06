@@ -8,6 +8,8 @@
 
 <Structure {...$shipState.structure} />
 
+<Carrier {...$shipState.carrier} />
+
 <script>
     import { getContext } from "svelte";
 
@@ -15,6 +17,7 @@
     import ShipCost from "./ShipCost.svelte";
     import Propulsion from "./Propulsion/index.svelte";
     import Structure from "./Structure/index.svelte";
+    import Carrier from "./Carrier/index.svelte";
 
     const { state: shipState } = getContext("ship");
 </script>
