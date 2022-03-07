@@ -14,17 +14,22 @@ export const weaponTypes = [
 const dux = new Updux({
     initial: [],
     actions: {
-        addWeapon: null
+        addWeapon: null,
+        removeWeapon: null,
     },
 });
+
+dux.setMutation('removeWeapon', id => state => [
+    ...state.filter( (w) => w.id !== id   )
+])
 
 dux.setMutation('addWeapon', type => state => {
     return [
         ...state,
         {
-            id: state.length +1,
-            type: weaponTypes[0].type,
-            reqs: weaponReqs(weaponTypes[0].type),
+            id: state.length === 0 ? 1 : state[state.length -1]+1,
+            type,
+            reqs: weaponReqs({type}),
         }
     ]
 });

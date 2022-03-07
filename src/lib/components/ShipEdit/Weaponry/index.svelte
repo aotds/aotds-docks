@@ -4,6 +4,11 @@
     <ADFC {...adfc} />
 
     <AddWeapon />
+
+    {#each weapons as weapon (weapon.id)}
+        <Weapon {weapon} id={weapon.id} />
+    {/each}
+
 </Section>
 
 <script>
@@ -16,6 +21,7 @@ import Field from '$lib/components/Field/index.svelte';
   import Firecons from './Firecons.svelte';
   import ADFC from './ADFC.svelte';
     import AddWeapon from './AddWeapon.svelte';
+    import Weapon from './Weapon/index.svelte';
 
   export let firecons = {};
   export let adfc = {};
