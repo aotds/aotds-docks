@@ -8,7 +8,8 @@ export const weaponTypes = [
     { name: 'submunition pack', type: 'submunition', reqs: { mass:1, cost:3 }},
     { name: 'point defence system', type: 'pds', reqs: {mass:1,cost:3}},
     { name: 'scattergun', type: 'scattergun', reqs: { mass:1,cost:4 }},
-    { name: 'needle weapon', type: 'needle', reqs: { mass: 2, cost: 6 }},
+    { name: 'needle weapon', type: 'needle', reqs: { mass: 2, cost: 6 },
+        initial: { arc: 'F' }},
 ];
 
 const dux = new Updux({
@@ -16,12 +17,17 @@ const dux = new Updux({
     actions: {
         addWeapon: null,
         removeWeapon: null,
+        setWeapon: null,
     },
 });
 
+dux.setMutation('setWeapon', ({id,...rest}) =>
+    u.map( u.if( (w) => w.id === id, { ...rest }))
+);
+
 dux.setMutation('removeWeapon', id => state => [
     ...state.filter( (w) => w.id !== id   )
-])
+]);
 
 dux.setMutation('addWeapon', type => state => {
     return [
@@ -30,6 +36,7 @@ dux.setMutation('addWeapon', type => state => {
             id: state.length === 0 ? 1 : state[state.length -1]+1,
             type,
             reqs: weaponReqs({type}),
+            ...weaponTypes.find(w => w.type === type ).initial,
         }
     ]
 });

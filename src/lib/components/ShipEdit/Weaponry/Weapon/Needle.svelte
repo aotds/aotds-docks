@@ -1,6 +1,6 @@
 <label>needle weapon</label>
 
-<Arcs selected={arcs} on:click_arc={({ detail }) => click_arc(detail)} />
+<Arcs selected={[arc]} on:click_arc={({ detail }) => click_arc(detail)} />
 
 <script>
   import { getContext } from "svelte";
@@ -9,18 +9,13 @@
 
   const all_arcs = ["FS", "F", "FP", "AP", "A", "AS"];
 
-  export let arcs = ["F"];
-
-  const click_arc = (arc) => {
-      console.log(arc);
-      return;
-    if (arcs[0] === arc) return;
-    arcs = [arc];
-  };
+  export let arc = "F";
 
   const dispatch = createEventDispatcher();
 
-  $: dispatch("change", { arcs });
+  const click_arc = (arc) => {
+        dispatch("change",{arc});
+  };
 </script>
 
 <style>
