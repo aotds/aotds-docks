@@ -20,16 +20,16 @@
   import ShipItem from "$lib/components/ShipItem/index.svelte";
   import Field from "$lib/components/Field/index.svelte";
   /* import Beam from "./Beam/index.svelte"; */
-  /* import Submunition from "./Submunition/index.svelte"; */
-  /* import PointDefenceSystem from "./PointDefenceSystem/index.svelte"; */
-  /* import Scattergun from "./Scattergun/index.svelte"; */
+   import Submunition from "./Submunition.svelte";
+   import PointDefenceSystem from "./PDS.svelte";
+   import Scattergun from "./Scattergun.svelte";
   import Needle from "./Needle.svelte";
 
   const component = {
     /* beam: Beam, */
-    /* submunition: Submunition, */
-    /* pds: PointDefenceSystem, */
-    /* scattergun: Scattergun, */
+     submunition: Submunition,
+     pds: PointDefenceSystem,
+     scattergun: Scattergun,
      needle: Needle,
   };
 

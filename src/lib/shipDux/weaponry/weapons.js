@@ -5,9 +5,11 @@ const reqs = { cost: 0, mass: 0 };
 
 export const weaponTypes = [
     { name: 'beam', type: 'beam', reqs: beam_cost_mass },
-    { name: 'submunition pack', type: 'submunition', reqs: { mass:1, cost:3 }},
-    { name: 'point defence system', type: 'pds', reqs: {mass:1,cost:3}},
-    { name: 'scattergun', type: 'scattergun', reqs: { mass:1,cost:4 }},
+    { name: 'submunition pack', type: 'submunition', reqs: { mass:1, cost:3 },
+        initial: { arc: 'F' }
+    },
+    { name: 'point defence system', type: 'pds', reqs: {mass:1,cost:3}, initial: {}},
+    { name: 'scattergun', type: 'scattergun', reqs: { mass:1,cost:4 }, initial: {}},
     { name: 'needle weapon', type: 'needle', reqs: { mass: 2, cost: 6 },
         initial: { arc: 'F' }},
 ];
