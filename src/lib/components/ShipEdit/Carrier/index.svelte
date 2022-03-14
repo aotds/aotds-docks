@@ -21,7 +21,6 @@ import { getContext } from 'svelte';
     export let reqs = {};
 export let squadrons = [];
 
-$: console.log({squadrons})
 const { dispatch } = getContext('ship');
 
 $: dispatch.setCarrierBays(bays);

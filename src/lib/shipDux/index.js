@@ -21,13 +21,39 @@ const dux = new Updux({
     initial: {
         reqs: { cost: 0, mass: 10, usedMass: 0 },
     },
-    actions: {},
+    actions: {
+        setShipReqs: null,
+    },
 });
 
 dux.setMutation("setShipMass", (mass) => u({ reqs: { mass } }));
+dux.setMutation('setShipReqs', reqs => u({reqs}));
 
 dux.addReaction(calculateDriveReqs);
 dux.addReaction(ftlReqsReaction);
 dux.addReaction(screensReqsReaction);
+
+dux.addReaction( (store) => (state) => {
+    let cost = 0;
+    let mass = 0;
+
+    let subsystems = Object.values(state);
+
+    while(subsystems.length>0) {
+        const subsystem = subsystems.shift();
+        if( typeof subsystem !== 'object' ) continue;
+
+        if( subsystem.reqs ) {
+            cost += subsystem.reqs.cost;
+            mass += subsystem.reqs.mass;
+        }
+
+        subsystems.push( ...Object.values(subsystem));
+    }
+
+    store.dispatch.setShipReqs({cost,usedMass: mass});
+
+});
+
 
 export default dux;

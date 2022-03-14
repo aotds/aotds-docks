@@ -19,7 +19,6 @@
 
   const ship = getContext("ship");
 
-  console.log( ship.dispatch )
   $: ship.dispatch.setDrive({ rating, advanced });
 </script>
 
