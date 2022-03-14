@@ -4,7 +4,9 @@ import u from "updeep";
 const reqs = { cost: 0, mass: 0 };
 
 export const weaponTypes = [
-    { name: 'beam', type: 'beam', reqs: beam_cost_mass },
+    { name: 'beam', type: 'beam', reqs: beam_cost_mass, initial: {
+        weaponClass: 1
+    }},
     { name: 'submunition pack', type: 'submunition', reqs: { mass:1, cost:3 },
         initial: { arc: 'F' }
     },
@@ -23,8 +25,20 @@ const dux = new Updux({
     },
 });
 
-dux.setMutation('setWeapon', ({id,...rest}) =>
-    u.map( u.if( (w) => w.id === id, { ...rest }))
+dux.setMutation('setWeapon', ({id,...rest}) => state => {
+console.log(id,rest,state);
+    state = u.map( u.if( (w) => w.id === id,
+        weapon => {
+            return {
+                id,
+                ...rest,
+                reqs: weaponReqs(rest),
+            }
+        } ), state );
+    console.log(state);
+    return state;
+
+}
 );
 
 dux.setMutation('removeWeapon', id => state => [
@@ -32,13 +46,14 @@ dux.setMutation('removeWeapon', id => state => [
 ]);
 
 dux.setMutation('addWeapon', type => state => {
+    const initial = weaponTypes.find(w => w.type === type ).initial;
     return [
         ...state,
         {
             id: state.length === 0 ? 1 : state[state.length -1]+1,
             type,
-            reqs: weaponReqs({type}),
-            ...weaponTypes.find(w => w.type === type ).initial,
+            reqs: weaponReqs({type,...initial}),
+            ...initial,
         }
     ]
 });
@@ -54,21 +69,30 @@ function weaponReqs(weapon) {
     return reqs;
 }
 
-function beam_cost_mass({weapon_class, arcs}) {
+const isBroadside = arcs => {
+    if( arcs.length !== 4 ) return false;
+
+    // that'd be A or F
+    return !arcs.some( a => a.length === 1 );
+}
+
+function beam_cost_mass({weaponClass, arcs}) {
+    console.log({weaponClass,arcs})
     let mass;
-    if( weapon_class === 1 ) {
+
+    if( weaponClass === 1 ) {
         mass = 1;
     }
 
-    if( weapon_class == 2 ) {
+    if( weaponClass === 2 ) {
         mass = 2 + (arcs.length > 3 ? 1 : 0);
     }
 
 
-    if( weapon_class == 3 ) {
+    if( weaponClass == 3 ) {
         mass = 4;
 
-        if( is_broadside(arcs) ) {
+        if( isBroadside(arcs) ) {
             mass += 2;
         }
         else {
@@ -76,10 +100,10 @@ function beam_cost_mass({weapon_class, arcs}) {
         }
     }
 
-    if( weapon_class == 4 ) {
+    if( weaponClass == 4 ) {
         mass = 8;
 
-        if( is_broadside(arcs) ) {
+        if( isBroadside(arcs) ) {
             mass += 4;
         }
         else {

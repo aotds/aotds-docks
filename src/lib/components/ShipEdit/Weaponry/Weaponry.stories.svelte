@@ -21,6 +21,7 @@ import { readable, get, derived } from "svelte/store";
   const store = weaponryDux.createStore();
   const state = readable(store.getState(), (set) => {
     store.subscribe(() => {
+          console.log(store.getState());
       set(store.getState());
     });
   });

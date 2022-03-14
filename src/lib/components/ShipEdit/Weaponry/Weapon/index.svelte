@@ -19,14 +19,14 @@
   import Arc from "./Arc.svelte";
   import ShipItem from "$lib/components/ShipItem/index.svelte";
   import Field from "$lib/components/Field/index.svelte";
-  /* import Beam from "./Beam/index.svelte"; */
+   import Beam from "./Beam/index.svelte";
    import Submunition from "./Submunition.svelte";
    import PointDefenceSystem from "./PDS.svelte";
    import Scattergun from "./Scattergun.svelte";
   import Needle from "./Needle.svelte";
 
   const component = {
-    /* beam: Beam, */
+     beam: Beam,
      submunition: Submunition,
      pds: PointDefenceSystem,
      scattergun: Scattergun,
@@ -41,10 +41,10 @@
 
   $: type = weapon.type;
 
-  $: console.log(weapon);
   const remove = () => ship.dispatch.removeWeapon(id);
 
   const update = ({ detail }) => {
+      console.log({id,type})
     ship.dispatch.setWeapon({
       id,
       type,
