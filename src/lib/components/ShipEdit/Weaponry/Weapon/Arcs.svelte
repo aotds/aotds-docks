@@ -12,7 +12,7 @@
 </svg>
 
 <script>
-  import Arc from "../../Weapons/Arc.svelte";
+  import Arc from "./Arc.svelte";
   import { createEventDispatcher } from "svelte";
 
   const all_arcs = ["FS", "F", "FP", "AP", "A", "AS"];

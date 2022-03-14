@@ -1,5 +1,5 @@
 import { browser } from "$app/env";
-import { readable, get } from "svelte/store";
+import { readable, get, derived } from "svelte/store";
 import { compose, applyMiddleware } from "redux";
 
 import shipDux from "../shipDux/index.js";
@@ -20,7 +20,6 @@ export default () => {
     duxStore.subscribe(() => {
       if (previous === duxStore.getState()) return;
       previous = duxStore.getState();
-      console.log("Setting!", previous);
       set(previous);
     });
   });
@@ -28,5 +27,6 @@ export default () => {
   return {
     dispatch: duxStore.dispatch,
     state,
+    shipMass: derived( state, state => state.reqs.mass )
   };
 };

@@ -21,7 +21,7 @@ export default dux;
 dux.setMutation('setScreens', payload => u(payload));
 dux.setMutation('setScreensReqs', reqs => u({reqs}));
 
-export const screenReqsReaction = store => createSelector(
+export const screensReqsReaction = store => createSelector(
     (ship) => ship.reqs.mass,
     (ship) => ship.structure.screens.standard,
     (ship) => ship.structure.screens.advanced,

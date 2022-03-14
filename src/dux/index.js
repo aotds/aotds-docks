@@ -66,22 +66,6 @@ dux.addSubscription((store) =>
   createSelector(calc_ship_req, (reqs) => store.dispatch(set_ship_reqs(reqs)))
 );
 
-dux.addSubscription((store) =>
-  createSelector(
-    (store) => store.general.mass,
-    (store) => store.streamlining.type,
-    (ship_mass, streamlining) => {
-      const mass = ceil(
-        (ship_mass *
-          (streamlining === "none" ? 0 : streamlining === "partial" ? 5 : 10)) /
-          100
-      );
-      const cost = 2 * mass;
-
-      store.dispatch(dux.actions.set_streamlining_cost_mass({ cost, mass }));
-    }
-  )
-);
 
 dux.addSubscription((store) =>
   createSelector(
@@ -145,18 +129,6 @@ dux.addSubscription((store) =>
   )
 );
 
-const calc_firecons_reqs = (nbr) => ({
-  cost: 4 * nbr,
-  mass: nbr,
-});
-
-const set_firecons = action("set_firecons", payload());
-dux.addMutation(set_firecons, (nbr) =>
-  u.updateIn("weaponry.firecons", {
-    nbr,
-    ...calc_firecons_reqs(nbr),
-  })
-);
 
 export default dux.asDux;
 

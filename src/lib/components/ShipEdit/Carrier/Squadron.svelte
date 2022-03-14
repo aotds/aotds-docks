@@ -1,4 +1,4 @@
-<ShipItem {cost} {mass}>
+<ShipItem {...reqs}>
   <Field label={`squadron ${id}`}>
     <select bind:value={type}>
       {#each types as type (type)}
@@ -14,24 +14,20 @@
   import Section from "$lib/components/Section/index.svelte";
   import Field from "$lib/components/Field/index.svelte";
   import ShipItem from "$lib/components/ShipItem/index.svelte";
-  import dux from "$lib/dux/carrier";
-  import squadron_types from "$lib/dux/carrier/squadron_types";
+  import { squadronTypes } from "$lib/shipDux/carrier.js";
 
-  const types = squadron_types.map(({ type }) => type);
+  const types = squadronTypes.map(({ type }) => type);
 
   export let id = 1;
-  export let type = "standard";
-  export let ftl = false;
-  export let cost = 0;
-  export let mass = 0;
+  export let type = types[0].type;
+  export let reqs= {};
 
-  export let ship = getContext("ship");
+  export let { dispatch } = getContext("ship");
 
-  $: ship?.dispatch_action("set_squadron", { id, type });
+  $: console.log(type)
+$: dispatch.setSquadronType({type, id});
+
 </script>
 
 <style>
-  div {
-    background-color: red;
-  }
 </style>
