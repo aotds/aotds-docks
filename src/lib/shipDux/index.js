@@ -11,13 +11,13 @@ import weaponry from "./weaponry/index.js";
 import { screensReqsReaction } from "./structure/screens.js";
 
 const dux = new Updux({
-    subduxes: {
+   subduxes: {
         identification,
         propulsion,
         structure,
         carrier,
         weaponry,
-    },
+   },
     initial: {
         reqs: { cost: 0, mass: 10, usedMass: 0 },
     },
@@ -54,6 +54,5 @@ dux.addReaction( (store) => (state) => {
     store.dispatch.setShipReqs({cost,usedMass: mass});
 
 });
-
 
 export default dux;

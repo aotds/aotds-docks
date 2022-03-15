@@ -1,5 +1,6 @@
+<main>
 <div class="identification-row">
-    <Identification {...$shipState.identification} {...$shipState.reqs} />
+    <Identification {...$shipState.identification} />
 
     <ShipCost {...$shipState.reqs} />
 </div>
@@ -11,6 +12,7 @@
 <Weaponry {...$shipState.weaponry}/>
 
 <Carrier {...$shipState.carrier} />
+    </main>
 
 <script>
     import { getContext } from "svelte";
@@ -32,5 +34,11 @@
 
     .identification-row :global(> *:first-child) {
         flex: 1;
+    }
+
+    main {
+        width: var(--main-width);
+        margin-left: auto;
+        margin-right: auto;
     }
 </style>
