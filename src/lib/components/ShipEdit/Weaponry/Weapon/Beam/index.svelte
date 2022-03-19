@@ -53,7 +53,6 @@
 
 
     function setArcs(firstArc) {
-        console.log(firstArc);
         if (nbrArcs === "broadside") {
             arcs = broadside;
             return;
@@ -61,12 +60,10 @@
             let first_index = all_arcs.findIndex((arc) =>  arc === firstArc);
             if (first_index === -1) first_index = 0;
 
-        console.log({arcs, label:"before"});
-            arcs = _.range(nbrArcs).map(
-                (i) => all_arcs[(first_index + i) % all_arcs.length]
+            arcs = Array.from({length: nbrArcs}).map(
+                (_dummy,i) => all_arcs[(first_index + i) % all_arcs.length]
             );
         arcsCaches = arcs.join(',');
-        console.log({arcs, label:"after"});
     }
 
     $: if (arcs.length !== nbrArcs) setArcs(arcs[0]);
