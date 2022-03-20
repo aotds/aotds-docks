@@ -1,11 +1,11 @@
 <ShipItem {...reqs}>
   <div>
     <Field label="screens">
-      <input type="number" bind:value={standard} min="0" />
+      <input class='short' type="number" bind:value={standard} min="0" />
     </Field>
 
     <Field label="advanced screens">
-      <input type="number" bind:value={advanced} min="0" />
+      <input class='short' type="number" bind:value={advanced} min="0" />
     </Field>
   </div>
 </ShipItem>

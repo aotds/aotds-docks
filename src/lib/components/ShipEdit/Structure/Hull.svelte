@@ -1,6 +1,6 @@
   <ShipItem {...reqs}>
     <Field label="hull">
-      <input bind:value={rating} type="number" {min} {max} />
+      <input class="short" bind:value={rating} type="number" {min} {max} />
     </Field>
   </ShipItem>
 

@@ -30,4 +30,7 @@ $: dispatch.setSquadronType({type, id});
 </script>
 
 <style>
+select {
+    width: inherit;
+}
 </style>

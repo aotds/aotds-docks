@@ -1,6 +1,6 @@
 <div class="mass">
     <Field label="ship tonnage">
-        <input bind:value={mass} type="number" min="10" max="300" />
+        <input class="short" bind:value={mass} type="number" min="10" max="300" />
         <span class="mass_symbol" />
 
         <div class="note" class:warning={!withinBudget}>
@@ -53,6 +53,7 @@
     }
     input {
         width: 5em;
+        display: inline !important;
     }
     .mass_symbol:after {
         content: url("/mass.svg");
@@ -74,7 +75,7 @@
     }
 
     .mass {
-        grid-column: 2;
+        width: 15em;
     }
     div.cost {
         grid-column: 3;

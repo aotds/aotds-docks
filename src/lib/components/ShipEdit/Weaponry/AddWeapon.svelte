@@ -5,7 +5,7 @@
         {/each}
   </select>
 
-  <button class="button small blue" on:click={addWeapon} >add weapon</button>
+  <button class="button small primary" on:click={addWeapon} >add weapon</button>
 </Field>
 
 <script>
@@ -20,3 +20,10 @@
 
   const addWeapon = () => ship.dispatch.addWeapon(type);
 </script>
+
+<style>
+select {
+    width: inherit;
+    display: inline-block;
+}
+</style>

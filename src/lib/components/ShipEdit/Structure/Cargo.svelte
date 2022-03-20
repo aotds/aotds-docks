@@ -1,6 +1,6 @@
 <ShipItem {...reqs}>
   <Field label="cargo">
-    <input type="number" min="0" bind:value={space} />
+    <input class="short" type="number" min="0" bind:value={space} />
   </Field>
 </ShipItem>
 

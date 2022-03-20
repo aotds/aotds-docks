@@ -2,7 +2,7 @@
   <div>
     <div class="nbr_layers">
       <Field label="armour layers">
-        <input type="number" min="0" bind:value={nbr_layers} />
+        <input class="short" type="number" min="0" bind:value={nbr_layers} />
       </Field>
     </div>
 
