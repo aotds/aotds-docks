@@ -1,5 +1,5 @@
 <Field label={`layer ${layer}`}>
-  <input type="number" min="0" bind:value={rating} />
+  <input class="short" type="number" min="0" bind:value={rating} />
 </Field>
 
 <script>

@@ -1,7 +1,7 @@
 <Section label="carrier">
   <ShipItem {...reqs}>
     <Field label="bays">
-      <input type="number" min="0" bind:value={bays} />
+      <input class="short" type="number" min="0" bind:value={bays} />
     </Field>
   </ShipItem>
 

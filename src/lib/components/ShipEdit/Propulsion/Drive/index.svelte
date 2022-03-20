@@ -1,7 +1,7 @@
 <ShipItem {...reqs}>
   <div>
     <Field label="thrust rating">
-      <input type="number" bind:value={rating} min="0" max="20" step="1" />
+      <input class="short" type="number" bind:value={rating} min="0" max="20" step="1" />
     </Field>
 
     <label><input type="checkbox" bind:checked={advanced} /> advanced</label>
