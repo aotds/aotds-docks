@@ -1,13 +1,5 @@
-<aside transition:fly={{ x: -800, opacity: 1 }}>
-  <div>
-    <input
-      type="button"
-      class="button small red"
-      value="close"
-      on:click={close}
-    />
-  </div>
-  <h3>welcome to the docks</h3>
+<Card>
+  <h2 slot="header">Welcome to the docks</h2>
 
   <p>
     This app is a ship builder for the game
@@ -16,7 +8,7 @@
   </p>
 
   <p>
-    The app, beside any exception mentioned here, is trying to follow the
+    The contruction rules are following the
     <a href="http://members.ozemail.com.au/~laranzu/fullthrust/rules/">
       Cross Dimensions rules
     </a>
@@ -35,17 +27,22 @@
     . Code available on
     <a href="https://github.com/aotds/aotds-shipyard">Github</a>
   </p>
-</aside>
+        <div slot="footer" />
+</Card>
 
 <script>
-  import { fly } from "svelte/transition";
-  import { createEventDispatcher } from "svelte";
+import {
+    Modal, Card
+} from 'svelte-chota';
 
-  const dispatch = createEventDispatcher();
-  const close = () => dispatch("close");
 </script>
 
 <style>
+h2 {
+    margin-bottom: 1em;
+    font-size: var(--font-scale-14);
+    font-family: Faktos;
+}
   aside {
     background-color: rgb(254, 218, 184);
     position: absolute;
@@ -68,7 +65,7 @@
     text-align: center;
     margin: 0px;
   }
-  div {
-    text-align: right;
-  }
+p {
+    margin-left: 2em;
+}
 </style>
