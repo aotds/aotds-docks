@@ -9,6 +9,9 @@
 <div class:hide={activeTab !== 'json'}>
     <JsonOutput />
 </div>
+<div class:hide={activeTab !== 'print'}>
+    <PrintOutput />
+</div>
 
 </main>
 
@@ -20,6 +23,7 @@
     import ShipEdit from "./ShipEdit/index.svelte";
     import About from "./About.svelte";
     import JsonOutput from './Output/Json.svelte';
+    import PrintOutput from './Output/Print/index.svelte';
 
     let activeTab = 'editor';
     $: console.log(activeTab);

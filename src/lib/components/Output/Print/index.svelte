@@ -1,3 +1,7 @@
+<div>
+  <Identification {...$state.identification} />
+</div>
+<!--
 <aside class="ship-sheet" transition:fade>
   <Identification {...ship.general} />
 
@@ -12,21 +16,25 @@
     />
   </div>
 
-  <MainSystems ftl={ship.ftl.type} engine={ship.engine.rating} />
 </aside>
+-->
+  <MainSystems ftl={$state?.propulsion?.ftl}
+        engine={$state?.propulsion?.drive?.rating} />
 
 <script>
-  import _ from "lodash";
+import { getContext } from 'svelte';
+  /* import _ from "lodash"; */
 
   import Identification from "./Identification/index.svelte";
   import MainSystems from "./MainSystems/index.svelte";
-  import Hull from "./Hull/index.svelte";
-  import Weapons from "./Weapons/index.svelte";
-  import Systems from "./Systems/index.svelte";
+  /* import Hull from "./Hull/index.svelte"; */
+  /* import Weapons from "./Weapons/index.svelte"; */
+  /* import Systems from "./Systems/index.svelte"; */
 
-  export let ship;
+  /* export let ship; */
+    const { state } = getContext('ship');
 
-  import { fly, fade } from "svelte/transition";
+  /* import { fly, fade } from "svelte/transition"; */
 </script>
 
 <style>
