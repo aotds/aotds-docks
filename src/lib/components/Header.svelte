@@ -40,7 +40,7 @@ $: dispatch( 'changeTab', activeTab );
         width: var(--main-width);
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 3em;
+        margin-bottom: 1em;
     }
     h1,
     h2 {
@@ -62,7 +62,14 @@ $: dispatch( 'changeTab', activeTab );
         margin: 0px 2em;
         font-size: var(--font-scale-10);
     }
+    div :global(nav) {
+        margin-left: 2em;
+        margin-bottom: 2em;
+    }
     div :global(nav span) {
+        font-weight: bold;
+        font-family: var(--main-font-family);
+        font-size: var(--font-scale-12);
         margin-right: 1em;
         padding-bottom: 0.125em !important;
     }
