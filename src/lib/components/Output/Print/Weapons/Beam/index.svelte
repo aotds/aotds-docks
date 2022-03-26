@@ -1,14 +1,14 @@
 <div>
   <Arcs selected={arcs} size="40">
     <text x="50%" y="50%">
-      {weapon_class}
+      {weaponClass}
     </text>
   </Arcs>
 </div>
 
 <script>
-  import Arcs from "$lib/components/Weapon/Arcs/index.svelte";
-  export let weapon_class = 1;
+  import Arcs from "$lib/components/ShipEdit/Weaponry/Weapon/Arcs.svelte";
+  export let weaponClass = 1;
   export let arcs = [];
 </script>
 

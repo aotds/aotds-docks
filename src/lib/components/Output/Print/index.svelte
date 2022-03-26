@@ -1,11 +1,14 @@
 <div>
   <Identification {...$state.identification} />
+
+  <Weapons weapons={$state.weaponry.weapons} />
+
+  <MainSystems ftl={$state?.propulsion?.ftl}
+        engine={$state?.propulsion?.drive?.rating} />
 </div>
 <!--
 <aside class="ship-sheet" transition:fade>
-  <Identification {...ship.general} />
 
-  <Weapons weapons={ship.weaponry.weapons} />
 
   <div class="section-2">
     <Hull structure={ship.structure} ship_mass={ship.general.mass} />
@@ -18,8 +21,6 @@
 
 </aside>
 -->
-  <MainSystems ftl={$state?.propulsion?.ftl}
-        engine={$state?.propulsion?.drive?.rating} />
 
 <script>
 import { getContext } from 'svelte';
@@ -28,7 +29,7 @@ import { getContext } from 'svelte';
   import Identification from "./Identification/index.svelte";
   import MainSystems from "./MainSystems/index.svelte";
   /* import Hull from "./Hull/index.svelte"; */
-  /* import Weapons from "./Weapons/index.svelte"; */
+   import Weapons from "./Weapons/index.svelte";
   /* import Systems from "./Systems/index.svelte"; */
 
   /* export let ship; */
@@ -38,15 +39,17 @@ import { getContext } from 'svelte';
 </script>
 
 <style>
-  .ship-sheet {
+  div {
     width: 4.25in;
     height: 5.5in;
     border: 1px solid black;
     padding: 1em;
+    margin: 0px auto;
   }
 
   .section-2 {
     display: flex;
     align-items: start;
   }
+
 </style>
