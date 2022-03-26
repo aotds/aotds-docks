@@ -3,11 +3,15 @@
 </h1>
 
 <div class="details">
-    <h2>{shipClass}-class, {shipType}</h2>
+    <h2>
+        {#if shipClass}
+        {shipClass}-class,
+{/if}
+        {shipType}</h2>
     <div class="reqs">
-        <Cost cost={reqs.cost} />
+        <Cost cost={cost} />
         &nbsp;
-        <Mass mass={reqs.mass} />
+        <Mass mass={mass} />
     </div>
 </div>
 
@@ -17,7 +21,8 @@
 
     export let shipClass;
     export let shipType;
-    export let reqs = {};
+    export let cost = 0;
+    export let mass = 0;
 </script>
 
 <style>

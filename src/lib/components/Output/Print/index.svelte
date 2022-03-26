@@ -1,7 +1,9 @@
 <div class="print-output">
     <Identification
-        {...ship.identification}
-        reqs={ship.reqs}
+        shipClass={ship.identification.shipClass}
+        shipType={ship.identification.shipType}
+        cost={ship.reqs?.cost}
+        mass={ship.reqs?.mass}
     />
 
     <div class="section-2">

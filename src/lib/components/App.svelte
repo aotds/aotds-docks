@@ -10,12 +10,13 @@
     <JsonOutput />
 </div>
 <div class:hide={activeTab !== 'print'}>
-    <PrintOutput />
+    <PrintOutput ship={$state}/>
 </div>
 
 </main>
 
 <script>
+import { getContext } from 'svelte';
     import { Modal, Card, Nav } from "svelte-chota";
 
     import Ribbon from "./Ribbon.svelte";
@@ -27,6 +28,8 @@
 
     let activeTab = 'editor';
     $: console.log(activeTab);
+
+    const {state} = getContext('ship');
 </script>
 
 <style>
