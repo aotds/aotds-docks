@@ -1,6 +1,10 @@
 <div>
   <Identification {...$state.identification} />
 
+  <div class="section-2">
+    <Hull structure={$state.structure} shipMass={$state.identification.mass} />
+</div>
+
   <Weapons weapons={$state.weaponry.weapons} />
 
   <MainSystems ftl={$state?.propulsion?.ftl}
@@ -28,7 +32,7 @@ import { getContext } from 'svelte';
 
   import Identification from "./Identification/index.svelte";
   import MainSystems from "./MainSystems/index.svelte";
-  /* import Hull from "./Hull/index.svelte"; */
+   import Hull from "./Hull/index.svelte";
    import Weapons from "./Weapons/index.svelte";
   /* import Systems from "./Systems/index.svelte"; */
 
