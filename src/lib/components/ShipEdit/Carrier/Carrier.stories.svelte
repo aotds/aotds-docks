@@ -1,9 +1,4 @@
-<Meta title="ShipEdit/Carrier" component={Carrier} argTypes={{
-    armor: {
-        type: 'object',
-        defaultValue: [2,4],
-    }
-}} />
+<Meta title="ShipEdit/Carrier" component={Carrier} argTypes={{}} />
 
 <Story name="Primary" args={{}} />
 
