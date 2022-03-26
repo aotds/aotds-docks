@@ -1,59 +1,52 @@
-<div>
-  <Identification {...$state.identification} />
-
-  <div class="section-2">
-    <Hull structure={$state.structure} shipMass={$state.identification.mass} />
-</div>
-
-  <Weapons weapons={$state.weaponry.weapons} />
-
-  <MainSystems ftl={$state?.propulsion?.ftl}
-        engine={$state?.propulsion?.drive?.rating} />
-</div>
-<!--
-<aside class="ship-sheet" transition:fade>
-
-
-  <div class="section-2">
-    <Hull structure={ship.structure} ship_mass={ship.general.mass} />
-
-    <Systems
-      firecons={ship.weaponry.firecons.nbr}
-      screens={ship.structure.screens}
+<div class="print-output">
+    <Identification
+        {...ship.identification}
+        reqs={ship.reqs}
     />
-  </div>
 
-</aside>
--->
+    <div class="section-2">
+        <Hull
+            structure={ship.structure}
+            shipMass={ship.identification.mass}
+        />
+
+        <Systems
+            firecons={ship.weaponry.firecons.nbr}
+            screens={ship.structure.screens}
+        />
+    </div>
+
+    <Weapons weapons={ship.weaponry.weapons} />
+
+    <MainSystems
+        ftl={ship?.propulsion?.ftl}
+        engine={ship?.propulsion?.drive?.rating}
+    />
+</div>
 
 <script>
-import { getContext } from 'svelte';
-  /* import _ from "lodash"; */
+    import Identification from "./Identification/index.svelte";
+    import MainSystems from "./MainSystems/index.svelte";
+    import Hull from "./Hull/index.svelte";
+    import Weapons from "./Weapons/index.svelte";
+    import Systems from "./Systems/index.svelte";
 
-  import Identification from "./Identification/index.svelte";
-  import MainSystems from "./MainSystems/index.svelte";
-   import Hull from "./Hull/index.svelte";
-   import Weapons from "./Weapons/index.svelte";
-  /* import Systems from "./Systems/index.svelte"; */
-
-  /* export let ship; */
-    const { state } = getContext('ship');
-
-  /* import { fly, fade } from "svelte/transition"; */
+    export let ship = {};
 </script>
 
 <style>
-  div {
-    width: 4.25in;
-    height: 5.5in;
-    border: 1px solid black;
-    padding: 1em;
-    margin: 0px auto;
-  }
+    .print-output {
+        width: 4.25in;
+        height: 5.5in;
+        border: 1px solid black;
+        padding: 1em;
+        margin: 0px auto;
+    }
 
-  .section-2 {
-    display: flex;
-    align-items: start;
-  }
-
+    .section-2 {
+        display: flex;
+        align-items: start;
+        margin-right: 2em;
+        margin-left: 2em;
+    }
 </style>

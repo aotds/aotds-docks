@@ -5,9 +5,9 @@
 <div class="details">
     <h2>{shipClass}-class, {shipType}</h2>
     <div class="reqs">
-        <Cost {cost} />
+        <Cost cost={reqs.cost} />
         &nbsp;
-        <Mass {mass} />
+        <Mass mass={reqs.mass} />
     </div>
 </div>
 
@@ -17,8 +17,7 @@
 
     export let shipClass;
     export let shipType;
-    export let cost,
-        mass = (0, 0);
+    export let reqs = {};
 </script>
 
 <style>
