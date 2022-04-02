@@ -1,11 +1,4 @@
 :root {
-    --font-scale-9: 0.75rem;
-    --font-scale-10: 1em;
-    --font-scale-11: 1.333rem;
-    --font-scale-12: 1.777rem;
-    --font-scale-13: 2.369rem;
-    --font-scale-14: 3.157rem;
-    --font-scale-15: 4.209rem;
 
     --oxford-blue: hsla(226, 60%, 10%, 1);
     --royal-blue-dark: hsla(218, 100%, 16%, 1);
@@ -77,24 +70,6 @@ input:disabled {
 
 input[type="range"] {
 	height: 0;
-}
-
-button {
-	color: #333;
-	background-color: #f4f4f4;
-	outline: none;
-}
-
-button:disabled {
-	color: #999;
-}
-
-button:not(:disabled):active {
-	background-color: #ddd;
-}
-
-button:focus {
-	border-color: #666;
 }
 
 /*  ---- inputs --- */

@@ -4,8 +4,11 @@ import analyze from "rollup-plugin-analyzer";
 /** @type {import('@sveltejs/kit').Config} */
 export default {
   kit: {
+//        outDir: './docs',
     // hydrate the <div id="svelte"> element in src/app.html
-    adapter: adapter(),
+        adapter: adapter({
+			fallback: 'index.html'
+        }),
     vite: {
       build: {
         rollupOptions: {
