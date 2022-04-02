@@ -1,3 +1,7 @@
+<svelte:head>
+    <meta name="viewport" content="width=960" />
+</svelte:head>
+
 <main>
 
 <Ribbon />
