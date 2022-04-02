@@ -1,3 +1,4 @@
+
 <div class="print-output">
     <Identification
         shipClass={ship.identification.shipClass}
@@ -26,6 +27,10 @@
     />
 </div>
 
+<div class="notice">
+   Printing this page will only prints the ship sheet.
+</div>
+
 <script>
     import Identification from "./Identification/index.svelte";
     import MainSystems from "./MainSystems/index.svelte";
@@ -50,5 +55,22 @@
         align-items: start;
         margin-right: 2em;
         margin-left: 2em;
+    }
+    .notice {
+        font-style: italic;
+        margin-top: 1em;
+        text-align: right;
+    }
+
+    @media print {
+        :global(body > *) {
+            visibility: hidden;
+        }
+
+        .print-output {
+            visibility: visible;
+        }
+
+
     }
 </style>
