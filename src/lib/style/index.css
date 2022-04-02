@@ -1,0 +1,17 @@
+:root {
+  --main-font-family: "Dosis", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+    --font-scale-9: 0.75rem;
+    --font-scale-10: 1em;
+    --font-scale-11: 1.333rem;
+    --font-scale-12: 1.777rem;
+    --font-scale-13: 2.369rem;
+    --font-scale-14: 3.157rem;
+    --font-scale-15: 4.209rem;
+}
+
+input.short {
+    width: 5em !important;
+}
+
