@@ -6,3 +6,9 @@ node_modules
 .vercel_build_output/
 package-lock.json
 .svench
+
+.DS_STORE
+.cache
+.temp
+node_modules/
+dist/yarn-error.log
