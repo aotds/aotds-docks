@@ -9,7 +9,7 @@
 
 <script>
   import Integrity from "./Integrity/index.svelte";
-  import Armour from "./Armour/index.svelte";
+  import Armour from "./Armor.svelte";
 
   export let structure = {};
   export let ship_mass = 0;

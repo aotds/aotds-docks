@@ -3,6 +3,20 @@ import u from "updeep";
 
 import reqs from "../reqs.js";
 
+const schema = {
+    type: 'object',
+    properties: {
+        reqs: { type: 'object', properties: {
+            cost: { type: 'number' },
+            mass: { type: 'number' },
+        } },
+        layers: { type: 'array', items: 'number' }
+    },
+    examples: [
+        { reqs: { cost: 5, mass: 5 }, layers: [2,4 ] }
+    ]
+}
+
 const dux = new Updux({
     subduxes: {
         reqs,

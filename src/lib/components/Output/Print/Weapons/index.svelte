@@ -11,7 +11,7 @@
   export let weapons = [];
 
   let beams = [];
-  $: beams = weapons.filter(({ weapon_type }) => weapon_type === "beam");
+  $: beams = weapons.filter(({ type }) => type === "beam");
 </script>
 
 <style>

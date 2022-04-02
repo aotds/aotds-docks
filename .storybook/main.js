@@ -2,7 +2,7 @@ const path = require("path");
 const preprocess = require("svelte-preprocess");
 
 module.exports = {
- //   core: { builder: "storybook-builder-vite" },
+  core: { builder: "storybook-builder-vite" },
   staticDirs: ["../static", "../pictures"],
   stories: [
     "../src/**/*.stories.mdx",
@@ -18,9 +18,13 @@ module.exports = {
     preprocess: preprocess(),
   },
      async viteFinal(config, { configType }) {
+
+    if(!config.resolve.alias) config.resolve.alias = {};
     // customize the Vite config here
     config.resolve.alias.$lib = path.resolve(__dirname, "../src/lib/");
     config.resolve.alias.$app = path.resolve(__dirname, "../fake/app/");
+
+    config.resolve.dedupe = ["@storybook/client-api"];
 
     // return the customized config
     return config;

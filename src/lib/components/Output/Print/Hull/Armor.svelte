@@ -1,7 +1,7 @@
 <div class="layers">
-  {#each armour as layer (layer)}
+  {#each armor as layer,i (i)}
     <div class="layer">
-      {#each _.range(layer.rating) as i (i)}
+      {#each Array.from({length: layer}) as j}
         <div class="cell" />
       {/each}
     </div>
@@ -11,9 +11,9 @@
 <script>
   import _ from "lodash";
 
-  export let armour = [];
+  export let armor = [];
+  console.log(armor)
 
-  $: console.log(armour);
 </script>
 
 <style>

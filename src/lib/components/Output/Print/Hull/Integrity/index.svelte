@@ -1,9 +1,9 @@
 <div>
   {#each rows as row, i (i)}
     <div class="row">
-      {#each row as item, j (j)}
+      {#each row as threshold, j (j)}
         <div class="cell">
-          {#if item}
+          {#if threshold}
             <img src="icons/crew-star.svg" alt="crew loss threshold" />
           {/if}
         </div>
@@ -13,9 +13,7 @@
 </div>
 
 <script>
-  import { ceil } from "$lib/dux/utils";
-
-  export let ship_mass = 0;
+  export let shipMass = 0;
   export let rating = 0;
   export let advanced = false;
 
@@ -26,7 +24,7 @@
   $: cells = Array(rating).fill(false);
 
   let dcp;
-  $: dcp = ceil(ship_mass / 20);
+  $: dcp = Math.ceil(shipMass / 20);
 
   $: cells = divide(cells, dcp)
     .map((g) => {
@@ -51,16 +49,18 @@
 </script>
 
 <style>
-  .row {
-  }
+.row {
+    margin-bottom: 0.5em;
+}
   .cell {
     display: inline-block;
     margin-right: 0.5em;
-    width: 1em;
-    height: 1em;
+    width: 1.5em;
+    height: 1.5em;
     border: 1px solid black;
   }
   img {
     width: 1em;
+    margin-left: 0.2em;
   }
 </style>

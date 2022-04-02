@@ -1,44 +1,76 @@
-<aside class="ship-sheet" transition:fade>
-  <Identification {...ship.general} />
 
-  <Weapons weapons={ship.weaponry.weapons} />
-
-  <div class="section-2">
-    <Hull structure={ship.structure} ship_mass={ship.general.mass} />
-
-    <Systems
-      firecons={ship.weaponry.firecons.nbr}
-      screens={ship.structure.screens}
+<div class="print-output">
+    <Identification
+        shipClass={ship.identification.shipClass}
+        shipType={ship.identification.shipType}
+        cost={ship.reqs?.cost}
+        mass={ship.reqs?.mass}
     />
-  </div>
 
-  <MainSystems ftl={ship.ftl.type} engine={ship.engine.rating} />
-</aside>
+    <div class="section-2">
+        <Hull
+            structure={ship.structure}
+            shipMass={ship.identification.mass}
+        />
+
+        <Systems
+            firecons={ship.weaponry.firecons.nbr}
+            screens={ship.structure.screens}
+        />
+    </div>
+
+    <Weapons weapons={ship.weaponry.weapons} />
+
+    <MainSystems
+        ftl={ship?.propulsion?.ftl}
+        engine={ship?.propulsion?.drive?.rating}
+    />
+</div>
+
+<div class="notice">
+   Printing this page will only prints the ship sheet.
+</div>
 
 <script>
-  import _ from "lodash";
+    import Identification from "./Identification/index.svelte";
+    import MainSystems from "./MainSystems/index.svelte";
+    import Hull from "./Hull/index.svelte";
+    import Weapons from "./Weapons/index.svelte";
+    import Systems from "./Systems/index.svelte";
 
-  import Identification from "./Identification/index.svelte";
-  import MainSystems from "./MainSystems/index.svelte";
-  import Hull from "./Hull/index.svelte";
-  import Weapons from "./Weapons/index.svelte";
-  import Systems from "./Systems/index.svelte";
-
-  export let ship;
-
-  import { fly, fade } from "svelte/transition";
+    export let ship = {};
 </script>
 
 <style>
-  .ship-sheet {
-    width: 4.25in;
-    height: 5.5in;
-    border: 1px solid black;
-    padding: 1em;
-  }
+    .print-output {
+        width: 4.25in;
+        height: 5.5in;
+        border: 1px solid black;
+        padding: 1em;
+        margin: 0px auto;
+    }
 
-  .section-2 {
-    display: flex;
-    align-items: start;
-  }
+    .section-2 {
+        display: flex;
+        align-items: start;
+        margin-right: 2em;
+        margin-left: 2em;
+    }
+    .notice {
+        font-style: italic;
+        margin-top: 1em;
+        text-align: right;
+    }
+
+    @media print {
+        :global(body > *) {
+            visibility: hidden;
+        }
+
+        .print-output {
+            visibility: visible;
+        }
+
+
+    }
 </style>
