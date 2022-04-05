@@ -1,27 +1,30 @@
 <div class="main_systems">
   {#if ftl !== "none"}
-    <img class="ftl" src="icons/ftl-drive.svg" alt="ftl drive" />
+    <img class="ftl" src="{base}/icons/ftl-drive.svg" alt="ftl drive" />
   {/if}
 
   {#if engine > 0}
-    <div class="thrust">{engine}</div>
+    <div class="thrust"
+            style="background-image: url({base}/icons/standard-drive.svg);"
+        >{engine}</div>
   {/if}
 
   <img
     class="internal"
-    src="icons/internal-systems.svg"
+    src="{base}/icons/internal-systems.svg"
     alt="internal systems"
   />
 </div>
 
 <script>
+    import { base } from '$app/paths';
+
   export let ftl = "none";
   export let engine = 0;
 </script>
 
 <style>
   .thrust {
-    background-image: url(icons/standard-drive.svg);
     width: 2em;
     background-size: 2em;
     background-repeat: no-repeat;

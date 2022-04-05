@@ -1,10 +1,11 @@
 <div>
   {#each range(1,firecons) as firecon}
-    <img class="firecon" src="icons/firecon.svg" alt="firecon" />
+    <img class="firecon" src="{base}/icons/firecon.svg" alt="firecon" />
   {/each}
 </div>
 
 <script>
+    import { base } from '$app/paths';
   import {range} from "$lib/utils.js";
 
   export let firecons = 0;
