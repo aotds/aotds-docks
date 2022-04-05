@@ -4,7 +4,7 @@
       {#each row as threshold, j (j)}
         <div class="cell">
           {#if threshold}
-            <img src="icons/crew-star.svg" alt="crew loss threshold" />
+            <img src="{base}/icons/crew-star.svg" alt="crew loss threshold" />
           {/if}
         </div>
       {/each}
@@ -13,6 +13,7 @@
 </div>
 
 <script>
+    import { base } from '$app/paths';
   export let shipMass = 0;
   export let rating = 0;
   export let advanced = false;

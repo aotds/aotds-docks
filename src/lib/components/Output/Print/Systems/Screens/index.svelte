@@ -1,13 +1,14 @@
 <div>
   {#each range(1,standard) as i}
-    <img src="icons/screen.svg" alt="screen" />
+    <img src="{base}/icons/screen.svg" alt="screen" />
   {/each}
   {#each range(1,advanced) as i}
-    <img src="icons/screen-advanced.svg" alt="advanced screen" />
+    <img src="{base}/icons/screen-advanced.svg" alt="advanced screen" />
   {/each}
 </div>
 
 <script>
+    import { base } from '$app/paths';
   import {range} from "$lib/utils.js";
 
   export let standard = 0;
