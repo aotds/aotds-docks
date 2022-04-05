@@ -1,7 +1,7 @@
 <div class="mass">
     <Field label="ship tonnage">
         <input class="short" bind:value={mass} type="number" min="10" max="300" />
-        <span class="mass_symbol" />
+        <img class="mass_symbol" src="{base}/mass.svg" alt="mass"/>
 
         <div class="note" class:warning={!withinBudget}>
             {#if withinBudget}
@@ -20,6 +20,7 @@
 </div>
 
 <script>
+    import { base } from '$app/paths';
     import { getContext } from "svelte";
     import Field from "$lib/components/Field/index.svelte";
 
@@ -55,8 +56,7 @@
         width: 5em;
         display: inline !important;
     }
-    .mass_symbol:after {
-        content: url("/mass.svg");
+    .mass_symbol {
         width: 0.75em;
         display: inline-block;
         margin-left: 0.5em;

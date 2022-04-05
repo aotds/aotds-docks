@@ -2,12 +2,14 @@
   <div><slot /></div>
 
   <div class="reqs">
-    <div class="mass" bind:this={mass_el}>{mass}</div>
+    <div class="mass" bind:this={mass_el}>{mass} <img src="{base}/mass.svg"
+            alt="mass"/></div>
     <div class="cost" bind:this={cost_el}>{cost}</div>
   </div>
 </div>
 
 <script>
+  import { base } from '$app/paths';
   import { tick } from "svelte";
 
   export let mass;
@@ -54,8 +56,7 @@
     content: "\00A4";
     margin-left: 0.5em;
   }
-  .mass:after {
-    content: url("/mass.svg");
+  .mass img {
     width: 0.75em;
     display: inline-block;
     margin-left: 0.5em;
