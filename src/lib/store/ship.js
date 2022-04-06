@@ -7,7 +7,7 @@ import shipDux from "../shipDux/index.js";
 let composeEnhancers = compose;
 
 if (browser) {
-  composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+//  composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 }
 
 export default () => {
