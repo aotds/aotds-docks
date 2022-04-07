@@ -3,6 +3,7 @@ import { readable, get, derived } from "svelte/store";
 import { compose, applyMiddleware } from "redux";
 
 import shipDux from "../shipDux/index.js";
+import { initial } from "lodash";
 
 let composeEnhancers = compose;
 
@@ -11,7 +12,16 @@ if (dev && browser && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
 }
 
 export default () => {
-    const duxStore = shipDux.createStore(undefined, (mw) =>
+
+    let initialState = undefined;
+
+    if( browser ) {
+        const i  =localStorage.getItem('ship');
+
+        if(i) initialState = JSON.parse(localStorage.getItem('ship'));
+    }
+
+    const duxStore = shipDux.createStore(initialState, (mw) =>
         composeEnhancers(applyMiddleware(mw))
     );
 
@@ -21,6 +31,7 @@ export default () => {
             if (previous === duxStore.getState()) return;
             previous = duxStore.getState();
             set(previous);
+            if( browser ) localStorage.setItem('ship', JSON.stringify(previous));
         });
     });
 
