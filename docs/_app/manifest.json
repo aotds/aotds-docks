@@ -1,11 +1,11 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-c91a3eca.js",
+    "file": "start-91f194db.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_index-68fa7044.js",
-      "_paths-5d155410.js"
+      "_index-3711c71a.js",
+      "_paths-5193a87e.js"
     ],
     "dynamicImports": [
       ".svelte-kit/runtime/components/layout.svelte",
@@ -14,47 +14,47 @@
     ]
   },
   ".svelte-kit/runtime/components/layout.svelte": {
-    "file": "layout.svelte-a7c34f1e.js",
+    "file": "layout.svelte-4620a56f.js",
     "src": ".svelte-kit/runtime/components/layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-68fa7044.js"
+      "_index-3711c71a.js"
     ]
   },
   ".svelte-kit/runtime/components/error.svelte": {
-    "file": "error.svelte-7544dc29.js",
+    "file": "error.svelte-a52588a9.js",
     "src": ".svelte-kit/runtime/components/error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-68fa7044.js"
+      "_index-3711c71a.js"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "pages/index.svelte-bdd7f07b.js",
+    "file": "pages/index.svelte-87b4df47.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-68fa7044.js",
-      "_paths-5d155410.js"
+      "_index-3711c71a.js",
+      "_paths-5193a87e.js"
     ],
     "css": [
-      "assets/pages/index.svelte-3edfd478.css"
+      "assets/pages/index.svelte-455f749d.css"
     ],
     "assets": [
       "assets/Faktos-34d5460e.ttf",
       "assets/Dosis-VariableFont_wght-994868c0.ttf"
     ]
   },
-  "_index-68fa7044.js": {
-    "file": "chunks/index-68fa7044.js"
+  "_index-3711c71a.js": {
+    "file": "chunks/index-3711c71a.js"
   },
-  "_paths-5d155410.js": {
-    "file": "chunks/paths-5d155410.js",
+  "_paths-5193a87e.js": {
+    "file": "chunks/paths-5193a87e.js",
     "imports": [
-      "_index-68fa7044.js"
+      "_index-3711c71a.js"
     ]
   }
 }

@@ -1,0 +1,53 @@
+import { browser, dev } from "$app/env";
+import { readable, get, derived } from "svelte/store";
+import { compose, applyMiddleware } from "redux";
+
+import shipDux from "../shipDux/index.js";
+import { initial } from "lodash";
+
+let composeEnhancers = compose;
+
+if (dev && browser && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
+    composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+}
+
+export default () => {
+<<<<<<< HEAD
+    const duxStore = shipDux.createStore(undefined, (mw) =>
+        composeEnhancers(applyMiddleware(mw))
+    );
+
+=======
+
+    let initialState = undefined;
+
+    if( browser ) {
+        const i  =localStorage.getItem('ship');
+
+        if(i) initialState = JSON.parse(localStorage.getItem('ship'));
+    }
+
+    const duxStore = shipDux.createStore(initialState, (mw) =>
+        composeEnhancers(applyMiddleware(mw))
+    );
+
+>>>>>>> main
+    let previous;
+    const state = readable(duxStore.getState(), (set) => {
+        duxStore.subscribe(() => {
+            if (previous === duxStore.getState()) return;
+            previous = duxStore.getState();
+            set(previous);
+<<<<<<< HEAD
+=======
+            if( browser ) localStorage.setItem('ship', JSON.stringify(previous));
+>>>>>>> main
+        });
+    });
+
+    return {
+        dispatch: duxStore.dispatch,
+        state,
+        shipMass: derived(state, (state) => state.reqs.mass),
+    };
+};
