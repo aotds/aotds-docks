@@ -1,26 +1,53 @@
 <div class="main_systems">
   {#if ftl !== "none"}
-    <img class="ftl" src="{base}/icons/ftl-drive.svg" alt="ftl drive" />
+    <img
+      bind:this={targetFTL}
+      class="ftl"
+      src="{base}/icons/ftl-drive.svg"
+      alt="ftl drive"
+    />
+
+    {#if movable}
+      <Movable target={targetFTL} />
+    {/if}
   {/if}
 
   {#if engine > 0}
-    <div class="thrust"
-            style="background-image: url({base}/icons/standard-drive.svg);"
-        >{engine}</div>
+    <div
+      bind:this={targetEngine}
+      class="thrust"
+      style="background-image: url({base}/icons/standard-drive.svg);"
+    >
+      {engine}
+    </div>
+    {#if movable}
+      <Movable target={targetEngine} />
+    {/if}
   {/if}
 
   <img
     class="internal"
     src="{base}/icons/internal-systems.svg"
     alt="internal systems"
+    bind:this={targetInternal}
   />
+  {#if movable}
+    <Movable target={targetInternal} />
+  {/if}
 </div>
 
 <script>
-    import { base } from '$app/paths';
+  import { base } from "$app/paths";
+
+  import Movable from "./Movable.svelte";
 
   export let ftl = "none";
   export let engine = 0;
+  export let movable = false;
+
+  let targetFTL;
+  let targetInternal;
+  let targetEngine;
 </script>
 
 <style>
