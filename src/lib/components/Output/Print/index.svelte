@@ -1,9 +1,8 @@
 <div class="notice">
   <label>
-    <input type="checkbox" bind:checked={isMovable} /> enable wiggletron (<i
-      >alpha feature</i
-    >)
+    <input type="checkbox" bind:checked={isMovable} /> edit layout
   </label>
+  <button class="button error">reset layout</button>
 </div>
 
 <div class="print-output">
@@ -71,6 +70,10 @@
     font-style: italic;
     margin-top: 1em;
     text-align: right;
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      gap: 3em;
   }
 
   @media print {
