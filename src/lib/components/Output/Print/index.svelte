@@ -41,7 +41,7 @@
 <div class="notice">Printing this page will only prints the ship sheet.</div>
 
 <script>
-import { getContext } from 'svelte';
+  import { getContext } from "svelte";
   import Identification from "./Identification/index.svelte";
   import MainSystems from "./MainSystems/index.svelte";
   import Hull from "./Hull/index.svelte";
@@ -51,9 +51,12 @@ import { getContext } from 'svelte';
   export let ship = {};
   export let isMovable = false;
 
-    const { dispatch } = getContext('ship');
+  const { dispatch } = getContext("ship");
 
-const resetLayout = () => { isMovable = false; dispatch.resetLayout(); }
+  const resetLayout = () => {
+    isMovable = false;
+    dispatch.resetLayout();
+  };
 </script>
 
 <style>
@@ -75,10 +78,10 @@ const resetLayout = () => { isMovable = false; dispatch.resetLayout(); }
     font-style: italic;
     margin-top: 1em;
     text-align: right;
-      display: flex;
-      justify-content: end;
-      align-items: center;
-      gap: 3em;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 3em;
   }
 
   @media print {

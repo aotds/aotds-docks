@@ -24,18 +24,20 @@ const dux = new Updux({
   actions: {
     setShipReqs: null,
     setUITransform: null,
-        resetLayout: null,
+    resetLayout: null,
   },
 });
 
 function resetUITransform(thing) {
-    if(typeof thing !== 'object') return thing;
+  if (typeof thing !== "object") return thing;
 
-    return u.map((v,k) => k === 'uiTransform' ? '' : resetUITransform(v) , thing )
-
+  return u.map(
+    (v, k) => (k === "uiTransform" ? "" : resetUITransform(v)),
+    thing
+  );
 }
 
-dux.setMutation( 'resetLayout', () => resetUITransform );
+dux.setMutation("resetLayout", () => resetUITransform);
 
 dux.setMutation("setShipMass", (mass) => u({ reqs: { mass } }));
 dux.setMutation("setShipReqs", (reqs) => u({ reqs }));
