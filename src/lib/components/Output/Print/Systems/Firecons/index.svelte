@@ -1,14 +1,27 @@
-<div>
-  {#each range(1,firecons) as firecon}
+<div
+  style:transform={uiTransform}
+  use:movable={{
+    disabled: !isMovable,
+    ship,
+    system: "firecons",
+  }}
+>
+  {#each range(1, stations) as firecon}
     <img class="firecon" src="{base}/icons/firecon.svg" alt="firecon" />
   {/each}
 </div>
 
 <script>
-    import { base } from '$app/paths';
-  import {range} from "$lib/utils.js";
+  import { base } from "$app/paths";
+  import { range } from "$lib/utils.js";
+  import { getContext } from "svelte";
+  import { movable } from "../../movable.js";
 
-  export let firecons = 0;
+  export let stations = 0;
+  export let isMovable = false;
+  export let uiTransform = "";
+
+  const ship = getContext("ship");
 </script>
 
 <style>

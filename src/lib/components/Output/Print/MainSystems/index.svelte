@@ -1,28 +1,33 @@
 <div class="main_systems">
   {#if ftl !== "none"}
     <img
-      bind:this={targetFTL}
       class="ftl"
       src="{base}/icons/ftl-drive.svg"
       alt="ftl drive"
+      use:movable={{
+        disabled: !isMovable,
+      }}
+      on:translate={({ detail: translate }) => {
+        ship.dispatch.setUITransform({ system: "ftl", translate });
+      }}
+      style:transform={ftl?.uiTransform}
     />
-
-    {#if movable}
-      <Movable target={targetFTL} />
-    {/if}
   {/if}
 
   {#if engine > 0}
     <div
-      bind:this={targetEngine}
       class="thrust"
       style="background-image: url({base}/icons/standard-drive.svg);"
+      use:movable={{
+        disabled: !isMovable,
+      }}
+      on:translate={({ detail: translate }) => {
+        ship.dispatch.setUITransform({ system: "drive", translate });
+      }}
+      style:transform={drive?.uiTransform}
     >
       {engine}
     </div>
-    {#if movable}
-      <Movable target={targetEngine} />
-    {/if}
   {/if}
 
   <img
@@ -30,20 +35,36 @@
     src="{base}/icons/internal-systems.svg"
     alt="internal systems"
     bind:this={targetInternal}
+    use:movable={{
+      disabled: !isMovable,
+    }}
+    on:translate={({ detail: translate }) => {
+      ship.dispatch.setUITransform({ system: "internalSystems", translate });
+    }}
+    style:transform={structure?.uiTransform}
   />
-  {#if movable}
-    <Movable target={targetInternal} />
-  {/if}
 </div>
 
 <script>
+  import { getContext } from "svelte";
   import { base } from "$app/paths";
 
   import Movable from "./Movable.svelte";
+  import { movable } from "./movable.js";
 
   export let ftl = "none";
   export let engine = 0;
-  export let movable = false;
+  export let isMovable = false;
+  export let structure = {};
+  export let drive = {};
+
+  let internalTranslate = "translate(50px,50px)";
+
+  const ship = getContext("ship");
+
+  let frame = {
+    translate: [0, 0],
+  };
 
   let targetFTL;
   let targetInternal;

@@ -1,6 +1,6 @@
 <div class="notice">
   <label>
-    <input type="checkbox" bind:checked={movable} /> enable wiggletron (<i
+    <input type="checkbox" bind:checked={isMovable} /> enable wiggletron (<i
       >alpha feature</i
     >)
   </label>
@@ -15,20 +15,27 @@
   />
 
   <div class="section-2">
-    <Hull structure={ship.structure} shipMass={ship.identification.mass} />
+    <Hull
+      structure={ship.structure}
+      shipMass={ship.identification.mass}
+      {isMovable}
+    />
 
     <Systems
-      firecons={ship.weaponry.firecons.nbr}
+      {isMovable}
+      firecons={ship.weaponry.firecons}
       screens={ship.structure.screens}
     />
   </div>
 
-  <Weapons weapons={ship.weaponry.weapons} />
+  <Weapons {isMovable} weapons={ship.weaponry.weapons} />
 
   <MainSystems
-    {movable}
+    {isMovable}
     ftl={ship?.propulsion?.ftl}
     engine={ship?.propulsion?.drive?.rating}
+    drive={ship?.propulsion?.drive}
+    structure={ship?.structure}
   />
 </div>
 
@@ -42,7 +49,7 @@
   import Systems from "./Systems/index.svelte";
 
   export let ship = {};
-  let movable = false;
+  export let isMovable = false;
 </script>
 
 <style>
