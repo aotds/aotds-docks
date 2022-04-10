@@ -1,15 +1,16 @@
-<Meta title="Output/Print" component={Print} argTypes={{
-    ship: {
-        type: 'object',
-        defaultValue: sample
-    }
-}} />
+<Meta
+  title="Output/Print"
+  component={Print}
+  argTypes={{
+    isMovable: { defaultValue: false },
+  }}
+/>
 
 <Story name="Primary" args={{}} />
 
 <Template let:args>
-  <div style="width: 50em">
-    <Print ship={sample}/>
+  <div style="width: 50em; positive: relative;">
+    <Print ship={$shipState} {...args} />
   </div>
 </Template>
 
@@ -17,7 +18,16 @@
   import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
   import { action } from "@storybook/addon-actions";
 
-  import sample from './sample.js';
+  import { setContext } from "svelte";
 
-  import Print from './index.svelte';
+  import sample from "./sample.js";
+  import shipStore from "$lib/store/ship.js";
+
+  const ship = shipStore(sample);
+
+  setContext("ship", ship);
+
+  const shipState = ship.state;
+
+  import Print from "./index.svelte";
 </script>

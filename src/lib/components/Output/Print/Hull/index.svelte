@@ -1,6 +1,8 @@
 <div>
   <Armour armour={structure.armour} />
   <Integrity
+    {isMovable}
+    hull={structure?.hull}
     rating={structure.hull.rating}
     advanced={structure.hull.advanced}
     {ship_mass}
@@ -13,4 +15,5 @@
 
   export let structure = {};
   export let ship_mass = 0;
+  export let isMovable = false;
 </script>
