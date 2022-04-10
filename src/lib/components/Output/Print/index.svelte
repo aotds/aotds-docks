@@ -2,7 +2,7 @@
   <label>
     <input type="checkbox" bind:checked={isMovable} /> edit layout
   </label>
-  <button class="button error">reset layout</button>
+  <button class="button error" on:click={resetLayout}>reset layout</button>
 </div>
 
 <div class="print-output">
@@ -41,6 +41,7 @@
 <div class="notice">Printing this page will only prints the ship sheet.</div>
 
 <script>
+import { getContext } from 'svelte';
   import Identification from "./Identification/index.svelte";
   import MainSystems from "./MainSystems/index.svelte";
   import Hull from "./Hull/index.svelte";
@@ -49,6 +50,10 @@
 
   export let ship = {};
   export let isMovable = false;
+
+    const { dispatch } = getContext('ship');
+
+const resetLayout = () => { isMovable = false; dispatch.resetLayout(); }
 </script>
 
 <style>
