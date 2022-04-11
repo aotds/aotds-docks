@@ -1,11 +1,11 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-91f194db.js",
+    "file": "start-ce3da598.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_index-3711c71a.js",
-      "_paths-5193a87e.js"
+      "_index-68fa7044.js",
+      "_paths-5d155410.js"
     ],
     "dynamicImports": [
       ".svelte-kit/runtime/components/layout.svelte",
@@ -14,47 +14,47 @@
     ]
   },
   ".svelte-kit/runtime/components/layout.svelte": {
-    "file": "layout.svelte-4620a56f.js",
+    "file": "layout.svelte-a7c34f1e.js",
     "src": ".svelte-kit/runtime/components/layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-3711c71a.js"
+      "_index-68fa7044.js"
     ]
   },
   ".svelte-kit/runtime/components/error.svelte": {
-    "file": "error.svelte-a52588a9.js",
+    "file": "error.svelte-7544dc29.js",
     "src": ".svelte-kit/runtime/components/error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-3711c71a.js"
+      "_index-68fa7044.js"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "pages/index.svelte-87b4df47.js",
+    "file": "pages/index.svelte-034599f4.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-3711c71a.js",
-      "_paths-5193a87e.js"
+      "_index-68fa7044.js",
+      "_paths-5d155410.js"
     ],
     "css": [
-      "assets/pages/index.svelte-455f749d.css"
+      "assets/pages/index.svelte-84dd66bd.css"
     ],
     "assets": [
       "assets/Faktos-34d5460e.ttf",
       "assets/Dosis-VariableFont_wght-994868c0.ttf"
     ]
   },
-  "_index-3711c71a.js": {
-    "file": "chunks/index-3711c71a.js"
+  "_index-68fa7044.js": {
+    "file": "chunks/index-68fa7044.js"
   },
-  "_paths-5193a87e.js": {
-    "file": "chunks/paths-5193a87e.js",
+  "_paths-5d155410.js": {
+    "file": "chunks/paths-5d155410.js",
     "imports": [
-      "_index-3711c71a.js"
+      "_index-68fa7044.js"
     ]
   }
 }
