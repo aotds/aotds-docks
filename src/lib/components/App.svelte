@@ -13,9 +13,10 @@
 <div class:hide={activeTab !== 'json'}>
     <JsonOutput />
 </div>
-<div class:hide={activeTab !== 'print'}>
+
+{#if activeTab === 'print'}
     <PrintOutput ship={$state}/>
-</div>
+{/if}
 
 </main>
 

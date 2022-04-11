@@ -1,4 +1,12 @@
-<div>
+<div
+  use:movable={{
+    disabled: !isMovable,
+  }}
+  on:translate={({ detail: translate }) => {
+    ship.dispatch.setUITransform({ system: "hull", translate });
+  }}
+  style:transform={hull?.uiTransform}
+>
   {#each rows as row, i (i)}
     <div class="row">
       {#each row as threshold, j (j)}
@@ -13,10 +21,18 @@
 </div>
 
 <script>
-    import { base } from '$app/paths';
+  import { base } from "$app/paths";
+  import { getContext } from "svelte";
+
+  import { movable } from "../../MainSystems/movable.js";
+
   export let shipMass = 0;
   export let rating = 0;
   export let advanced = false;
+  export let hull = {};
+  export let isMovable = false;
+
+  const ship = getContext("ship");
 
   let nbr_rows;
   $: nbr_rows = advanced ? 3 : 4;
@@ -50,9 +66,9 @@
 </script>
 
 <style>
-.row {
+  .row {
     margin-bottom: 0.5em;
-}
+  }
   .cell {
     display: inline-block;
     margin-right: 0.5em;

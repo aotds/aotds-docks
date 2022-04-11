@@ -1,7 +1,7 @@
 <div>
-  <Firecons {firecons} />
+  <Firecons {isMovable} {...firecons} />
 
-  <Screens {...screens} />
+  <Screens {isMovable} {...screens} />
 </div>
 
 <script>
@@ -10,6 +10,7 @@
 
   export let firecons = 0;
   export let screens = {};
+  export let isMovable = false;
 </script>
 
 <style>

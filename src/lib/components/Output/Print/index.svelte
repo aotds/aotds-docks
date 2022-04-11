@@ -1,9 +1,8 @@
 <div class="notice">
   <label>
-    <input type="checkbox" bind:checked={movable} /> enable wiggletron (<i
-      >alpha feature</i
-    >)
+    <input type="checkbox" bind:checked={isMovable} /> edit layout
   </label>
+  <button class="button error" on:click={resetLayout}>reset layout</button>
 </div>
 
 <div class="print-output">
@@ -15,26 +14,34 @@
   />
 
   <div class="section-2">
-    <Hull structure={ship.structure} shipMass={ship.identification.mass} />
+    <Hull
+      structure={ship.structure}
+      shipMass={ship.identification.mass}
+      {isMovable}
+    />
 
     <Systems
-      firecons={ship.weaponry.firecons.nbr}
+      {isMovable}
+      firecons={ship.weaponry.firecons}
       screens={ship.structure.screens}
     />
   </div>
 
-  <Weapons weapons={ship.weaponry.weapons} />
+  <Weapons {isMovable} weapons={ship.weaponry.weapons} />
 
   <MainSystems
-    {movable}
+    {isMovable}
     ftl={ship?.propulsion?.ftl}
     engine={ship?.propulsion?.drive?.rating}
+    drive={ship?.propulsion?.drive}
+    structure={ship?.structure}
   />
 </div>
 
 <div class="notice">Printing this page will only prints the ship sheet.</div>
 
 <script>
+  import { getContext } from "svelte";
   import Identification from "./Identification/index.svelte";
   import MainSystems from "./MainSystems/index.svelte";
   import Hull from "./Hull/index.svelte";
@@ -42,7 +49,14 @@
   import Systems from "./Systems/index.svelte";
 
   export let ship = {};
-  let movable = false;
+  export let isMovable = false;
+
+  const { dispatch } = getContext("ship");
+
+  const resetLayout = () => {
+    isMovable = false;
+    dispatch.resetLayout();
+  };
 </script>
 
 <style>
@@ -64,6 +78,10 @@
     font-style: italic;
     margin-top: 1em;
     text-align: right;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 3em;
   }
 
   @media print {
