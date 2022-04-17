@@ -1,5 +1,9 @@
 <Card>
-  <h2 slot="header">Welcome to the docks</h2>
+  <div slot="header" class="header">
+    <h2>Welcome to the docks</h2>
+
+    <p class="version">version {import.meta.env.PACKAGE_VERSION}</p>
+  </div>
 
   <p>
     This app is a ship builder for the game
@@ -25,47 +29,30 @@
     Written by
     <a href="https://twitter.com/yenzie">Yanick Champoux</a>
     . Code available on
-    <a href="https://github.com/aotds/aotds-shipyard">Github</a>
+    <a href="https://github.com/aotds/aotds-shipyard">Github</a>.
   </p>
-        <div slot="footer" />
 </Card>
 
 <script>
-import {
-    Modal, Card
-} from 'svelte-chota';
-
+  import { Modal, Card } from "svelte-chota";
 </script>
 
 <style>
-h2 {
-    margin-bottom: 1em;
+  h2 {
     font-size: var(--font-scale-14);
     font-family: Faktos;
-}
-  aside {
-    background-color: rgb(254, 218, 184);
-    position: absolute;
-    height: 20em;
-    max-width: 50%;
-    z-index: 200;
-
-    padding: 1em;
-    border: 3px solid var(--indigo-dye);
-    border-radius: 1em;
-    left: 0px;
-    border-left: 0px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    top: 6em;
-    font-size: var(--font-scale-11);
+    margin-bottom: 0px;
   }
-
-  h3 {
-    text-align: center;
-    margin: 0px;
+  .header {
+    margin-bottom: 1em;
+    display: flex;
+    align-items: baseline;
   }
-p {
+  p {
     margin-left: 2em;
-}
+  }
+  .version {
+    flex: 1;
+    text-align: right;
+  }
 </style>
