@@ -25,6 +25,7 @@
     "eslint-plugin-svelte3": "^3.4.1",
     "prettier": "~2.5.1",
     "prettier-plugin-svelte": "^2.6.0",
+    "showdown": "^2.0.3",
     "standard-version": "^9.3.2",
     "storybook-builder-vite": "0.1.21",
     "svelte": "^3.46.4",

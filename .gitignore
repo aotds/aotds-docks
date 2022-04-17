@@ -13,3 +13,4 @@ package-lock.json
 .temp
 node_modules/
 dist/yarn-error.log
+.task/
