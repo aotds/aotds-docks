@@ -1,0 +1,22 @@
+# https://taskfile.dev
+
+version: "3"
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  release:
+    cmds:
+      - standard-version -a
+  changelog:
+    sources: [CHANGELOG.md]
+    generates: [src/lib/components/Changelog.svelte]
+    cmds:
+      - pnpx showdown makehtml -i CHANGELOG.md -o src/lib/components/Changelog.svelte
+      - git add src/lib/components/Changelog.svelte
+
+  default:
+    cmds:
+      - echo "{{.GREETING}}"
+    silent: true

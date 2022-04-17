@@ -25,6 +25,7 @@ const dux = new Updux({
     setShipReqs: null,
     setUITransform: null,
     resetLayout: null,
+    resetShip: null,
   },
 });
 
@@ -36,6 +37,8 @@ function resetUITransform(thing) {
     thing
   );
 }
+
+dux.setMutation("resetShip", () => () => dux.initial);
 
 dux.setMutation("resetLayout", () => resetUITransform);
 
