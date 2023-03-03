@@ -1,3 +1,37 @@
+import { combineReducers, configureStore, createSlice } from "@reduxjs/toolkit";
+import R from "remeda";
+
+import * as propulsion from "./propulsion";
+import * as structure from "./structure";
+import * as weaponry from "./weaponry/index.js";
+import * as carrier from "./carrier";
+
+const shipSlice = createSlice({
+  name: "ship",
+  initialState: {},
+  reducers: {},
+  extraReducers(builder) {
+    builder.addMatcher(
+      () => true,
+      combineReducers({
+        propulsion: propulsion.reducer,
+        structure: structure.reducer,
+        weaponry: weaponry.reducer,
+        carrier: carrier.reducer,
+      })
+    );
+  },
+});
+
+export function createStore() {
+  return configureStore({
+    reducer: shipSlice.reducer,
+  });
+}
+
+export const actions = shipSlice.actions;
+
+/**
 import * as propulsion from "./propulsion/index.js";
 import * as identification from "./identification.js";
 import { calculateDriveReqs } from "./propulsion/drive.js";
@@ -5,7 +39,27 @@ import { ftlReqsReaction } from "./propulsion/ftl.js";
 import * as structure from "./structure/index.js";
 import * as carrier from "./carrier.js";
 import * as weaponry from "./weaponry/index.js";
+import * as shipReqs from "./shipReqs.js";
 import { screensReqsReaction } from "./structure/screens.js";
+import { createSlice } from "@reduxjs/toolkit";
+
+
+const initialState = {
+    propulsion: propulsion.initialState,
+    identification: identification.initialState,
+    structure: structure.initialState,
+    carrier: carrier.initialState,
+    weaponry: weaponry.initialState,
+    shipReqs: shipReqs.initialState,
+}
+
+const shipSlice = createSlice({
+    name: "ship",
+    ),
+});
+
+
+
 
 const dux = new Updux({
     subduxes: {
@@ -38,9 +92,6 @@ function resetUITransform(thing) {
 dux.setMutation("resetShip", () => () => dux.initial);
 
 dux.setMutation("resetLayout", () => resetUITransform);
-
-dux.setMutation("setShipMass", (mass) => u({ reqs: { mass } }));
-dux.setMutation("setShipReqs", (reqs) => u({ reqs }));
 
 dux.setMutation("setUITransform", ({ system, systemId, translate }) => {
     const transform = translate
@@ -104,3 +155,4 @@ dux.addReaction((store) => (state) => {
 });
 
 export default dux;
+*/

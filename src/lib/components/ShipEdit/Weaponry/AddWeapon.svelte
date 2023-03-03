@@ -1,18 +1,18 @@
 <Field label="weapon type">
   <select bind:value={type}>
-        {#each weaponTypes as weapon (weapon.type)}
-    <option value={weapon.type}>{weapon.name}</option>
-        {/each}
+    {#each weaponTypes as weapon (weapon.type)}
+      <option value={weapon.type}>{weapon.name}</option>
+    {/each}
   </select>
 
-  <button class="button small primary" on:click={addWeapon} >add weapon</button>
+  <button class="button small primary" on:click={addWeapon}>add weapon</button>
 </Field>
 
 <script>
   import { getContext } from "svelte";
   import Field from "../../Field/index.svelte";
 
-  import { weaponTypes } from '$lib/shipDux/weaponry/weapons.js';
+  import { weaponTypes } from "$lib/shipDux/weaponry/weapons";
 
   export let ship = getContext("ship");
 
@@ -22,8 +22,8 @@
 </script>
 
 <style>
-select {
+  select {
     width: inherit;
     display: inline-block;
-}
+  }
 </style>

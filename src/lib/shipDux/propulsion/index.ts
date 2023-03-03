@@ -6,3 +6,8 @@ export const reducer = combineReducers({
   drive: drive.reducer,
   ftl: ftl.reducer,
 });
+
+export const initialState = {
+  drive: drive.initialState,
+  ftl: ftl.initialState,
+};
