@@ -1,13 +1,13 @@
 import { Updux } from "updux";
 import u from "updeep";
 
-import carrier from './carrier.js';
+import carrier from "./carrier.js";
 
 const dux = new Updux({
   actions: {
     setShipType: null,
     setShipClass: null,
-        setCarrierBays: carrier.actions.setCarrierBays,
+    setCarrierBays: carrier.actions.setCarrierBays,
   },
   initial: {
     shipType: "",
@@ -19,8 +19,10 @@ const dux = new Updux({
 
 dux.setMutation("setShipType", (shipType) => u({ shipType }));
 dux.setMutation("setShipClass", (shipClass) => u({ shipClass }));
-dux.setMutation('setCarrierBays', (bays) => u({
+dux.setMutation("setCarrierBays", (bays) =>
+  u({
     isCarrier: bays > 0,
-}))
+  })
+);
 
 export default dux;
