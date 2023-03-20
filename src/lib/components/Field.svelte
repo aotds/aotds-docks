@@ -10,7 +10,7 @@
 <script>
   export let label = "";
   export let value = "";
-  export let placeholder;
+  export let placeholder = label;
 </script>
 
 <style>

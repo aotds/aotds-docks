@@ -1,0 +1,80 @@
+<script>
+  import "@picocss/pico";
+</script>
+
+<style global>
+  @font-face {
+    font-family: "Faktos";
+    font-style: normal;
+    src: url(/fonts/Faktos.ttf) format("truetype");
+  }
+  @font-face {
+    font-family: "Dosis";
+    src: url(/fonts/dosis/Dosis-VariableFont_wght.ttf) format("truetype");
+  }
+
+  :root {
+    --main-font-family: "Dosis", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+    --font-scale-9: 0.75rem;
+    --font-scale-10: 1em;
+    --font-scale-11: 1.333rem;
+    --font-scale-12: 1.777rem;
+    --font-scale-13: 2.369rem;
+    --font-scale-14: 3.157rem;
+    --font-scale-15: 4.209rem;
+
+    --oxford-blue: hsla(226, 60%, 10%, 1);
+    --royal-blue-dark: hsla(218, 100%, 16%, 1);
+    --indigo-dye: hsla(209, 95%, 24%, 1);
+    --cg-blue: hsla(193, 80%, 35%, 1);
+    --white: hsla(20, 60%, 99%, 1);
+
+    --main-width: 60em;
+  }
+
+  input.short {
+    width: 5em !important;
+  }
+
+  small {
+    font-size: var(--font-scale-9);
+  }
+
+  h1 {
+    margin: 0px;
+    padding: 0px;
+    font-size: var(--font-scale-14);
+  }
+
+  h2 {
+    font-size: var(--font-scale-12);
+  }
+
+  body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    color: #333;
+    margin: 0;
+    padding: 8px;
+    box-sizing: border-box;
+    font-family: "Dosis", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  }
+
+  a {
+    color: rgb(0, 100, 200);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a:visited {
+    color: rgb(0, 80, 160);
+  }
+</style>

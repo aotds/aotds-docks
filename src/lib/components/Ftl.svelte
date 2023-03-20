@@ -1,4 +1,4 @@
-<ShipItem {mass} {cost}>
+<ShipItem {...reqs}>
   <Field label="FTL drive">
     {#each types as t (t)}
       <label
@@ -9,21 +9,19 @@
   </Field>
 </ShipItem>
 
-<script>
-  import { createEventDispatcher } from "svelte";
+<script lang="ts">
+  import { getContext } from "svelte";
 
-  import ShipItem from "../ShipItem/index.svelte";
-  import Field from "../Field/index.svelte";
+  import ShipItem from "./ShipItem.svelte";
+  import Field from "./Field.svelte";
 
   export let type = "none";
-  export let cost = 0;
-  export let mass = 0;
-
-  const dispatch = createEventDispatcher();
-
-  const change = () => dispatch("change_ftl", type);
+  export let reqs = { mass: 0, cost: 0 };
+  export let api = getContext("api");
 
   const types = ["none", "standard", "advanced"];
+
+  $: api.dispatch.setFtl(type);
 </script>
 
 <style>
