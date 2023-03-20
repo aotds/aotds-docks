@@ -11,3 +11,8 @@ export const initialState = {
   drive: drive.initialState,
   ftl: ftl.initialState,
 };
+
+export const actions = {
+  ...drive.actions,
+  ...ftl.actions,
+};

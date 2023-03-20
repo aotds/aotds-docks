@@ -1,8 +1,8 @@
-<div class="mass">{mass}<img src="{base}/mass.svg" alt="mass"/></div>
+<div class="mass">{mass}<img src="{base}/mass.svg" alt="mass" /></div>
 <div class="cost">{cost}</div>
 
 <script>
-    import { base } from '$app/paths';
+  import { base } from "$app/paths";
   export let mass;
   export let cost;
 </script>

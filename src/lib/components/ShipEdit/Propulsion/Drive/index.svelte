@@ -1,7 +1,14 @@
 <ShipItem {...reqs}>
   <div>
     <Field label="thrust rating">
-      <input class="short" type="number" bind:value={rating} min="0" max="20" step="1" />
+      <input
+        class="short"
+        type="number"
+        bind:value={rating}
+        min="0"
+        max="20"
+        step="1"
+      />
     </Field>
 
     <label><input type="checkbox" bind:checked={advanced} /> advanced</label>
@@ -19,7 +26,7 @@
 
   const ship = getContext("ship");
 
-  $: ship.dispatch.setDrive({ rating, advanced });
+  $: ship.dispatch(ship.actions.setDrive({ rating, advanced }));
 </script>
 
 <style>

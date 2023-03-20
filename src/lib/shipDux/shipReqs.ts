@@ -22,3 +22,5 @@ const shipReqs = createSlice({
     },
   },
 });
+
+export const { actions, reducer } = shipReqs;

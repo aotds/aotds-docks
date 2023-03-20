@@ -27,8 +27,8 @@
   $: if (shipTypes.length > 0 && !shipTypes.includes(shipType))
     shipType = shipTypes[0];
 
-  $: ship.dispatch.setShipType(shipType);
-  $: ship.dispatch.setShipClass(shipClass);
+  $: ship.dispatch(ship.actions.setShipType(shipType));
+  $: ship.dispatch(ship.actions.setShipClass(shipClass));
 </script>
 
 <style>

@@ -5,6 +5,9 @@ import * as propulsion from "./propulsion";
 import * as structure from "./structure";
 import * as weaponry from "./weaponry/index.js";
 import * as carrier from "./carrier";
+import * as identification from "./identification.js";
+import * as shipReqs from "./shipReqs";
+import * as engine from "./engine";
 
 const shipSlice = createSlice({
   name: "ship",
@@ -14,10 +17,12 @@ const shipSlice = createSlice({
     builder.addMatcher(
       () => true,
       combineReducers({
+        identification: identification.reducer,
         propulsion: propulsion.reducer,
         structure: structure.reducer,
         weaponry: weaponry.reducer,
         carrier: carrier.reducer,
+        engine: engine.reducer,
       })
     );
   },
@@ -29,11 +34,16 @@ export function createStore() {
   });
 }
 
-export const actions = shipSlice.actions;
+export const actions = {
+  ...shipReqs.actions,
+  ...shipSlice.actions,
+  ...identification.actions,
+  ...engine.actions,
+  ...propulsion.actions,
+};
 
 /**
 import * as propulsion from "./propulsion/index.js";
-import * as identification from "./identification.js";
 import { calculateDriveReqs } from "./propulsion/drive.js";
 import { ftlReqsReaction } from "./propulsion/ftl.js";
 import * as structure from "./structure/index.js";

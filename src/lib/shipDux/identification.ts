@@ -1,28 +1,32 @@
-import { Updux } from "updux";
-import u from "updeep";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import * as carrier from "./carrier.js";
 
-import carrier from "./carrier.js";
+const initialState = {
+  shipType: "",
+  shipClass: "",
+  isCarrier: false,
+  mass: 10,
+};
 
-const dux = new Updux({
-  actions: {
-    setShipType: null,
-    setShipClass: null,
-    setCarrierBays: carrier.actions.setCarrierBays,
+const identification = createSlice({
+  name: "identification",
+  initialState,
+  reducers: {
+    setShipType(state, action: PayloadAction<string>) {
+      state.shipType = action.payload;
+    },
+    setShipClass(state, action: PayloadAction<string>) {
+      state.shipClass = action.payload;
+    },
   },
-  initial: {
-    shipType: "",
-    shipClass: "",
-    isCarrier: false,
-    mass: 10,
+  extraReducers(builder) {
+    builder.addCase(
+      carrier.actions.setCarrierBays,
+      (state, action: PayloadAction<number>) => {
+        state.isCarrier = action.payload > 0;
+      }
+    );
   },
 });
 
-dux.setMutation("setShipType", (shipType) => u({ shipType }));
-dux.setMutation("setShipClass", (shipClass) => u({ shipClass }));
-dux.setMutation("setCarrierBays", (bays) =>
-  u({
-    isCarrier: bays > 0,
-  })
-);
-
-export default dux;
+export const { actions, reducer } = identification;

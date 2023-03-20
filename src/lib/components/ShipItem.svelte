@@ -2,14 +2,15 @@
   <div><slot /></div>
 
   <div class="reqs">
-    <div class="mass" bind:this={mass_el}>{mass} <img src="{base}/mass.svg"
-            alt="mass"/></div>
+    <div class="mass" bind:this={mass_el}>
+      {mass} <img src="{base}/mass.svg" alt="mass" />
+    </div>
     <div class="cost" bind:this={cost_el}>{cost}</div>
   </div>
 </div>
 
 <script>
-  import { base } from '$app/paths';
+  import { base } from "$app/paths";
   import { tick } from "svelte";
 
   export let mass;
