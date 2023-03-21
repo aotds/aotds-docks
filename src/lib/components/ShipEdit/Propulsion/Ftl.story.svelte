@@ -1,4 +1,4 @@
-<Hst.Story>
+<Hst.Story title="ShipEdit/Propulsion/Ftl">
   <Ftl {api} />
 </Hst.Story>
 
@@ -13,5 +13,5 @@
   };
 
   import Ftl from "./Ftl.svelte";
-  import GlobalStyle from "./GlobalStyle.svelte";
+  import "$lib/components/GlobalStyle.svelte";
 </script>

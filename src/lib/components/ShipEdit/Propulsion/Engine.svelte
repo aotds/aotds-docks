@@ -17,16 +17,15 @@
 
 <script>
   import { getContext } from "svelte";
-  import Field from "$lib/components/Field/index.svelte";
-  import ShipItem from "$lib/components/ShipItem/index.svelte";
+  import Field from "$lib/components/Field.svelte";
+  import ShipItem from "$lib/components/ShipItem.svelte";
 
-  export let reqs = {};
+  export let reqs = { cost: 0, mass: 0 };
   export let advanced = false;
   export let rating = 0;
+  export let api = getContext("api");
 
-  const ship = getContext("ship");
-
-  $: ship.dispatch(ship.actions.setEngine({ rating, advanced }));
+  $: api.dispatch.setEngine({ rating, advanced });
 </script>
 
 <style>
@@ -40,5 +39,18 @@
   }
   input[type="number"] {
     width: 5em;
+  }
+  input {
+    margin-bottom: 0px !important;
+  }
+  input:not([type="checkbox"]) {
+    border: 0px;
+    border-bottom: 1px solid var(--indigo-dye);
+    border-radius: 0px;
+    height: calc(
+      1rem * var(--line-height) + var(--form-element-spacing-vertical) * 2
+    );
+    padding: 0 0.5rem;
+    text-align: center;
   }
 </style>

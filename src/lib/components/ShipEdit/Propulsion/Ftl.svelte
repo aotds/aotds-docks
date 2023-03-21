@@ -9,19 +9,19 @@
   </Field>
 </ShipItem>
 
-<script>
+<script lang="ts">
   import { getContext } from "svelte";
-  import Field from "$lib/components/Field/index.svelte";
-  import ShipItem from "$lib/components/ShipItem/index.svelte";
+
+  import ShipItem from "$lib/components/ShipItem.svelte";
+  import Field from "$lib/components/Field.svelte";
+
+  export let type = "none";
+  export let reqs = { mass: 0, cost: 0 };
+  export let api = getContext("api");
 
   const types = ["none", "standard", "advanced"];
 
-  export let reqs = {};
-  export let type = types[0];
-
-  const ship = getContext("ship");
-
-  $: ship.dispatch.setFtl(type);
+  $: api.dispatch.setFtl(type);
 </script>
 
 <style>

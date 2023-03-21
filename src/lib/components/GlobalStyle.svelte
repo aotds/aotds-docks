@@ -77,4 +77,40 @@
   a:visited {
     color: rgb(0, 80, 160);
   }
+
+  label {
+    display: block;
+  }
+
+  input,
+  button,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0.4em;
+    margin: 0 0 0.5em 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+  }
+
+  input:disabled {
+    color: #ccc;
+  }
+
+  input[type="range"] {
+    height: 0;
+  }
+
+  /* input, */
+  /* select { */
+  /*   border: 0px; */
+  /*   border-bottom: 1px solid var(--indigo-dye); */
+  /* } */
+
+  input:focus,
+  select:focus {
+    border: 1px solid var(--indigo-dye);
+  }
 </style>
