@@ -1,0 +1,134 @@
+{
+  "stories": [
+    {
+      "id": "src-lib-components-shipitem-story-svelte",
+      "title": "ShipItem",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": null,
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/lib/components/ShipItem.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "ShipItem"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-lib-components-costmass-index-story-svelte",
+      "title": "CostMass",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": null,
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/lib/components/CostMass/index.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "CostMass"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-lib-components-shipedit-propulsion-story-svelte",
+      "title": "Propulsion",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": null,
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/lib/components/ShipEdit/Propulsion.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Propulsion"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-lib-components-shipedit-propulsion-engine-story-svelte",
+      "title": "Engine",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": null,
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/lib/components/ShipEdit/Propulsion/Engine.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "ShipEdit",
+        "Propulsion",
+        "Engine"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-lib-components-shipedit-propulsion-ftl-story-svelte",
+      "title": "Ftl",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": null,
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/lib/components/ShipEdit/Propulsion/Ftl.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "ShipEdit",
+        "Propulsion",
+        "Ftl"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    }
+  ],
+  "markdownFiles": []
+}
