@@ -1,4 +1,5 @@
 <ShipItem {...reqs}>
+  <!--
   <Field label={`squadron ${id}`}>
     <select bind:value={type}>
       {#each types as type (type)}
@@ -6,23 +7,24 @@
       {/each}
     </select>
   </Field>
+    -->
 </ShipItem>
 
 <script>
   import { getContext } from "svelte";
 
-  import Section from "$lib/components/Section/index.svelte";
-  import Field from "$lib/components/Field/index.svelte";
-  import ShipItem from "$lib/components/ShipItem/index.svelte";
-  import { squadronTypes } from "$lib/shipDux/carrier";
+  import Section from "$lib/components/Section.svelte";
+  import Field from "$lib/components/Field.svelte";
+  import ShipItem from "$lib/components/ShipItem.svelte";
+  //  import { squadronTypes } from "$lib/shipDux/carrier";
 
   const types = squadronTypes.map(({ type }) => type);
 
   export let id = 1;
-  export let type = types[0].type;
+  export let type = ""; //types[0].type;
   export let reqs = {};
 
-  export let { dispatch } = getContext("ship");
+  export let { dispatch } = getContext("api");
 
   $: console.log(type);
   $: dispatch.setSquadronType({ type, id });
