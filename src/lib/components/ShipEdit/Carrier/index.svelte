@@ -10,7 +10,7 @@
   {/each}
 </Section>
 
-<script>
+<script lang="ts">
 import { getContext } from 'svelte';
     import Field from '$lib/components/Field/index.svelte';
     import ShipItem from '$lib/components/ShipItem/index.svelte';

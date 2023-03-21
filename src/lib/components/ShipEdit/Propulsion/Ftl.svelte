@@ -21,7 +21,7 @@
 
   const types = ["none", "standard", "advanced"];
 
-  $: api.dispatch.setFtl(type);
+  $: api?.dispatch.setFtl(type);
 </script>
 
 <style>

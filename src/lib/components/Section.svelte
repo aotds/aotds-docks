@@ -22,5 +22,6 @@
   hr {
     flex: 1;
     background: #333;
+    border-top: 1px solid black;
   }
 </style>

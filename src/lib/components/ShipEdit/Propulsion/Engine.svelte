@@ -25,7 +25,7 @@
   export let rating = 0;
   export let api = getContext("api");
 
-  $: api.dispatch.setEngine({ rating, advanced });
+  $: api?.dispatch?.setEngine({ rating, advanced });
 </script>
 
 <style>
@@ -48,7 +48,7 @@
     border-bottom: 1px solid var(--indigo-dye);
     border-radius: 0px;
     height: calc(
-      1rem * var(--line-height) + var(--form-element-spacing-vertical) * 2
+      1rem * var(--line-height) + var(--form-element-spacing-vertical) * 1
     );
     padding: 0 0.5rem;
     text-align: center;

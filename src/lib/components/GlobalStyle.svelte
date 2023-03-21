@@ -16,6 +16,8 @@
   :root {
     --main-font-family: "Dosis", -apple-system, BlinkMacSystemFont, "Segoe UI",
       Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --font-family: "Dosis", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 
     --font-scale-9: 0.75rem;
     --font-scale-10: 1em;
