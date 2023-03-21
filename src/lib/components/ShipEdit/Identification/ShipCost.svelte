@@ -22,18 +22,18 @@
 <script>
   import { base } from "$app/paths";
   import { getContext } from "svelte";
-  import Field from "$lib/components/Field/index.svelte";
+  import Field from "$lib/components/Field.svelte";
 
-  export let ship = getContext("ship");
+  export let api = getContext("api");
 
   export let mass = 10;
   export let cost = 10;
-  export let usedMass = 5;
+  export let usedMass = 10;
 
   $: massUnused = mass - usedMass;
   $: withinBudget = massUnused >= 0;
 
-  $: ship.dispatch(ship.actions.setShipMass(mass));
+  $: api?.dispatch?.setShipMass?.(mass);
 
   /*   const change_tonnage = ({ target: { value } }) => */
   /*     ship.dispatch(ship.actions.set_ship_mass(parseInt(value))); */

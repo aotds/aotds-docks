@@ -115,4 +115,15 @@
   select:focus {
     border: 1px solid var(--indigo-dye);
   }
+
+  input:not([type="checkbox"]) {
+    border: 0px;
+    border-bottom: 1px solid var(--indigo-dye);
+    border-radius: 0px;
+    height: calc(
+      1rem * var(--line-height) + var(--form-element-spacing-vertical) * 1
+    );
+    padding: 0 0.5rem;
+    text-align: center;
+  }
 </style>
