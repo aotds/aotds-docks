@@ -33,8 +33,7 @@
   $: if (shipTypes.length > 0 && !shipTypes.includes(shipType))
     shipType = shipTypes[0];
 
-  $: api?.dispatch?.setShipType?.(shipType);
-  $: api?.dispatch?.setShipClass?.(shipClass);
+  $: api?.dispatch?.updateIdentification?.({ shipType, shipClass });
 </script>
 
 <style>

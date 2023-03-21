@@ -33,7 +33,9 @@
   $: massUnused = mass - usedMass;
   $: withinBudget = massUnused >= 0;
 
-  $: api?.dispatch?.setShipMass?.(mass);
+  $: api?.dispatch?.updateIdentification?.({
+    reqs: { mass },
+  });
 
   /*   const change_tonnage = ({ target: { value } }) => */
   /*     ship.dispatch(ship.actions.set_ship_mass(parseInt(value))); */
