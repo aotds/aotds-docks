@@ -116,7 +116,7 @@
     border: 1px solid var(--indigo-dye);
   }
 
-  input:not([type="checkbox"]) {
+  input:not([type="checkbox"]):not([type="radio"]) {
     border: 0px;
     border-bottom: 1px solid var(--indigo-dye);
     border-radius: 0px;

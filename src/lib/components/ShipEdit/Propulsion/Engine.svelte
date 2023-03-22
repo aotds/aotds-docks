@@ -25,7 +25,7 @@
   export let rating = 0;
   export let api = getContext("api");
 
-  $: api?.dispatch?.setEngine({ rating, advanced });
+  $: api?.dispatch?.setEngine?.({ rating, advanced });
 </script>
 
 <style>
