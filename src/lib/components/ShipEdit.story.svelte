@@ -14,5 +14,8 @@
 
   let ship = api.getState();
 
-  api.subscribe(() => (ship = api.getState()));
+  api.subscribe(() => {
+    console.log("update!");
+    ship = api.getState();
+  });
 </script>

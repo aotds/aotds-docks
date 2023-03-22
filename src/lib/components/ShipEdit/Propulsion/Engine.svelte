@@ -25,7 +25,8 @@
   export let rating = 0;
   export let api = getContext("api");
 
-  $: api?.dispatch?.setEngine?.({ rating, advanced });
+  console.log(api?.dispatch?.setDrive);
+  $: api?.dispatch?.setDrive?.({ rating, advanced });
 </script>
 
 <style>

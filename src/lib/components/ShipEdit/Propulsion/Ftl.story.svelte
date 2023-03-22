@@ -13,5 +13,4 @@
   };
 
   import Ftl from "./Ftl.svelte";
-  import "$lib/components/GlobalStyle.svelte";
 </script>
