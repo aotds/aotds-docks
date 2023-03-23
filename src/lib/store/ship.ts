@@ -6,6 +6,7 @@ import identification from "./ship/identification";
 import ftl, { calcFtlReqs } from "./ship/propulsion/ftl";
 import drive from "./ship/propulsion/drive";
 import { calcDriveReqs } from "$lib/shipDux/engine";
+import { carrierDux } from "./ship/carrier";
 
 const shipDux = new Updux({
     subduxes: {
@@ -17,6 +18,7 @@ const shipDux = new Updux({
                 drive,
             },
         }),
+        carrier: carrierDux,
     },
 });
 

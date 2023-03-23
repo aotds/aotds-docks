@@ -9,5 +9,5 @@ export default defineConfig({
             // Options here
         }),
     ],
-    //    setupFile: "./src/histoire.setup.js",
+    setupFile: "./src/histoire.setup.js",
 });

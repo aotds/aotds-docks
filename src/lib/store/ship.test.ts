@@ -11,4 +11,13 @@ test("misc", () => {
     store.dispatch.setDrive({ rating: 3, advanced: true });
 
     expect(store.getState().propulsion.drive.reqs).toEqual({ mass: 2, cost: 6 });
+
+    store.dispatch.setNbrCarrierBays(1);
+    expect(store.getState().carrier.nbrBays).toEqual(1);
+    store.dispatch.setNbrCarrierBays(2);
+    expect(store.getState().carrier.nbrBays).toEqual(2);
+
+    store.dispatch.setSquadronType(2, "fast");
+
+    expect(store.getState().carrier.squadrons[1]).toHaveProperty("type", "fast");
 });
