@@ -1,6 +1,6 @@
 <Section label="propulsion">
-  <Drive {...propulsion.drive} />
-  <Ftl {...propulsion.ftl} />
+  <Drive {...drive} />
+  <Ftl {...ftl} />
 </Section>
 
 <script lang="ts">
@@ -8,8 +8,6 @@
   import Drive from "./Propulsion/Engine.svelte";
   import Ftl from "./Propulsion/Ftl.svelte";
 
-  export let propulsion = {
-    drive: {},
-    ftl: {},
-  };
+  export let drive = {};
+  export let ftl = {};
 </script>

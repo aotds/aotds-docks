@@ -2,28 +2,28 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { reqs, Reqs } from "../reqs";
 
 type DriveProps = {
-  rating: number;
-  advanced: boolean;
+    rating: number;
+    advanced: boolean;
 };
 
 export const initialState: DriveProps & { reqs: Reqs } = {
-  rating: 0,
-  advanced: false,
-  reqs,
+    rating: 0,
+    advanced: false,
+    reqs,
 };
 
 const driveSlice = createSlice({
-  initialState,
-  name: "drive",
-  reducers: {
-    setDrive: (state, action: PayloadAction<DriveProps>) => {
-      state.rating = action.payload.rating;
-      state.advanced = action.payload.advanced;
+    initialState,
+    name: "drive",
+    reducers: {
+        setDrive: (state, action: PayloadAction<DriveProps>) => {
+            state.rating = action.payload.rating;
+            state.advanced = action.payload.advanced;
+        },
+        setDriveReqs: (state, action: PayloadAction<Reqs>) => {
+            state.reqs = action.payload;
+        },
     },
-    setDriveReqs: (state, action: PayloadAction<Reqs>) => {
-      state.reqs = action.payload;
-    },
-  },
 });
 
 export const { actions, reducer } = driveSlice;
@@ -41,10 +41,4 @@ export const calculateDriveReqs = (store) =>
       store.dispatch.setDriveReqs(calcDriveReqs(ship_mass, rating, advanced))
   );
 
-export function calcDriveReqs(shipMass, rating, advanced = false) {
-  const mass = Math.ceil(rating * 0.05 * shipMass);
-  const cost = mass * (advanced ? 3 : 2);
-
-  return { mass, cost };
-}
 */

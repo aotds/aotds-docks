@@ -13,5 +13,4 @@
   };
 
   import Engine from "./Engine.svelte";
-  import "$lib/components/GlobalStyle.svelte";
 </script>

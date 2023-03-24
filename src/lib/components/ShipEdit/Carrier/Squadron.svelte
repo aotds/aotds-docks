@@ -1,5 +1,4 @@
 <ShipItem {...reqs}>
-  <!--
   <Field label={`squadron ${id}`}>
     <select bind:value={type}>
       {#each types as type (type)}
@@ -7,7 +6,6 @@
       {/each}
     </select>
   </Field>
-    -->
 </ShipItem>
 
 <script>

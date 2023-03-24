@@ -1,9 +1,13 @@
-import { extractFromSvelteConfig } from "vitest-svelte-kit";
+import { mergeConfig } from "vite";
+import { defineConfig } from "vitest/config";
+import viteConfig from "./vite.config.js";
 
-export default extractFromSvelteConfig().then((config) => ({
-    ...config,
-    test: {
-      globals: true,
-      environment: "jsdom",
-    },
-  }));
+export default mergeConfig(
+    viteConfig,
+    defineConfig({
+        test: {
+            globals: true,
+            environment: "jsdom",
+        },
+    })
+);
