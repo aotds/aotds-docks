@@ -1,5 +1,5 @@
 <Hst.Story>
-  <ShipEdit {ship} />
+  <ShipEdit {...ship} />
 </Hst.Story>
 
 <script>
@@ -14,8 +14,5 @@
 
   let ship = api.getState();
 
-  api.subscribe(() => {
-    console.log("update!");
-    ship = api.getState();
-  });
+  api.subscribe(() => (ship = api.getState()));
 </script>

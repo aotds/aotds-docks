@@ -7,7 +7,7 @@ export const ftlTypes = ["none", "standard", "advanced"] as const;
 
 type FtlType = typeof ftlTypes[number];
 
-export const initial = {
+export const initialState = {
     reqs,
     type: "none" as FtlType,
 };
@@ -16,7 +16,7 @@ const setFtlType = createAction("setFtlType", withPayload<FtlType>());
 const setFtlReqs = createAction("setFtlReqs", withPayload<Reqs>());
 
 const dux = new Updux({
-    initial,
+    initialState,
     actions: { setFtlType, setFtlReqs },
     selectors: {
         getFtlType: R.prop<any, any>("type"),

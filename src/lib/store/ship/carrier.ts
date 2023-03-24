@@ -7,7 +7,7 @@ type Squadron = {
     reqs: Reqs;
 };
 
-const initial = {
+const initialState = {
     nbrBays: 0,
     squadrons: [] as Squadron[],
     reqs,
@@ -30,7 +30,7 @@ const setSquadronType = createPayloadAction(
 );
 
 export const carrierDux = new Updux({
-    initial,
+    initialState,
     actions: { setNbrCarrierBays, setSquadronType },
 });
 
@@ -93,7 +93,7 @@ function squadronReqs(type: string) {
 /*
 export const { actions, reducer } = createSlice({
     name: "carrier",
-    initialState,
+    initialStateState,
     reducers: {
         setCarrierBays: (state, action: PayloadAction<number>) => {
             state.bays = action.payload;

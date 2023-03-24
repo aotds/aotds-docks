@@ -1,7 +1,9 @@
 import Updux, { createAction, withPayload } from "updux";
 import u from "@yanick/updeep-remeda";
+import * as R from "remeda";
+import { carrierDux } from "./carrier";
 
-const initial = {
+const initialState = {
     shipType: "",
     shipClass: "",
     isCarrier: false,
@@ -17,7 +19,7 @@ const updateIdentification = createAction("updateIdentification");
 const setShipReqs = createAction("setShipReqs", withPayload());
 
 export const dux = new Updux({
-    initial,
+    initialState,
     actions: {
         setShipClass,
         updateIdentification,
@@ -25,11 +27,18 @@ export const dux = new Updux({
     },
     selectors: {
         getShipMass: (state) => state.reqs.mass,
+        isCarrier: ({ isCarrier }) => isCarrier,
     },
 });
 
 dux.addMutation(setShipClass, (shipClass) => u({ shipClass }));
 dux.addMutation(updateIdentification, (update) => u(update));
 dux.addMutation(setShipReqs, (reqs) => u({ reqs }));
+
+dux.addMutation(carrierDux.actions.setNbrCarrierBays, (nbrBays) =>
+    u({
+        isCarrier: nbrBays > 0,
+    })
+);
 
 export default dux;

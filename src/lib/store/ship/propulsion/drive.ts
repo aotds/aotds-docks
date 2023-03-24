@@ -7,7 +7,7 @@ type DriveProps = {
     advanced: boolean;
 };
 
-const initial: DriveProps & { reqs: Reqs } = {
+const initialState: DriveProps & { reqs: Reqs } = {
     rating: 0,
     advanced: false,
     reqs,
@@ -17,7 +17,7 @@ const setDrive = createPayloadAction<DriveProps>("setDrive");
 const setDriveReqs = createPayloadAction<Reqs>("setDriveReqs");
 
 const dux = new Updux({
-    initial,
+    initialState,
     actions: { setDrive, setDriveReqs },
 });
 
