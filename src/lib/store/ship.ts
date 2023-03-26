@@ -12,6 +12,7 @@ import { streamliningDux as streamlining } from "./ship/structure/streamlining";
 import { calcStreamliningReqs } from "./ship/structure/rules";
 import { cargoDux } from "./ship/structure/cargo";
 import { hullDux } from "./ship/structure/hull";
+import { screensDux, screensReqsReaction } from "./ship/structure/screens";
 
 const shipDux = new Updux({
   subduxes: {
@@ -22,6 +23,7 @@ const shipDux = new Updux({
         streamlining,
         cargo: cargoDux,
         hull: hullDux,
+        screens: screensDux,
       },
     }),
     propulsion: new Updux({
@@ -88,5 +90,7 @@ shipDux.addReaction((api) =>
     }
   )
 );
+
+shipDux.addReaction(screensReqsReaction);
 
 export default shipDux;
