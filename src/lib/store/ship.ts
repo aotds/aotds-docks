@@ -1,6 +1,7 @@
 import { createSelector } from "@reduxjs/toolkit";
 import Updux from "updux";
 import * as R from "remeda";
+import memoize from "memoize-one";
 
 import identification from "./ship/identification";
 import ftl, { calcFtlReqs } from "./ship/propulsion/ftl";
@@ -10,6 +11,7 @@ import { carrierDux } from "./ship/carrier";
 import { streamliningDux as streamlining } from "./ship/structure/streamlining";
 import { calcStreamliningReqs } from "./ship/structure/rules";
 import { cargoDux } from "./ship/structure/cargo";
+import { hullDux } from "./ship/structure/hull";
 
 const shipDux = new Updux({
   subduxes: {
@@ -19,6 +21,7 @@ const shipDux = new Updux({
       subduxes: {
         streamlining,
         cargo: cargoDux,
+        hull: hullDux,
       },
     }),
     propulsion: new Updux({
@@ -32,13 +35,13 @@ const shipDux = new Updux({
   },
 });
 
-shipDux.addReaction((api) =>
-  createSelector(
+shipDux.addReaction((api) => {
+  return createSelector(
     api.selectors.getFtlType,
     api.selectors.getShipMass,
     (type, mass) => api.dispatch.setFtlReqs(calcFtlReqs(type, mass))
-  )
-);
+  );
+});
 
 shipDux.addReaction((api) => (state) => {
   let cost = 0;
@@ -59,6 +62,10 @@ shipDux.addReaction((api) => (state) => {
   }
 
   api.dispatch.setShipReqs({ cost, usedMass: mass });
+});
+
+shipDux.addEffect((api) => (next) => (action) => {
+  next(action);
 });
 
 shipDux.addReaction((api) =>
