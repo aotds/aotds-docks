@@ -9,6 +9,7 @@ import { calcDriveReqs } from "$lib/shipDux/engine";
 import { carrierDux } from "./ship/carrier";
 import { streamliningDux as streamlining } from "./ship/structure/streamlining";
 import { calcStreamliningReqs } from "./ship/structure/rules";
+import { cargoDux } from "./ship/structure/cargo";
 
 const shipDux = new Updux({
   subduxes: {
@@ -17,6 +18,7 @@ const shipDux = new Updux({
       initialState: {},
       subduxes: {
         streamlining,
+        cargo: cargoDux,
       },
     }),
     propulsion: new Updux({
@@ -75,7 +77,6 @@ shipDux.addReaction((api) =>
     api.selectors.getShipMass,
     api.selectors.getStreamlining,
     (mass, type) => {
-      console.log("AH!", mass, type);
       api.dispatch.setStreamliningReqs(calcStreamliningReqs(type, mass));
     }
   )

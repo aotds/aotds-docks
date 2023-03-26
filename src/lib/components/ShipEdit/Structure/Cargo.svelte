@@ -5,17 +5,17 @@
 </ShipItem>
 
 <script>
-  import ShipItem from "$lib/components/ShipItem/index.svelte";
-  import Field from "$lib/components/Field/index.svelte";
+  import ShipItem from "$lib/components/ShipItem.svelte";
+  import Field from "$lib/components/Field.svelte";
 
   import { getContext } from "svelte";
 
-  export let ship = getContext("ship");
+  export let api = getContext("api");
 
   export let space = 0;
   export let reqs = {};
 
-  $: ship.dispatch.setCargo(space);
+  $: api?.dispatch?.setCargo?.(space);
 </script>
 
 <style>

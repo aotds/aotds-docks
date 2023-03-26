@@ -3,8 +3,6 @@ import ship from "./ship";
 
 test("kicking the tires", () => {
   const store = ship.createStore();
-  console.log(store.getState());
-  console.log(store.getState.getStreamlining());
   store.dispatch.setFtlType("standard");
 
   expect(store.getState().propulsion.ftl.reqs.mass).toEqual(1);
@@ -29,4 +27,13 @@ test("kicking the tires", () => {
 
   expect(store.getState.getStreamlining()).toBe("partial");
   expect(store.selectors.getStreamlining(store.getState())).toBe("partial");
+
+  store.dispatch.setCargo(3);
+  expect(store.getState().structure.cargo).toEqual({
+    space: 3,
+    reqs: {
+      mass: 3,
+      cost: 0,
+    },
+  });
 });
