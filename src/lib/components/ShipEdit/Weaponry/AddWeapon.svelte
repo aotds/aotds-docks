@@ -10,7 +10,7 @@
 
 <script>
   import { getContext } from "svelte";
-  import Field from "../../Field/index.svelte";
+  import Field from "../../Field.svelte";
 
   import { weaponTypes } from "$lib/shipDux/weaponry/weapons";
 

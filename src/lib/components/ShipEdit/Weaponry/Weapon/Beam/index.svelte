@@ -23,8 +23,8 @@
     import { getContext } from "svelte";
 
     import Arcs from "../Arcs.svelte";
-    import ShipItem from "$lib/components/ShipItem/index.svelte";
-    import Field from "$lib/components/Field/index.svelte";
+    import ShipItem from "$lib/components/ShipItem.svelte";
+    import Field from "$lib/components/Field.svelte";
 
     import { createEventDispatcher } from "svelte";
 

@@ -5,14 +5,14 @@
 </ShipItem>
 
 <script>
-    import { getContext } from 'svelte';
-  import ShipItem from "$lib/components/ShipItem/index.svelte";
-  import Field from "$lib/components/Field/index.svelte";
+  import { getContext } from "svelte";
+  import ShipItem from "$lib/components/ShipItem.svelte";
+  import Field from "$lib/components/Field.svelte";
 
   export let rating = 0;
   export let reqs = {};
 
-  const { dispatch } = getContext('ship');
+  const api = getContext("api");
 
-  $: dispatch.setADFC(rating);
+  $: api?.dispatch?.setADFC?.(rating);
 </script>

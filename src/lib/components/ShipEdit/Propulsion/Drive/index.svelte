@@ -17,8 +17,8 @@
 
 <script>
   import { getContext } from "svelte";
-  import Field from "$lib/components/Field/index.svelte";
-  import ShipItem from "$lib/components/ShipItem/index.svelte";
+  import Field from "$lib/components/Field.svelte";
+  import ShipItem from "$lib/components/ShipItem.svelte";
 
   export let reqs = {};
   export let advanced = false;

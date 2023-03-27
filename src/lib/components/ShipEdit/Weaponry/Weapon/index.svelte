@@ -17,8 +17,8 @@
   import { getContext } from "svelte";
 
   import Arc from "./Arc.svelte";
-  import ShipItem from "$lib/components/ShipItem/index.svelte";
-  import Field from "$lib/components/Field/index.svelte";
+  import ShipItem from "$lib/components/ShipItem.svelte";
+  import Field from "$lib/components/Field.svelte";
    import Beam from "./Beam/index.svelte";
    import Submunition from "./Submunition.svelte";
    import PointDefenceSystem from "./PDS.svelte";

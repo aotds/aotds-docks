@@ -2,6 +2,7 @@
   <Identification {...identification} />
   <Propulsion {...propulsion} />
   <Structure {...structure} />
+  <Weaponry {...weaponry} />
 </main>
 
 <script>
@@ -9,10 +10,12 @@
   import Propulsion from "./ShipEdit/Propulsion.svelte";
   import shipDux from "$lib/store/ship";
   import Structure from "./ShipEdit/Structure.svelte";
+  import Weaponry from "./ShipEdit/Weaponry.svelte";
 
   export let identification = {};
   export let propulsion = {};
   export let structure = {};
+  export let weaponry = {};
 </script>
 
 <style>
