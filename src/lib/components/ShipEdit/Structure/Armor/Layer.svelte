@@ -5,14 +5,14 @@
 <script>
   import { getContext } from "svelte";
 
-  import Field from "$lib/components/Field/index.svelte";
+  import Field from "$lib/components/Field.svelte";
 
   export let layer = 1;
   export let rating = 0;
 
-  const ship = getContext("ship");
+  export let api = getContext("api");
 
-  $: ship.dispatch.setArmorRating({ layer, rating });
+  $: api?.dispatch?.setArmorRating?.(layer, rating);
 </script>
 
 <style>
