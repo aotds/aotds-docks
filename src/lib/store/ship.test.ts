@@ -36,4 +36,15 @@ test("kicking the tires", () => {
       cost: 0,
     },
   });
+
+  store.dispatch.setNbrArmorLayers(1);
+  store.dispatch.setArmorRating(1, 3);
+
+  expect(store.getState().structure.armor).toEqual({
+    layers: [3],
+    reqs: {
+      cost: 6,
+      mass: 6,
+    },
+  });
 });

@@ -13,27 +13,48 @@ import { calcStreamliningReqs } from "./ship/structure/rules";
 import { cargoDux } from "./ship/structure/cargo";
 import { hullDux } from "./ship/structure/hull";
 import { screensDux, screensReqsReaction } from "./ship/structure/screens";
+import { armorDux } from "./ship/structure/armor";
+import { fireconsDux } from "./ship/weaponry/firecons";
+import { adfcDux } from "./ship/weaponry/adfc";
+import { weaponsDux } from "./ship/weaponry/weapons";
+
+process.env.UPDEEP_MODE = "dangerously_never_freeze";
+
+const structure = new Updux({
+  initialState: {},
+  subduxes: {
+    streamlining,
+    cargo: cargoDux,
+    hull: hullDux,
+    screens: screensDux,
+    armor: armorDux,
+  },
+});
+
+const propulsion = new Updux({
+  initialState: {},
+  subduxes: {
+    ftl,
+    drive,
+  },
+});
+
+const weaponry = new Updux({
+  initialState: {},
+  subduxes: {
+    adfc: adfcDux,
+    firecons: fireconsDux,
+    weapons: weaponsDux,
+  },
+});
 
 const shipDux = new Updux({
   subduxes: {
     identification,
-    structure: new Updux({
-      initialState: {},
-      subduxes: {
-        streamlining,
-        cargo: cargoDux,
-        hull: hullDux,
-        screens: screensDux,
-      },
-    }),
-    propulsion: new Updux({
-      initialState: {},
-      subduxes: {
-        ftl,
-        drive,
-      },
-    }),
+    structure,
+    propulsion,
     carrier: carrierDux,
+    weaponry,
   },
 });
 
