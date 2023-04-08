@@ -47,4 +47,11 @@ test("kicking the tires", () => {
       mass: 6,
     },
   });
+
+  store.dispatch.addWeapon("beam");
+  expect(store.getState().weaponry.weapons[0]).toEqual({
+    id: 1,
+    reqs: { cost: 3, mass: 1 },
+    specs: { arcs: ["F"], type: "beam", weaponClass: 1 },
+  });
 });

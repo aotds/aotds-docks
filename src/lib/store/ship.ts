@@ -66,28 +66,40 @@ shipDux.addReaction((api) => {
   );
 });
 
-shipDux.addReaction((api) => (state) => {
-  let cost = 0;
-  let mass = 0;
+shipDux.addReaction((api) => {
+  const setShipReqs = memoize((cost, usedMass) =>
+    api.dispatch.setShipReqs({ cost, usedMass })
+  );
 
-  let subsystems = R.values(R.omit(state, ["identification"]));
+  return (state) => {
+    let cost = 0;
+    let mass = 0;
 
-  while (subsystems.length > 0) {
-    const subsystem = subsystems.shift();
-    if (typeof subsystem !== "object") continue;
+    let subsystems = R.values(R.omit(state, ["identification"]));
 
-    if (subsystem.reqs) {
-      cost += subsystem.reqs.cost;
-      mass += subsystem.reqs.mass;
+    while (subsystems.length > 0) {
+      const subsystem = subsystems.shift();
+      if (typeof subsystem !== "object") continue;
+
+      if (subsystem.reqs) {
+        cost += subsystem.reqs.cost ?? 0;
+        mass += subsystem.reqs.mass ?? 0;
+      }
+
+      subsystems.push(...Object.values(subsystem));
     }
 
-    subsystems.push(...Object.values(subsystem));
-  }
+    if (Number.isNaN(cost)) {
+      console.log(state.weaponry.weapons);
+      throw new Error();
+    }
 
-  api.dispatch.setShipReqs({ cost, usedMass: mass });
+    setShipReqs(cost, mass);
+  };
 });
 
 shipDux.addEffect((api) => (next) => (action) => {
+  console.log(action);
   next(action);
 });
 

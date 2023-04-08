@@ -2,14 +2,12 @@
   <Firecons {...firecons} />
 
   <ADFC {...adfc} />
-  <!--
 
-    <AddWeapon />
+  <AddWeapon />
 
-    {#each weapons as weapon (weapon.id)}
-        <Weapon {weapon} id={weapon.id} />
-    {/each}
-    -->
+  {#each weapons as weapon (weapon.id)}
+    <Weapon {...weapon} />
+  {/each}
 </Section>
 
 <script>
@@ -22,17 +20,14 @@
 
   import Firecons from "./Weaponry/Firecons.svelte";
   import ADFC from "./Weaponry/ADFC.svelte";
+  import AddWeapon from "./Weaponry/AddWeapon.svelte";
 
   export let firecons = {};
   export let adfc = {};
-  /*
 
-    import AddWeapon from './AddWeapon.svelte';
-    import Weapon from './Weapon/index.svelte';
+  import Weapon from "./Weaponry/Weapon/index.svelte";
 
-
-export let weapons = [];
-*/
+  export let weapons = [];
 </script>
 
 <style>

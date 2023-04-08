@@ -1,58 +1,94 @@
 import type { Reqs } from "$lib/shipDux/reqs";
 
+export const arcs = ["FS", "F", "FP", "AP", "A", "AS"] as const;
+
+export type Arc = (typeof arcs)[number];
+
+export type WeaponType = "beam";
+
+type Beam = {
+  type: "beam";
+  weaponClass: 1 | 2 | 3 | 4;
+  arcs: Arc[];
+};
+
+type Submunition = {
+  type: "submunition";
+  arc: Arc;
+};
+
+type PDS = {
+  type: "pds";
+};
+
+type Scattergun = { type: "scattergun" };
+
+type Needle = { type: "needle"; arc: Arc };
+
+export type Weapon = Beam | Submunition | PDS | Scattergun | Needle;
+
 export const weaponTypes = [
   {
-    name: "beam",
     type: "beam",
+    name: "beam",
     reqs: beamReqs,
     initial: {
+      type: "beam",
       weaponClass: 1,
-    },
+      arcs,
+    } as any as Beam,
   },
   {
-    name: "submunition pack",
     type: "submunition",
+    name: "submunition pack",
     reqs: { mass: 1, cost: 3 },
-    initial: { arc: "F" },
+    initial: { type: "submunition", arc: "F" } as Submunition,
   },
   {
     name: "point defence system",
     type: "pds",
     reqs: { mass: 1, cost: 3 },
-    initial: {},
+    initial: {
+      type: "pds",
+    },
   },
   {
     name: "scattergun",
     type: "scattergun",
     reqs: { mass: 1, cost: 4 },
-    initial: {},
+    initial: { type: "scattergun" },
   },
   {
     name: "needle weapon",
     type: "needle",
     reqs: { mass: 2, cost: 6 },
-    initial: { arc: "F" },
+    initial: { arc: "F", type: "needle" },
   },
 ];
 
 export function weaponReqs(weapon): Reqs {
   const { reqs } = weaponTypes.find((wt) => wt.type === weapon.type) || {};
 
-  if (!reqs) return {};
+  if (!reqs)
+    return {
+      cost: 0,
+      mass: 0,
+    };
 
   if (typeof reqs === "function") return reqs(weapon);
 
   return reqs;
 }
 
-const isBroadside = (arcs) => {
+const isBroadside = (arcs: Arc[]) => {
   if (arcs.length !== 4) return false;
 
   // that'd be A or F
   return !arcs.some((a) => a.length === 1);
 };
 
-function beamReqs({ weaponClass, arcs }) {
+function beamReqs({ weaponClass, arcs }: Beam) {
+  console.log(weaponClass, arcs);
   let mass;
 
   if (weaponClass === 1) {

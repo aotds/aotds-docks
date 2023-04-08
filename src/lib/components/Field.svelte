@@ -1,4 +1,4 @@
-<div>
+<div class="field">
   {#if label}
     <label>{label}</label>
   {/if}
