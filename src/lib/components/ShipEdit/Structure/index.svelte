@@ -7,7 +7,7 @@
 </Section>
 
 <script>
-  import Section from "$lib/components/Section/index.svelte";
+  import Section from "$lib/components/Section.svelte";
   import Hull from './Hull.svelte';
   import Screens from './Screens.svelte';
   import Cargo from './Cargo.svelte';

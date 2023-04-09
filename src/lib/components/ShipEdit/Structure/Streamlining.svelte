@@ -18,17 +18,17 @@
 </ShipItem>
 
 <script>
-  import ShipItem from "$lib/components/ShipItem/index.svelte";
-  import Field from "$lib/components/Field/index.svelte";
+  import ShipItem from "$lib/components/ShipItem.svelte";
+  import Field from "$lib/components/Field.svelte";
 
   import { getContext } from "svelte";
 
   export let type = "none";
   export let reqs = {};
 
-  export let {dispatch, shipMass} = getContext("ship");
+  export let api = getContext("api");
 
-  $: dispatch.setStreamlining({type, shipMass: $shipMass});
+  $: api?.dispatch?.setStreamlining?.(type);
 </script>
 
 <style>

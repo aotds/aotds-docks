@@ -1,7 +1,14 @@
 <ShipItem {...reqs}>
   <div>
     <Field label="thrust rating">
-      <input class="short" type="number" bind:value={rating} min="0" max="20" step="1" />
+      <input
+        class="short"
+        type="number"
+        bind:value={rating}
+        min="0"
+        max="20"
+        step="1"
+      />
     </Field>
 
     <label><input type="checkbox" bind:checked={advanced} /> advanced</label>
@@ -10,8 +17,8 @@
 
 <script>
   import { getContext } from "svelte";
-  import Field from "$lib/components/Field/index.svelte";
-  import ShipItem from "$lib/components/ShipItem/index.svelte";
+  import Field from "$lib/components/Field.svelte";
+  import ShipItem from "$lib/components/ShipItem.svelte";
 
   export let reqs = {};
   export let advanced = false;
@@ -19,7 +26,7 @@
 
   const ship = getContext("ship");
 
-  $: ship.dispatch.setDrive({ rating, advanced });
+  $: ship.dispatch(ship.actions.setEngine({ rating, advanced }));
 </script>
 
 <style>

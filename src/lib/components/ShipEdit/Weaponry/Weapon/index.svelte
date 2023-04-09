@@ -1,15 +1,8 @@
 <ShipItem {...reqs}>
   <div class="weapon_row">
-    <button
-      class="button small red remove"
-      on:click={remove}>remove
-    </button>
+    <button class="button small red remove" on:click={remove}>remove </button>
 
-    <svelte:component
-      this={component[type]}
-      {...weapon}
-      on:change={update}
-    />
+    <svelte:component this={component[type]} {...specs} on:change={update} />
   </div>
 </ShipItem>
 
@@ -17,36 +10,35 @@
   import { getContext } from "svelte";
 
   import Arc from "./Arc.svelte";
-  import ShipItem from "$lib/components/ShipItem/index.svelte";
-  import Field from "$lib/components/Field/index.svelte";
-   import Beam from "./Beam/index.svelte";
-   import Submunition from "./Submunition.svelte";
-   import PointDefenceSystem from "./PDS.svelte";
-   import Scattergun from "./Scattergun.svelte";
+  import ShipItem from "$lib/components/ShipItem.svelte";
+  import Field from "$lib/components/Field.svelte";
+  import Beam from "./Beam/index.svelte";
+  import Submunition from "./Submunition.svelte";
+  import PointDefenceSystem from "./PDS.svelte";
+  import Scattergun from "./Scattergun.svelte";
   import Needle from "./Needle.svelte";
 
   const component = {
-     beam: Beam,
-     submunition: Submunition,
-     pds: PointDefenceSystem,
-     scattergun: Scattergun,
-     needle: Needle,
+    beam: Beam,
+    submunition: Submunition,
+    pds: PointDefenceSystem,
+    scattergun: Scattergun,
+    needle: Needle,
   };
 
-  export let weapon = {};
-  $: reqs = weapon.reqs;
+  export let reqs = {};
+  export let specs = {};
   export let id;
 
-  const ship = getContext("ship");
+  const api = getContext("api");
 
-  $: type = weapon.type;
+  $: type = specs.type;
 
-  const remove = () => ship.dispatch.removeWeapon(id);
+  const remove = () => api?.dispatch?.removeWeapon?.(id);
 
   const update = ({ detail }) => {
-      console.log({id,type})
-    ship.dispatch.setWeapon({
-      id,
+    console.log({ id, type });
+    api?.dispatch?.setWeapon?.(id, {
       type,
       ...detail,
     });
@@ -54,6 +46,9 @@
 </script>
 
 <style>
+  button {
+    width: inherit;
+  }
   .weapon {
     display: flex;
     align-items: center;

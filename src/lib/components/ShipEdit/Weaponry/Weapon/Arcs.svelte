@@ -1,10 +1,10 @@
 <svg width="{size}px" height="{size}px">
-  {#each all_arcs as arc (arc)}
+  {#each arcs as arc (arc)}
     <Arc
       {arc}
       radius={size / 2}
       active={selected.includes(arc)}
-      on:click={() => click_arc(arc)}
+      on:click={() => clickArc(arc)}
     />
   {/each}
   <circle cx="50%" cy="50%" r={size / 3} />
@@ -12,17 +12,17 @@
 </svg>
 
 <script>
-  import Arc from "./Arc.svelte";
   import { createEventDispatcher } from "svelte";
 
-  const all_arcs = ["FS", "F", "FP", "AP", "A", "AS"];
+  import { arcs } from "$lib/store/ship/weaponry/rules";
+  import Arc from "./Arc.svelte";
 
   export let selected = [];
   export let size = 60;
 
   const dispatch = createEventDispatcher();
 
-  const click_arc = (arc) => dispatch("click_arc", arc);
+  const clickArc = (arc) => dispatch("clickArc", arc);
 </script>
 
 <style>

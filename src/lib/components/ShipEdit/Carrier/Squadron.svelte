@@ -11,26 +11,25 @@
 <script>
   import { getContext } from "svelte";
 
-  import Section from "$lib/components/Section/index.svelte";
-  import Field from "$lib/components/Field/index.svelte";
-  import ShipItem from "$lib/components/ShipItem/index.svelte";
-  import { squadronTypes } from "$lib/shipDux/carrier.js";
+  import Section from "$lib/components/Section.svelte";
+  import Field from "$lib/components/Field.svelte";
+  import ShipItem from "$lib/components/ShipItem.svelte";
+  //  import { squadronTypes } from "$lib/shipDux/carrier";
 
   const types = squadronTypes.map(({ type }) => type);
 
   export let id = 1;
-  export let type = types[0].type;
-  export let reqs= {};
+  export let type = ""; //types[0].type;
+  export let reqs = {};
 
-  export let { dispatch } = getContext("ship");
+  export let { dispatch } = getContext("api");
 
-  $: console.log(type)
-$: dispatch.setSquadronType({type, id});
-
+  $: console.log(type);
+  $: dispatch.setSquadronType({ type, id });
 </script>
 
 <style>
-select {
+  select {
     width: inherit;
-}
+  }
 </style>

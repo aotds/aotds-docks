@@ -1,19 +1,16 @@
 <label>submunition pack</label>
 
-<Arcs selected={[arc]} on:click_arc={({ detail }) => click_arc(detail)} />
+<Arcs selected={[arc]} on:clickArc={({ detail }) => clickArc(detail)} />
 
 <script>
-  import { getContext } from "svelte";
   import Arcs from "./Arcs.svelte";
   import { createEventDispatcher } from "svelte";
-
-  const all_arcs = ["FS", "F", "FP", "AP", "A", "AS"];
 
   export let arc = "F";
 
   const dispatch = createEventDispatcher();
 
-  const click_arc = (arc) => {
-        dispatch("change",{arc});
+  const clickArc = (arc) => {
+    dispatch("change", { arc });
   };
 </script>

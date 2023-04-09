@@ -1,6 +1,6 @@
 <ShipItem {...reqs}>
   <Field label="FTL drive">
-    {#each types as t (t)}
+    {#each ftlTypes as t (t)}
       <label
         ><input type="radio" bind:group={type} value={t} />
         {t}
@@ -9,19 +9,19 @@
   </Field>
 </ShipItem>
 
-<script>
+<script lang="ts">
   import { getContext } from "svelte";
-  import Field from "$lib/components/Field/index.svelte";
-  import ShipItem from "$lib/components/ShipItem/index.svelte";
 
-  const types = ["none", "standard", "advanced"];
+  import ShipItem from "$lib/components/ShipItem.svelte";
+  import Field from "$lib/components/Field.svelte";
 
-  export let reqs = {};
-  export let type = types[0];
+  import { ftlTypes } from "$lib/store/ship/propulsion/ftl";
 
-  const ship = getContext("ship");
+  export let type = "none";
+  export let reqs = { mass: 0, cost: 0 };
+  export let api = getContext("api");
 
-  $: ship.dispatch.setFtl(type);
+  $: api?.dispatch.setFtlType?.(type);
 </script>
 
 <style>

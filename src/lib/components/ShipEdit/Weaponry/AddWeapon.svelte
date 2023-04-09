@@ -1,29 +1,43 @@
-<Field label="weapon type">
-  <select bind:value={type}>
-        {#each weaponTypes as weapon (weapon.type)}
-    <option value={weapon.type}>{weapon.name}</option>
-        {/each}
-  </select>
-
-  <button class="button small primary" on:click={addWeapon} >add weapon</button>
-</Field>
+<div>
+  <Field label="">
+    <select bind:value={type}>
+      {#each weaponTypes as weapon (weapon.type)}
+        <option value={weapon.type}>{weapon.name}</option>
+      {/each}
+    </select>
+  </Field>
+  <button class="button small primary" on:click={addWeapon}>add weapon</button>
+</div>
 
 <script>
   import { getContext } from "svelte";
-  import Field from "../../Field/index.svelte";
+  import Field from "../../Field.svelte";
 
-  import { weaponTypes } from '$lib/shipDux/weaponry/weapons.js';
+  import { weaponTypes } from "$lib/store/ship/weaponry/rules";
 
-  export let ship = getContext("ship");
+  export let api = getContext("api");
 
-  let type = weaponTypes[0].value;
+  let type = weaponTypes[0].type;
 
-  const addWeapon = () => ship.dispatch.addWeapon(type);
+  const addWeapon = () => api?.dispatch?.addWeapon?.(type);
 </script>
 
 <style>
-select {
+  select {
     width: inherit;
     display: inline-block;
-}
+  }
+  button {
+    width: inherit;
+    display: inline-block;
+  }
+  div :global(.field) {
+    display: flex;
+    margin-right: 2em;
+  }
+  div {
+    display: flex;
+    margin-left: 5em;
+    margin-bottom: 2em;
+  }
 </style>

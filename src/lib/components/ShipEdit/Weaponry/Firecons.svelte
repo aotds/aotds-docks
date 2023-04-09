@@ -5,16 +5,16 @@
 </ShipItem>
 
 <script>
-import { getContext } from 'svelte';
-  import ShipItem from "$lib/components/ShipItem/index.svelte";
-  import Field from "$lib/components/Field/index.svelte";
+  import { getContext } from "svelte";
+  import ShipItem from "$lib/components/ShipItem.svelte";
+  import Field from "$lib/components/Field.svelte";
 
   export let stations = 0;
   export let reqs = {};
 
-  const { dispatch } = getContext('ship');
+  export let api = getContext("api");
 
-  $: dispatch.setFirecons(stations);
+  $: api?.dispatch?.setFirecons?.(stations);
 </script>
 
 <style>
