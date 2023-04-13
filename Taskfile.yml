@@ -6,6 +6,34 @@ vars:
   GREETING: Hello, World!
 
 tasks:
+  test:
+    cmds:
+      - vitest run src
+  test:dev:
+    cmds:
+      - vitest src
+
+  check:
+    deps:
+      - histoire:build
+    cmds:
+      - { task: test }
+
+  histoire:build:
+    sources:
+      - src/lib/components/**
+    generates:
+      - .histoire/screenshots/**
+    cmds:
+      - histoire build
+
+  integrate:
+    deps: [check]
+    cmds:
+      - git is-clean
+      - git checkout main
+      - git weld -
+
   release:
     cmds:
       - standard-version -a

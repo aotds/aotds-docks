@@ -7,7 +7,7 @@ import { reqs, Reqs } from "../reqs.js";
 
 const ftl = createSlice({
     name: "ftl",
-    initialState,
+    initialState: {},
     reducers: {
         setFtl: (state, { payload }: PayloadAction<FtlType>) => {
             state.type = payload;

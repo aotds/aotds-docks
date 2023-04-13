@@ -22,6 +22,5 @@ const adfc = createSlice({
 
 export const reducer = combineReducers({
   adfc: adfc.reducer,
-  firecons: firecons.reducer,
   weapons: weapons.reducer,
 });
