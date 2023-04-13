@@ -1,6 +1,31 @@
 {
   "stories": [
     {
+      "id": "src-lib-components-shipedit-story-svelte",
+      "title": "ShipEdit",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": null,
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/lib/components/ShipEdit.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "ShipEdit"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
       "id": "src-lib-components-shipitem-story-svelte",
       "title": "ShipItem",
       "group": null,
@@ -51,6 +76,58 @@
       "markdownFile": null
     },
     {
+      "id": "src-lib-components-shipedit-carrier-story-svelte",
+      "title": "Carrier",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": null,
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/lib/components/ShipEdit/Carrier.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "ShipEdit",
+        "Carrier"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-lib-components-shipedit-identification-story-svelte",
+      "title": "Identification",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": null,
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/lib/components/ShipEdit/Identification.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "ShipEdit",
+        "Identification"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
       "id": "src-lib-components-shipedit-propulsion-story-svelte",
       "title": "Propulsion",
       "group": null,
@@ -71,6 +148,31 @@
       "supportPluginId": "svelte3",
       "treePath": [
         "Propulsion"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-lib-components-shipedit-weaponry-story-svelte",
+      "title": "Weaponry",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": null,
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/lib/components/ShipEdit/Weaponry.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Weaponry"
       ],
       "virtual": false,
       "markdownFile": null
@@ -125,6 +227,31 @@
         "ShipEdit",
         "Propulsion",
         "Ftl"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-lib-components-shipedit-weaponry-weapon-arcs-story-svelte",
+      "title": "Arcs",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": null,
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/lib/components/ShipEdit/Weaponry/Weapon/Arcs.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Arcs"
       ],
       "virtual": false,
       "markdownFile": null
