@@ -17,3 +17,4 @@ dist/yarn-error.log
 .histoire/dist
 dist
 src/lib/components/__image_snapshots__/__diff_output__/
+.histoire/dist
