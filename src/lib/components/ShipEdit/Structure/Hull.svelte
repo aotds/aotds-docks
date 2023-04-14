@@ -17,7 +17,7 @@
 
   const api = getContext("api");
 
-  $: api.dispatch?.setHull?.(rating);
+  $: api?.dispatch?.setHull?.(rating);
 </script>
 
 <style>
