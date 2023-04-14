@@ -23,7 +23,7 @@
 
   const api = getContext("api");
 
-  $: api.dispatch?.setScreens?.({ standard, advanced });
+  $: api?.dispatch?.setScreens?.({ standard, advanced });
 </script>
 
 <style>

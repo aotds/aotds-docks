@@ -27,7 +27,7 @@
 
   const api = getContext("api");
 
-  $: api.dispatch.setNbrArmorLayers(nbr_layers);
+  $: api?.dispatch.setNbrArmorLayers(nbr_layers);
 </script>
 
 <style>
