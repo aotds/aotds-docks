@@ -8,7 +8,7 @@
   export let api = getContext("api");
 
   let ship = {};
-  api.subscribe(() => {
+  api?.subscribe(() => {
     ship = api.getState();
   });
 </script>

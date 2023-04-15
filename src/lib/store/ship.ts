@@ -100,11 +100,6 @@ shipDux.addReaction((api) => {
   };
 });
 
-shipDux.addEffect((api) => (next) => (action) => {
-  console.log(action);
-  next(action);
-});
-
 shipDux.addReaction((api) =>
   createSelector(
     api.selectors.getShipMass,

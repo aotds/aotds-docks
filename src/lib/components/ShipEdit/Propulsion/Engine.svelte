@@ -25,7 +25,6 @@
   export let rating = 0;
   export let api = getContext("api");
 
-  console.log(api?.dispatch?.setDrive);
   $: api?.dispatch?.setDrive?.({ rating, advanced });
 </script>
 
