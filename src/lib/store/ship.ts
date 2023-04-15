@@ -18,7 +18,9 @@ import { fireconsDux } from "./ship/weaponry/firecons";
 import { adfcDux } from "./ship/weaponry/adfc";
 import { weaponsDux } from "./ship/weaponry/weapons";
 
-process.env.UPDEEP_MODE = "dangerously_never_freeze";
+if (typeof process !== "undefined") {
+  process.env.UPDEEP_MODE = "dangerously_never_freeze";
+}
 
 const structure = new Updux({
   initialState: {},
