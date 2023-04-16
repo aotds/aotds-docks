@@ -51,6 +51,9 @@ const weaponry = new Updux({
 });
 
 const shipDux = new Updux({
+  initialState: {
+    schemaVersion: "1",
+  },
   subduxes: {
     identification,
     structure,

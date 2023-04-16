@@ -1,0 +1,99 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`state has the expected shape 1`] = `
+{
+  "carrier": {
+    "nbrBays": 0,
+    "reqs": {
+      "cost": 0,
+      "mass": 0,
+    },
+    "squadrons": [],
+  },
+  "identification": {
+    "isCarrier": false,
+    "reqs": {
+      "cost": 0,
+      "mass": 10,
+      "usedMass": 0,
+    },
+    "shipClass": "",
+    "shipType": "",
+  },
+  "propulsion": {
+    "drive": {
+      "advanced": false,
+      "rating": 0,
+      "reqs": {
+        "cost": 0,
+        "mass": 0,
+      },
+    },
+    "ftl": {
+      "reqs": {
+        "cost": 0,
+        "mass": 0,
+      },
+      "type": "none",
+    },
+  },
+  "schemaVersion": "1",
+  "structure": {
+    "armor": {
+      "layers": [],
+      "reqs": {
+        "cost": 0,
+        "mass": 0,
+      },
+    },
+    "cargo": {
+      "reqs": {
+        "cost": 0,
+        "mass": 0,
+      },
+      "space": 0,
+    },
+    "hull": {
+      "max": 0,
+      "min": 0,
+      "rating": 0,
+      "reqs": {
+        "cost": 0,
+        "mass": 0,
+      },
+    },
+    "screens": {
+      "advanced": 0,
+      "reqs": {
+        "cost": 0,
+        "mass": 0,
+      },
+      "standard": 0,
+    },
+    "streamlining": {
+      "reqs": {
+        "cost": 0,
+        "mass": 0,
+      },
+      "type": "none",
+    },
+  },
+  "weaponry": {
+    "adfc": {
+      "rating": 0,
+      "reqs": {
+        "cost": 0,
+        "mass": 0,
+      },
+    },
+    "firecons": {
+      "reqs": {
+        "cost": 0,
+        "mass": 0,
+      },
+      "stations": 0,
+    },
+    "weapons": [],
+  },
+}
+`;
