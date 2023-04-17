@@ -1,9 +1,7 @@
-<main>
-  <Identification {...identification} />
-  <Propulsion {...propulsion} />
-  <Structure {...structure} />
-  <Weaponry {...weaponry} />
-</main>
+<Identification {...identification} />
+<Propulsion {...propulsion} />
+<Structure {...structure} />
+<Weaponry {...weaponry} />
 
 <script>
   import Identification from "./ShipEdit/Identification.svelte";
