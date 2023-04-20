@@ -1,6 +1,7 @@
 <div class="mass">
-  <Field label="ship tonnage">
+  <Field label="ship tonnage" suffix>
     <input bind:value={mass} type="number" min="10" max="300" />
+    <i>Weight</i>
 
     <div class="note" class:warning={!withinBudget}>
       {#if withinBudget}
@@ -13,8 +14,9 @@
 </div>
 
 <div class="cost">
-  <Field label="cost">
-    <span class="cost">{cost}</span>
+  <Field label="total cost" suffix>
+    <input value={cost} disabled />
+    <i>Paid</i>
   </Field>
 </div>
 
@@ -77,8 +79,7 @@
   div.cost {
     grid-column: 3;
   }
-  span.cost:after {
-    content: "\00A4";
-    margin-left: 0.5em;
+  i {
+    top: 65%;
   }
 </style>
