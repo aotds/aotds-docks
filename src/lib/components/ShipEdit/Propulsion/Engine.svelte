@@ -11,7 +11,10 @@
       />
     </Field>
 
-    <label><input type="checkbox" bind:checked={advanced} /> advanced</label>
+    <label class="checkbox">
+      <input type="checkbox" bind:checked={advanced} />
+      <span>advanced</span>
+    </label>
   </div>
 </ShipItem>
 
@@ -35,5 +38,8 @@
   div {
     display: flex;
     align-items: end;
+  }
+  label {
+    margin-left: 2em;
   }
 </style>

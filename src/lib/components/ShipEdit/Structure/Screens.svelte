@@ -33,5 +33,6 @@
   div {
     display: flex;
     gap: 2em;
+    align-items: baseline;
   }
 </style>

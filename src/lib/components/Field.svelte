@@ -3,7 +3,7 @@
     <input type="text" bind:value on:change />
   </slot>
   {#if label}
-    <label class:active={!!value}>{label}</label>
+    <label class:active>{label}</label>
   {/if}
 </div>
 
@@ -13,6 +13,9 @@
   export let placeholder = label;
 
   export let suffix = false;
+  export let activeLabel = undefined;
+
+  $: active = typeof activeLabel === "boolean" ? activeLabel : value;
 </script>
 
 <style>

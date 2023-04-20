@@ -1,20 +1,22 @@
-<label>beam</label>
+<span>beam</span>
 
-<Field label="beam class">
+<Field label="beam class" suffix>
   <select bind:value={weaponClass}>
     <option value={1}>1</option>
     <option value={2}>2</option>
     <option value={3}>3</option>
     <option value={4}>4</option>
   </select>
+  <i>arrow_drop_down</i>
 </Field>
 
-<Field label="arcs">
+<Field label="arcs" suffix>
   <select bind:value={nbrArcs}>
     {#each arc_options[weaponClass] || [] as nbrArcs (nbrArcs)}
       <option>{nbrArcs}</option>
     {/each}
   </select>
+  <i>arrow_drop_down</i>
 </Field>
 
 <Arcs selected={arcs} on:clickArc={({ detail }) => setArcs(detail)} />

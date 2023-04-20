@@ -3,9 +3,12 @@
 
   <div class="reqs">
     <div class="mass" bind:this={mass_el}>
-      {mass} <img src="{base}/mass.svg" alt="mass" />
+      {mass} <i>Weight</i>
     </div>
-    <div class="cost" bind:this={cost_el}>{cost}</div>
+    <div class="cost" bind:this={cost_el}>
+      {cost}
+      <i>Paid</i>
+    </div>
   </div>
 </div>
 
@@ -52,10 +55,6 @@
 
   img {
     width: 0.75em;
-  }
-  .cost:after {
-    content: "\00A4";
-    margin-left: 0.5em;
   }
   .mass img {
     width: 0.75em;
