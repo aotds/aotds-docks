@@ -1,12 +1,14 @@
 <div class="identification-row">
   <div>
     <Field label="ship class" bind:value={shipClass} />
-    <Field label="ship type">
+    <Field suffix>
       <select bind:value={shipType}>
         {#each shipTypes as name (name)}
           <option>{name}</option>
         {/each}
       </select>
+      <label class="active">ship type</label>
+      <i>arrow_drop_down</i>
     </Field>
   </div>
   <ShipCost {...reqs} />
