@@ -1,6 +1,6 @@
 <ShipItem {...reqs}>
   <div class="weapon_row">
-    <button class="button small red remove" on:click={remove}>remove </button>
+    <a on:click={remove}><i>Delete</i> </a>
 
     <svelte:component this={component[type]} {...specs} on:change={update} />
   </div>

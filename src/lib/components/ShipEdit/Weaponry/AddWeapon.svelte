@@ -1,12 +1,13 @@
 <div>
-  <Field label="">
+  <button class="button small primary" on:click={addWeapon}>add weapon</button>
+  <Field label="" suffix>
     <select bind:value={type}>
       {#each weaponTypes as weapon (weapon.type)}
         <option value={weapon.type}>{weapon.name}</option>
       {/each}
     </select>
+    <i>arrow_drop_down</i>
   </Field>
-  <button class="button small primary" on:click={addWeapon}>add weapon</button>
 </div>
 
 <script>
@@ -30,6 +31,7 @@
   button {
     width: inherit;
     display: inline-block;
+    margin-right: 2em;
   }
   div :global(.field) {
     display: flex;
@@ -37,7 +39,8 @@
   }
   div {
     display: flex;
-    margin-left: 5em;
+    margin-left: 0em;
     margin-bottom: 2em;
+    align-items: baseline;
   }
 </style>

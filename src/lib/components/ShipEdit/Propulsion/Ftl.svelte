@@ -1,12 +1,13 @@
 <ShipItem {...reqs}>
-  <Field label="FTL drive">
+  <div>FTL drive</div>
+  <nav>
     {#each ftlTypes as t (t)}
       <label
         ><input type="radio" bind:group={type} value={t} />
-        {t}
+        <span>{t}</span>
       </label>
     {/each}
-  </Field>
+  </nav>
 </ShipItem>
 
 <script lang="ts">

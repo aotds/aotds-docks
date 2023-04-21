@@ -2,7 +2,7 @@
   <div>
     <Field label="thrust rating">
       <input
-        class="short"
+        class="engine"
         type="number"
         bind:value={rating}
         min="0"
@@ -11,7 +11,10 @@
       />
     </Field>
 
-    <label><input type="checkbox" bind:checked={advanced} /> advanced</label>
+    <label class="checkbox">
+      <input type="checkbox" bind:checked={advanced} />
+      <span>advanced</span>
+    </label>
   </div>
 </ShipItem>
 
@@ -29,28 +32,14 @@
 </script>
 
 <style>
+  input.engine {
+    width: 9em;
+  }
   div {
     display: flex;
     align-items: end;
   }
   label {
-    font-family: var(--main-font-family);
     margin-left: 2em;
-  }
-  input[type="number"] {
-    width: 5em;
-  }
-  input {
-    margin-bottom: 0px !important;
-  }
-  input:not([type="checkbox"]) {
-    border: 0px;
-    border-bottom: 1px solid var(--indigo-dye);
-    border-radius: 0px;
-    height: calc(
-      1rem * var(--line-height) + var(--form-element-spacing-vertical) * 1
-    );
-    padding: 0 0.5rem;
-    text-align: center;
   }
 </style>

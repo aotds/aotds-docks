@@ -1,20 +1,19 @@
 <ShipItem {...reqs}>
-  <Field label="streamlining">
-    <div>
-      <label>
-        <input type="radio" bind:group={type} value="none" />
-        none</label
-      >
-      <label>
-        <input type="radio" bind:group={type} value="partial" />
-        partial</label
-      >
-      <label>
-        <input type="radio" bind:group={type} value="full" />
-        full</label
-      >
-    </div>
-  </Field>
+  <div>streamlining</div>
+  <div class="field middle-align">
+    <label class="radio">
+      <input type="radio" bind:group={type} value="none" />
+      <span>none</span></label
+    >
+    <label class="radio">
+      <input type="radio" bind:group={type} value="partial" />
+      <span>partial</span></label
+    >
+    <label class="radio">
+      <input type="radio" bind:group={type} value="full" />
+      <span>full</span></label
+    >
+  </div>
 </ShipItem>
 
 <script>
@@ -36,6 +35,6 @@
     display: flex;
   }
   label {
-    margin-left: 1em;
+    margin-left: 2em !important;
   }
 </style>

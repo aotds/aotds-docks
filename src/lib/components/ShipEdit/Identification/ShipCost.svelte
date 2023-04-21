@@ -1,7 +1,7 @@
 <div class="mass">
-  <Field label="ship tonnage">
-    <input class="short" bind:value={mass} type="number" min="10" max="300" />
-    <img class="mass_symbol" src="{base}/mass.svg" alt="mass" />
+  <Field label="ship tonnage" suffix>
+    <input bind:value={mass} type="number" min="10" max="300" />
+    <i>Weight</i>
 
     <div class="note" class:warning={!withinBudget}>
       {#if withinBudget}
@@ -14,8 +14,9 @@
 </div>
 
 <div class="cost">
-  <Field label="cost">
-    <span class="cost">{cost}</span>
+  <Field label="total cost" suffix>
+    <input value={cost} disabled />
+    <i>Paid</i>
   </Field>
 </div>
 
@@ -54,10 +55,6 @@
     grid-column: span 3;
     justify-content: space-around;
   }
-  input {
-    width: 5em;
-    display: inline !important;
-  }
   .mass_symbol {
     width: 0.75em;
     display: inline-block;
@@ -82,8 +79,7 @@
   div.cost {
     grid-column: 3;
   }
-  span.cost:after {
-    content: "\00A4";
-    margin-left: 0.5em;
+  i {
+    top: 65%;
   }
 </style>
