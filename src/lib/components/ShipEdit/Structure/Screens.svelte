@@ -5,7 +5,12 @@
     </Field>
 
     <Field label="advanced screens">
-      <input class="short" type="number" bind:value={advanced} min="0" />
+      <input
+        class="short advanced"
+        type="number"
+        bind:value={advanced}
+        min="0"
+      />
     </Field>
   </div>
 </ShipItem>
@@ -34,5 +39,9 @@
     display: flex;
     gap: 2em;
     align-items: baseline;
+  }
+  .advanced {
+    min-width: 8em;
+    text-align: center;
   }
 </style>
