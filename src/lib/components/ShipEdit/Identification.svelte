@@ -10,6 +10,14 @@
       <label class="active">ship type</label>
       <i>arrow_drop_down</i>
     </Field>
+    <label class="switch icon">
+      <div>carrier</div>
+      <input type="checkbox" bind:checked={isCarrier} />
+      <span>
+        <i>airplanemode_inactive</i>
+        <i>airplanemode_active</i>
+      </span>
+    </label>
   </div>
   <ShipCost {...reqs} />
 </div>
@@ -36,6 +44,9 @@
     shipType = shipTypes[0];
 
   $: api?.dispatch?.updateIdentification?.({ shipType, shipClass });
+
+  $: console.log(isCarrier);
+  $: api?.dispatch.setCarrier?.(isCarrier);
 </script>
 
 <style>
@@ -48,8 +59,18 @@
     display: flex;
     align-items: start;
   }
+  select {
+    min-width: 10em;
+  }
 
   .identification-row :global(> *:first-child) {
     flex: 1;
+  }
+  label div {
+    font-size: var(--font-scale-10);
+    margin-right: 1em;
+  }
+  label.switch {
+    margin-left: 2em;
   }
 </style>
