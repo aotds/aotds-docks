@@ -30,6 +30,7 @@ const structure = new Updux({
     hull: hullDux,
     screens: screensDux,
     armor: armorDux,
+    carrier: carrierDux,
   },
 });
 

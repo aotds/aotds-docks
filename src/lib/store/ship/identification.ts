@@ -1,6 +1,5 @@
 import Updux, { createAction, withPayload } from "updux";
 import u from "@yanick/updeep-remeda";
-import * as R from "remeda";
 import { carrierDux } from "./carrier";
 
 const initialState = {
@@ -17,6 +16,7 @@ const initialState = {
 const setShipClass = createAction("setShipClass", withPayload<string>());
 const updateIdentification = createAction("updateIdentification");
 const setShipReqs = createAction("setShipReqs", withPayload());
+const setCarrier = createAction("setCarrier", withPayload<boolean>());
 
 export const identificationDux = new Updux({
   initialState,
@@ -24,6 +24,7 @@ export const identificationDux = new Updux({
     setShipClass,
     updateIdentification,
     setShipReqs,
+    setCarrier,
   },
   selectors: {
     getShipMass: (state) => state.reqs.mass,
@@ -33,12 +34,15 @@ export const identificationDux = new Updux({
 
 identificationDux.addMutation(setShipClass, (shipClass) => u({ shipClass }));
 identificationDux.addMutation(updateIdentification, (update) => u(update));
-identificationDux.addMutation(setShipReqs, (reqs) => u({ reqs }));
 
-identificationDux.addMutation(carrierDux.actions.setNbrCarrierBays, (nbrBays) =>
-  u({
-    isCarrier: nbrBays > 0,
-  })
-);
+identificationDux.addMutation(setCarrier, (isCarrier) => u({ isCarrier }));
+identificationDux.addEffect(setCarrier, (api) => (next) => (action) => {
+  next(action);
+  if (!action.payload) {
+    api.dispatch(carrierDux.actions.setNbrCarrierBays(0));
+  }
+});
+
+identificationDux.addMutation(setShipReqs, (reqs) => u({ reqs }));
 
 export default identificationDux;

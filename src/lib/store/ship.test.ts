@@ -17,11 +17,13 @@ test("kicking the tires", () => {
   store.dispatch.setNbrCarrierBays(2);
   expect(store.getState().carrier.nbrBays).toEqual(2);
 
+  expect(store.getState.isCarrier()).toBe(false);
+
+  store.dispatch.setCarrier(true);
   store.dispatch.setSquadronType(2, "fast");
 
-  expect(store.getState().carrier.squadrons[1]).toHaveProperty("type", "fast");
-
   expect(store.getState.isCarrier()).toBe(true);
+  expect(store.getState().carrier.squadrons[1]).toHaveProperty("type", "fast");
 
   store.dispatch.setStreamlining("partial");
 
