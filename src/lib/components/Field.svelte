@@ -1,21 +1,28 @@
 <div class="field label small" class:suffix>
   <slot>
-    <input type="text" bind:value on:change />
+    <input id={formId} type="text" bind:value on:change />
   </slot>
   {#if label}
-    <label class:active>{label}</label>
+    <label for={formId} class:active>{label}</label>
   {/if}
 </div>
 
 <script>
+  import { getContext } from "svelte";
+
   export let label = "";
   export let value = true;
   export let placeholder = label;
 
   export let suffix = false;
   export let activeLabel = undefined;
+  export let idPrefix = "formId";
 
   $: active = typeof activeLabel === "boolean" ? activeLabel : value;
+
+  const genUid = getContext("genUid") ?? (() => "genUid missing");
+
+  const formId = genUid(idPrefix);
 </script>
 
 <style>

@@ -17,9 +17,9 @@ test("we can pass a store", async () => {
 
   api.dispatch.updateIdentification({ shipClass: "Bonobo" });
 
-  const { getByPlaceholderText } = render(Page, { context });
+  const { getByLabelText } = render(Page, { context });
 
-  const classInput = getByPlaceholderText("ship class");
+  const classInput = getByLabelText("ship class");
   await fireEvent.input(classInput, { target: { value: "Tarzan" } });
   expect(classInput.value).toEqual("Tarzan");
 
