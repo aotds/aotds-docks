@@ -13,6 +13,12 @@ tasks:
     cmds:
       - vitest src
 
+  test:update:
+    deps:
+      - histoire:build
+    cmds:
+      - vitest run -u src 
+
   check:
     deps:
       - histoire:build

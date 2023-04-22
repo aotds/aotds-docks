@@ -5,6 +5,6 @@ import { tick } from "svelte";
 import Identification from "./Identification.svelte";
 
 test("carrier", () => {
-  const { getByLabelText } = render(Identification);
-  expect(getByLabelText("carrier")).toBeInTheDocument();
+  const { getByText } = render(Identification);
+  expect(getByText("carrier")).toBeInTheDocument();
 });

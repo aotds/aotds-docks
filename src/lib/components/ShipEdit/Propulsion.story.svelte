@@ -1,5 +1,5 @@
-<Hst.Story>
-  <Propulsion {api} />
+<Hst.Story title="ShipEdit/Propulsion/index">
+  <Propulsion />
 </Hst.Story>
 
 <script>
