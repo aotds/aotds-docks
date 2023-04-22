@@ -53,6 +53,14 @@ exports[`state has the expected shape 1`] = `
       },
       "space": 0,
     },
+    "carrier": {
+      "nbrBays": 0,
+      "reqs": {
+        "cost": 0,
+        "mass": 0,
+      },
+      "squadrons": [],
+    },
     "hull": {
       "max": 0,
       "min": 0,

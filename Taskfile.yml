@@ -3,7 +3,6 @@
 version: "3"
 
 vars:
-  GREETING: Hello, World!
   PARENT_BRANCH: main
 
 tasks:
@@ -13,6 +12,12 @@ tasks:
   test:dev:
     cmds:
       - vitest src
+
+  test:update:
+    deps:
+      - histoire:build
+    cmds:
+      - vitest run -u src 
 
   check:
     deps:

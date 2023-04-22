@@ -8,10 +8,15 @@ export const createApi = () => {
     ? JSON.parse(localStorage.getItem("ship") || "null")
     : undefined;
 
-  const api = ship.createStore(state || undefined);
+  const api = ship.createStore({
+    preloadedState: state,
+  });
+
+  api.dispatch.restore(state);
 
   if (browser) {
     api.subscribe(() => {
+      console.log("saving...", api.getState());
       localStorage.setItem("ship", JSON.stringify(api.getState()));
     });
   }

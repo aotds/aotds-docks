@@ -1,12 +1,14 @@
 <ShipItem {...reqs}>
-  <Field label={`squadron ${id}`}>
+  <div class="field label suffix">
     <select bind:value={type}>
       {#each types as type (type)}
         <option>{type}</option>
       {/each}
     </select>
-  </Field>
-</ShipItem>
+    <label class="active">squadron {id}</label>
+    <i>arrow_drop_down</i>
+  </div></ShipItem
+>
 
 <script>
   import { getContext } from "svelte";
@@ -14,7 +16,7 @@
   import Section from "$lib/components/Section.svelte";
   import Field from "$lib/components/Field.svelte";
   import ShipItem from "$lib/components/ShipItem.svelte";
-  //  import { squadronTypes } from "$lib/shipDux/carrier";
+  import { squadronTypes } from "$lib/store/ship/carrier.ts";
 
   const types = squadronTypes.map(({ type }) => type);
 
@@ -30,6 +32,9 @@
 
 <style>
   select {
-    width: inherit;
+    /* width: inherit; */
+  }
+  div {
+    display: inline-block;
   }
 </style>
