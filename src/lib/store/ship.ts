@@ -1,5 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit";
-import Updux from "updux";
+import Updux, { createPayloadAction } from "updux";
 import * as R from "remeda";
 import memoize from "memoize-one";
 
@@ -51,7 +51,12 @@ const weaponry = new Updux({
   },
 });
 
+const restore = createPayloadAction<typeof shipDux.initialState>("restore");
+
 const shipDux = new Updux({
+  actions: {
+    restore,
+  },
   initialState: {
     schemaVersion: "1",
   },
@@ -63,6 +68,8 @@ const shipDux = new Updux({
     weaponry,
   },
 });
+
+shipDux.addMutation(restore, (state) => () => state);
 
 shipDux.addReaction((api) => {
   return createSelector(

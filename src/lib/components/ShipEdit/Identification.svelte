@@ -34,6 +34,8 @@
   export let isCarrier = false;
   export let reqs = {};
 
+  $: console.log("in the comp", isCarrier, shipClass);
+
   export let api = getContext("api");
 
   $: shipTypes = candidateShipTypes(reqs.mass, isCarrier).map(
@@ -45,7 +47,6 @@
 
   $: api?.dispatch?.updateIdentification?.({ shipType, shipClass });
 
-  $: console.log(isCarrier);
   $: api?.dispatch.setCarrier?.(isCarrier);
 </script>
 

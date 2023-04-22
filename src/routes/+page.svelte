@@ -1,4 +1,6 @@
-<ShipEdit {...ship} />
+{#if ship}
+  <ShipEdit {...ship} />
+{/if}
 
 <script>
   import { getContext } from "svelte";
@@ -7,7 +9,7 @@
 
   export let api = getContext("api");
 
-  let ship = {};
+  let ship = api?.getState() ?? {};
   api?.subscribe(() => {
     ship = api.getState();
   });
