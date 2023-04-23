@@ -1,0 +1,18 @@
+<Hst.Story title="ShipEdit/Propulsion/Ftl">
+  <Ftl {api} />
+</Hst.Story>
+
+<script>
+  export let Hst;
+  //import { logEvent, isCollecting } from "histoire/client";
+
+  const api = true
+    ? {}
+    : {
+        dispatch: {
+          //       setFtl: (ftl) => logEvent("setFtl", { ftl }),
+        },
+      };
+
+  import Ftl from "./Ftl.svelte";
+</script>

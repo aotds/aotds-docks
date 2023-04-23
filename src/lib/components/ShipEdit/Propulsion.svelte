@@ -3,7 +3,7 @@
   <Ftl {...ftl} />
 </Section>
 
-<script lang="ts">
+<script>
   import Section from "$lib/components/Section.svelte";
   import Drive from "./Propulsion/Engine.svelte";
   import Ftl from "./Propulsion/Ftl.svelte";
