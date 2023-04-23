@@ -1,16 +1,6 @@
-{#if ship}
-  <ShipEdit {...ship} />
-{/if}
-
 <script>
-  import { getContext } from "svelte";
+  import { goto } from "$app/navigation";
+  import { browser } from "$app/environment";
 
-  import ShipEdit from "$lib/components/ShipEdit.svelte";
-
-  export let api = getContext("api");
-
-  let ship = api?.getState() ?? {};
-  api?.subscribe(() => {
-    ship = api.getState();
-  });
+  if (browser) goto("/editor");
 </script>

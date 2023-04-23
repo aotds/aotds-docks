@@ -5,7 +5,23 @@
     </h1>
     <h3 class="max">a Full Thrust ship builder</h3>
     <div class="tabs in left-align">
-      <a class="spaced" class:active={currentPath === "/"} href="/">Editor</a>
+      <a
+        class="spaced"
+        class:active={currentPath.startsWith("/editor")}
+        href="/editor">Editor</a
+      >
+      <!--
+      <a
+        class="spaced"
+        class:active={currentPath.startsWith("/import")}
+        href="/import">Import</a
+      >
+      -->
+      <a
+        class="spaced"
+        class:active={currentPath.startsWith("/export")}
+        href="/export/json">Export</a
+      >
       <a
         class="spaced"
         class:active={currentPath.startsWith("/about")}
