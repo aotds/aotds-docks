@@ -128,56 +128,6 @@
       "markdownFile": null
     },
     {
-      "id": "src-lib-components-shipedit-propulsion-story-svelte",
-      "title": "Propulsion",
-      "group": null,
-      "layout": {
-        "type": "single",
-        "iframe": true
-      },
-      "icon": null,
-      "iconColor": null,
-      "docsOnly": false,
-      "variants": [
-        {
-          "id": "_default",
-          "title": "default"
-        }
-      ],
-      "relativePath": "src/lib/components/ShipEdit/Propulsion.story.svelte",
-      "supportPluginId": "svelte3",
-      "treePath": [
-        "Propulsion"
-      ],
-      "virtual": false,
-      "markdownFile": null
-    },
-    {
-      "id": "src-lib-components-shipedit-weaponry-story-svelte",
-      "title": "Weaponry",
-      "group": null,
-      "layout": {
-        "type": "single",
-        "iframe": true
-      },
-      "icon": null,
-      "iconColor": null,
-      "docsOnly": false,
-      "variants": [
-        {
-          "id": "_default",
-          "title": "default"
-        }
-      ],
-      "relativePath": "src/lib/components/ShipEdit/Weaponry.story.svelte",
-      "supportPluginId": "svelte3",
-      "treePath": [
-        "Weaponry"
-      ],
-      "virtual": false,
-      "markdownFile": null
-    },
-    {
       "id": "src-lib-components-shipedit-propulsion-engine-story-svelte",
       "title": "Engine",
       "group": null,
@@ -200,58 +150,6 @@
         "ShipEdit",
         "Propulsion",
         "Engine"
-      ],
-      "virtual": false,
-      "markdownFile": null
-    },
-    {
-      "id": "src-lib-components-shipedit-propulsion-ftl-story-svelte",
-      "title": "Ftl",
-      "group": null,
-      "layout": {
-        "type": "single",
-        "iframe": true
-      },
-      "icon": null,
-      "iconColor": null,
-      "docsOnly": false,
-      "variants": [
-        {
-          "id": "_default",
-          "title": "default"
-        }
-      ],
-      "relativePath": "src/lib/components/ShipEdit/Propulsion/Ftl.story.svelte",
-      "supportPluginId": "svelte3",
-      "treePath": [
-        "ShipEdit",
-        "Propulsion",
-        "Ftl"
-      ],
-      "virtual": false,
-      "markdownFile": null
-    },
-    {
-      "id": "src-lib-components-shipedit-weaponry-weapon-arcs-story-svelte",
-      "title": "Arcs",
-      "group": null,
-      "layout": {
-        "type": "single",
-        "iframe": true
-      },
-      "icon": null,
-      "iconColor": null,
-      "docsOnly": false,
-      "variants": [
-        {
-          "id": "_default",
-          "title": "default"
-        }
-      ],
-      "relativePath": "src/lib/components/ShipEdit/Weaponry/Weapon/Arcs.story.svelte",
-      "supportPluginId": "svelte3",
-      "treePath": [
-        "Arcs"
       ],
       "virtual": false,
       "markdownFile": null

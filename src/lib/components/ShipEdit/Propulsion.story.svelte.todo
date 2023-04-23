@@ -3,7 +3,10 @@
 </Hst.Story>
 
 <script>
+  import { setContext } from "svelte";
   export let Hst;
 
   import Propulsion from "./Propulsion.svelte";
+
+  setContext("api", {});
 </script>
