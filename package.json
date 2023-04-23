@@ -49,10 +49,12 @@
     "remeda": "^1.9.1",
     "reselect": "^4.1.5",
     "svelte-chota": "^1.8.6",
+    "svelte-copy-clipboard-action": "^0.0.3",
     "svelte-knobby": "^0.3.4",
     "svelte-moveable": "^0.20.0",
     "ts-action": "^11.0.0",
-    "vite": "^4.2.1"
+    "vite": "^4.2.1",
+    "yaml": "^2.2.1"
   },
   "prettier": {
     "svelteSortOrder": "options-markup-scripts-styles",
