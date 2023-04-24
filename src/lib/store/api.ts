@@ -1,5 +1,6 @@
 import ship from "./ship";
 import { browser } from "$app/environment";
+import { writable } from "svelte/store";
 
 export type Api = ReturnType<typeof ship.createStore>;
 
@@ -14,12 +15,17 @@ export const createApi = () => {
 
   api.dispatch.restore(state);
 
+  const svelteStore = writable(state);
+
   if (browser) {
     api.subscribe(() => {
-      console.log("saving...", api.getState());
-      localStorage.setItem("ship", JSON.stringify(api.getState()));
+      const state = api.getState();
+      svelteStore.set(state);
+      localStorage.setItem("ship", JSON.stringify(state));
     });
   }
+
+  api.svelteStore = svelteStore;
 
   return api;
 };
