@@ -1,4 +1,5 @@
 <nav class="m l left">
+  <!-- set them as active -->
   <a href="/export/json">
     <i>output</i>
     <span>json</span>
