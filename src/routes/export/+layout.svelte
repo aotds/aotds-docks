@@ -8,6 +8,10 @@
     <i>output</i>
     <span>yaml</span>
   </a>
+  <a href="/export/print">
+    <i>print</i>
+    <span>print</span>
+  </a>
   <!-- TODO
     <a>
       <i>Quiz</i>
