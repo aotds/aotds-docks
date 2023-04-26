@@ -17,6 +17,7 @@
   export let advanced = false;
   export let shipMass = 10;
 
+  // TODO advanced hull?
   let nbr_rows;
   $: nbr_rows = advanced ? 3 : 4;
 

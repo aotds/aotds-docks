@@ -3,7 +3,11 @@
 <div class="print-output">
   <Identification {...identification} />
 
-  <div class="section-2" />
+  <Hull
+    shipMass={identification.reqs.mass}
+    advanced={false}
+    rating={structure.hull?.rating}
+  />
 
   <MainSystems {...propulsion} />
 </div>
@@ -11,10 +15,11 @@
 <script>
   import Identification from "./Identification.svelte";
   import MainSystems from "./MainSystems/index.svelte";
-  import Hull from "./Hull.svelte";
+  import Hull from "./Hull/index.svelte";
 
   export let identification = {};
   export let propulsion = {};
+  export let structure = {};
 </script>
 
 <style>
