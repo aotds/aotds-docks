@@ -1,6 +1,6 @@
 <div>
   {#each rows as row, i (i)}
-    <div class="row">
+    <div class="my-row">
       {#each row as threshold, j (j)}
         <div class="cell">
           {#if threshold}
@@ -50,7 +50,7 @@
 </script>
 
 <style>
-  .row {
+  .my-row {
     margin-bottom: 0.5em;
   }
   .cell {

@@ -15,7 +15,7 @@
     "@histoire/plugin-screenshot": "^0.16.1",
     "@histoire/plugin-svelte": "^0.16.1",
     "@sveltejs/adapter-static": "^2.0.2",
-    "@sveltejs/kit": "^1.15.8",
+    "@sveltejs/kit": "^1.15.9",
     "@sveltejs/vite-plugin-svelte": "^2.1.1",
     "@testing-library/svelte": "^3.2.2",
     "@testing-library/user-event": "^14.4.3",
@@ -46,7 +46,7 @@
     "svelte-copy-clipboard-action": "^0.0.3",
     "svelte-moveable": "^0.38.1",
     "updux": "link:../../updux",
-    "vite": "^4.3.2",
+    "vite": "^4.3.3",
     "yaml": "^2.2.2"
   },
   "prettier": {

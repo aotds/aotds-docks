@@ -3,11 +3,20 @@
 <div class="print-output">
   <Identification {...identification} />
 
-  <Hull
-    shipMass={identification.reqs.mass}
-    advanced={false}
-    rating={structure.hull?.rating}
-  />
+  <div class="grid">
+    <div class="s6">
+      <Armor layers={structure?.armor?.layers} />
+      <Hull
+        shipMass={identification.reqs.mass}
+        advanced={false}
+        rating={structure.hull?.rating}
+      />
+    </div>
+
+    <div class="s6">
+      <Screens {...screens} />
+    </div>
+  </div>
 
   <MainSystems {...propulsion} />
 </div>
@@ -16,10 +25,14 @@
   import Identification from "./Identification.svelte";
   import MainSystems from "./MainSystems/index.svelte";
   import Hull from "./Hull/index.svelte";
+  import Armor from "./Armor/index.svelte";
+  import Screens from "./Screens/index.svelte";
 
   export let identification = {};
   export let propulsion = {};
   export let structure = {};
+
+  $: screens = structure?.screens ?? {};
 </script>
 
 <style>
@@ -38,5 +51,10 @@
     .print-output {
       visibility: visible;
     }
+  }
+  .s6 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 </style>

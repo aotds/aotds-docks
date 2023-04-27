@@ -1,7 +1,7 @@
 <div class="layers">
-  {#each armor as layer,i (i)}
+  {#each layers as layer, i (i)}
     <div class="layer">
-      {#each Array.from({length: layer}) as j}
+      {#each Array.from({ length: layer }) as j}
         <div class="cell" />
       {/each}
     </div>
@@ -9,11 +9,7 @@
 </div>
 
 <script>
-  import _ from "lodash";
-
-  export let armor = [];
-  console.log(armor)
-
+  export let layers = [];
 </script>
 
 <style>
@@ -28,5 +24,6 @@
   .layers {
     display: flex;
     flex-direction: column-reverse;
+    margin-bottom: 1em;
   }
 </style>

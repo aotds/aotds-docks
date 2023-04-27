@@ -35,7 +35,7 @@
         },
       },
       hull: {
-        rating: 0,
+        rating: 10,
         min: 1,
         max: 10,
         reqs: {
@@ -44,8 +44,8 @@
         },
       },
       screens: {
-        standard: 0,
-        advanced: 0,
+        standard: 2,
+        advanced: 1,
         reqs: {
           cost: 0,
           mass: 0,
@@ -56,7 +56,7 @@
           cost: 0,
           mass: 0,
         },
-        layers: [],
+        layers: [3, 2],
       },
       carrier: {
         nbrBays: 0,
