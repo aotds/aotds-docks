@@ -17,8 +17,6 @@
 
   $: options = Object.fromEntries(types.map((t) => [t, t]));
 
-  console.log(type);
-
   $: initial = types.find((t) => t.type === type)?.initial ?? {};
   $: weaponComp = printComps[type];
 </script>

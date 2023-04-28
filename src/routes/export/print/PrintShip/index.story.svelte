@@ -4,8 +4,14 @@
 
 <script>
   import PrintShip from "./index.svelte";
+  import { weaponTypes } from "$lib/store/ship/weaponry/rules";
 
   export let Hst;
+
+  const weapons = weaponTypes.map(({ initial: specs }, id) => ({
+    id: id + 1,
+    specs,
+  }));
 
   const ship = {
     schemaVersion: "1",
@@ -107,20 +113,7 @@
           mass: 0,
         },
       },
-      weapons: [
-        {
-          id: 1,
-          specs: {
-            type: "beam",
-            weaponClass: 2,
-            arcs: ["FS", "F", "FP"],
-          },
-          reqs: {
-            mass: 2,
-            cost: 6,
-          },
-        },
-      ],
+      weapons,
     },
   };
 </script>
