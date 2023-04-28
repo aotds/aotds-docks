@@ -3,6 +3,8 @@
 <div class="print-output">
   <Identification {...identification} />
 
+  <Weapons {weapons} />
+
   <div class="grid">
     <div class="s6">
       <Armor layers={structure?.armor?.layers} />
@@ -15,6 +17,7 @@
 
     <div class="s6">
       <Screens {...screens} />
+      <Firecons {...firecons} />
     </div>
   </div>
 
@@ -27,12 +30,17 @@
   import Hull from "./Hull/index.svelte";
   import Armor from "./Armor/index.svelte";
   import Screens from "./Screens/index.svelte";
+  import Firecons from "./Firecons/index.svelte";
+  import Weapons from "./Weapons/index.svelte";
 
   export let identification = {};
   export let propulsion = {};
   export let structure = {};
+  export let weaponry = {};
 
   $: screens = structure?.screens ?? {};
+  $: firecons = weaponry?.firecons ?? {};
+  $: weapons = weaponry?.weapons ?? [];
 </script>
 
 <style>
@@ -56,5 +64,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .s6 :global(> div) {
+    margin-bottom: 1em;
   }
 </style>
