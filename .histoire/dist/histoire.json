@@ -266,6 +266,33 @@
       ],
       "virtual": false,
       "markdownFile": null
+    },
+    {
+      "id": "src-routes-export-print-printship-weapons-index-story-svelte",
+      "title": "Weapons",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": null,
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/routes/export/print/PrintShip/Weapons/index.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Export",
+        "PrintShip",
+        "Weapons"
+      ],
+      "virtual": false,
+      "markdownFile": null
     }
   ],
   "markdownFiles": []
