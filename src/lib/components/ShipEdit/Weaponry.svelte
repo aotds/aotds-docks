@@ -29,6 +29,3 @@
 
   export let weapons = [];
 </script>
-
-<style>
-</style>

@@ -59,7 +59,7 @@ export const weaponTypes = [
     initial: { type: "scattergun" },
   },
   {
-    name: "needle weapon",
+    name: "needle beam",
     type: "needle",
     reqs: { mass: 2, cost: 6 },
     initial: { arc: "F", type: "needle" },
