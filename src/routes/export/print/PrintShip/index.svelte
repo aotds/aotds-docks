@@ -9,7 +9,7 @@
     <div class="s6">
       <Armor layers={structure?.armor?.layers} />
       <Hull
-        shipMass={identification.reqs.mass}
+        shipMass={identification.reqs?.mass}
         advanced={false}
         rating={structure.hull?.rating}
       />
@@ -22,6 +22,8 @@
   </div>
 
   <MainSystems {...propulsion} />
+
+  <Cargo {...cargo} />
 </div>
 
 <script>
@@ -32,11 +34,14 @@
   import Screens from "./Screens/index.svelte";
   import Firecons from "./Firecons/index.svelte";
   import Weapons from "./Weapons/index.svelte";
+  import Cargo from "./Cargo.svelte";
 
   export let identification = {};
   export let propulsion = {};
   export let structure = {};
   export let weaponry = {};
+
+  $: cargo = structure.cargo ?? {};
 
   $: screens = structure?.screens ?? {};
   $: firecons = weaponry?.firecons ?? {};
