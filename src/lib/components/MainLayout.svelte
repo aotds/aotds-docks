@@ -43,6 +43,9 @@
 </script>
 
 <style>
+  h1 {
+    line-height: calc(3 * var(--vertical-rythm));
+  }
   header nav {
     align-items: baseline;
     font-family: "Faktos";

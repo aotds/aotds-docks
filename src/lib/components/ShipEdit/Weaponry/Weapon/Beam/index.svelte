@@ -19,7 +19,13 @@
   <i>arrow_drop_down</i>
 </Field>
 
-<Arcs selected={arcs} on:clickArc={({ detail }) => setArcs(detail)} />
+<div class="arcs">
+  <Arcs
+    size={48}
+    selected={arcs}
+    on:clickArc={({ detail }) => setArcs(detail)}
+  />
+</div>
 
 <script>
   import { getContext } from "svelte";
@@ -93,3 +99,9 @@
 
   $: memoChange(weaponClass, ...arcs);
 </script>
+
+<style>
+  .arcs {
+    margin-top: 0.5rem;
+  }
+</style>

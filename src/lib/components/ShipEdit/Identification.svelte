@@ -57,6 +57,8 @@
   .identification-row {
     display: flex;
     align-items: start;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
   select {
     min-width: 10em;

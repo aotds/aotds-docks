@@ -7,7 +7,7 @@
       on:click={() => clickArc(arc)}
     />
   {/each}
-  <circle cx="50%" cy="50%" r={size / 3} />
+  <circle cx="50%" cy="50%" r={inner} />
   <slot />
 </svg>
 
@@ -19,6 +19,7 @@
 
   export let selected = [];
   export let size = 60;
+  export let inner = size / 3;
 
   const dispatch = createEventDispatcher();
 

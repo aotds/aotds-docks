@@ -37,4 +37,7 @@
   label {
     margin-left: 2em !important;
   }
+  div.field {
+    margin-bottom: 0px;
+  }
 </style>

@@ -15,12 +15,14 @@
     grid-column: 1 / span 3 !important;
     align-items: baseline;
     gap: 1em;
-    margin-bottom: 1em;
+    margin-bottom: 1rem;
     background-color: var(--primary-background);
   }
   h2 {
     font-weight: bold;
     font-size: var(--font-scale-12);
+    margin: 0px;
+    height: 2rem;
   }
   hr {
     flex: 1;
