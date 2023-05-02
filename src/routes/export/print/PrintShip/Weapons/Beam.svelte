@@ -13,6 +13,9 @@
 </script>
 
 <style>
+  div {
+    margin: 0px 0.5rem;
+  }
   div :global(path:hover) {
     fill: white;
   }
