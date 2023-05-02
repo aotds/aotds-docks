@@ -1,6 +1,11 @@
 <div>
   <Arcs selected={arcs} size={40}>
-    <text x="50%" y="50%">
+    <polygon
+      points="0,30 30,30 15,4"
+      style="fill:black"
+      transform="translate(7,2) scale(0.85)"
+    />
+    <text x="50%" y="50%" style="color: white">
       {weaponClass}
     </text>
   </Arcs>

@@ -17,6 +17,7 @@
   import PointDefenceSystem from "./PDS.svelte";
   import Scattergun from "./Scattergun.svelte";
   import Needle from "./Needle.svelte";
+  import Graser from "./Graser/index.svelte";
 
   const component = {
     beam: Beam,
@@ -24,6 +25,7 @@
     pds: PointDefenceSystem,
     scattergun: Scattergun,
     needle: Needle,
+    graser: Graser,
   };
 
   export let reqs = {};

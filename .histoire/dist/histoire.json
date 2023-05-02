@@ -293,6 +293,62 @@
       ],
       "virtual": false,
       "markdownFile": null
+    },
+    {
+      "id": "src-lib-components-shipedit-weaponry-weapon-graser-index-story-svelte",
+      "title": "Graser",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": null,
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/lib/components/ShipEdit/Weaponry/Weapon/Graser/index.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "ShipEdit",
+        "Weaponry",
+        "Weapon",
+        "Graser"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-routes-export-print-printship-weapons-graser-index-story-svelte",
+      "title": "Graser",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": null,
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/routes/export/print/PrintShip/Weapons/Graser/index.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Export",
+        "PrintShip",
+        "Weapons",
+        "Graser"
+      ],
+      "virtual": false,
+      "markdownFile": null
     }
   ],
   "markdownFiles": []
