@@ -2,6 +2,8 @@ import type { Reqs } from "$lib/shipDux/reqs";
 
 export const arcs = ["FS", "F", "FP", "AP", "A", "AS"] as const;
 
+export const broadsideArcs = ["FP", "AP", "AS", "FS"];
+
 export type Arc = (typeof arcs)[number];
 
 export type WeaponType = "beam";
@@ -35,30 +37,6 @@ export type Weapon = Beam | Submunition | PDS | Scattergun | Needle | Graser;
 
 export const weaponTypes = [
     {
-        type: "graser",
-        name: "graser",
-        reqs: graserReqs,
-        initial: {
-            type: "graser",
-            weaponClass: 1,
-            arcs: ["F"],
-        } as any as Graser,
-        options: {
-            1: {
-                nbrArcs: [1, 3, 6],
-                broadside: true,
-            },
-            2: {
-                nbrArcs: [1, 2, 3, 4, 5, 6],
-                broadside: true,
-            },
-            3: {
-                nbrArcs: [1, 2, 3, 4, 5, 6],
-                broadside: true,
-            },
-        },
-    },
-    {
         type: "beam",
         name: "beam",
         reqs: beamReqs,
@@ -67,6 +45,27 @@ export const weaponTypes = [
             weaponClass: 1,
             arcs,
         } as any as Beam,
+    },
+    {
+        type: "graser",
+        name: "graser",
+        reqs: graserReqs,
+        initial: {
+            type: "graser",
+            weaponClass: 1,
+            arcs: ["F"],
+        } as any as Graser,
+        options: [
+            { weaponClass: 1, nbrArcs: [1, 3, 6, "broadside"] },
+            {
+                weaponClass: 2,
+                nbrArcs: [1, 2, 3, 4, 5, 6, "broadside"],
+            },
+            {
+                weaponClass: 3,
+                nbrArcs: [1, 2, 3, 4, 5, 6, "broadside"],
+            },
+        ],
     },
     {
         type: "submunition",
@@ -110,7 +109,7 @@ export function weaponReqs(weapon): Reqs {
     return reqs;
 }
 
-const isBroadside = (arcs: Arc[]) => {
+export const isBroadside = (arcs: Arc[]) => {
     if (arcs.length !== 4) return false;
 
     // that'd be A or F

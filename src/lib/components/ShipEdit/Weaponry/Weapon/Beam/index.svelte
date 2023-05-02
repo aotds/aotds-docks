@@ -60,7 +60,6 @@
   const broadside = ["FS", "FP", "AP", "AS"];
 
   function setArcs(firstArc) {
-    console.log(firstArc);
     let newArcs;
     if (nbrArcs === "broadside") {
       newArcs = broadside;
