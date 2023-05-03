@@ -18,6 +18,7 @@
   import Scattergun from "./Scattergun.svelte";
   import Needle from "./Needle.svelte";
   import Graser from "./Graser/index.svelte";
+  import Torpedo from "./Torpedo/index.svelte";
 
   const component = {
     beam: Beam,
@@ -26,6 +27,7 @@
     scattergun: Scattergun,
     needle: Needle,
     graser: Graser,
+    torpedo: Torpedo,
   };
 
   export let reqs = {};
