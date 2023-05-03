@@ -7,7 +7,9 @@
       />
     </g>
   </Arcs>
-  <div class="weaponClass">2</div>
+  {#if weaponClass > 1}
+    <div class="weaponClass">{weaponClass}</div>
+  {/if}
 </div>
 
 <script>
