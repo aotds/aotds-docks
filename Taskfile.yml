@@ -17,7 +17,7 @@ tasks:
     deps:
       - histoire:build
     cmds:
-      - vitest run -u src 
+      - vitest run -u src
 
   check:
     deps:
@@ -28,6 +28,7 @@ tasks:
   histoire:build:
     sources:
       - src/lib/components/**
+      - src/routes/**
     generates:
       - .histoire/screenshots/**
     cmds:

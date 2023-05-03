@@ -1,5 +1,5 @@
 <g {transform}>
-  <path d={path} class:active on:click />
+  <path d={path} class="arc" class:active on:click />
 </g>
 
 <script>

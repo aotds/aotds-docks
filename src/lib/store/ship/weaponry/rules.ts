@@ -33,7 +33,20 @@ type Graser = {
     arcs: Arc[];
 };
 
-export type Weapon = Beam | Submunition | PDS | Scattergun | Needle | Graser;
+type Torpedo = {
+    type: "torpedo";
+    weaponClass: 1 | 2 | 3 | 4;
+    arcs: Arc[];
+};
+
+export type Weapon =
+    | Beam
+    | Submunition
+    | PDS
+    | Scattergun
+    | Needle
+    | Graser
+    | Torpedo;
 
 export const weaponTypes = [
     {
@@ -66,6 +79,20 @@ export const weaponTypes = [
                 nbrArcs: [1, 2, 3, 4, 5, 6, "broadside"],
             },
         ],
+    },
+    {
+        type: "torpedo",
+        name: "torpedo",
+        reqs: torpedoReqs,
+        initial: {
+            type: "torpedo",
+            weaponClass: 1,
+            arcs: ["F"],
+        } as any as Torpedo,
+        options: {
+            maxClass: 4,
+            nbrArcs: [1, 2, 3, "broadside"],
+        },
     },
     {
         type: "submunition",
@@ -153,7 +180,7 @@ function beamReqs({ weaponClass, arcs }: Beam) {
     };
 }
 
-function graserReqs({ weaponClass, arcs }: Beam) {
+function graserReqs({ weaponClass, arcs }: Graser) {
     let mass: number;
 
     if (weaponClass === 1) {
@@ -183,5 +210,22 @@ function graserReqs({ weaponClass, arcs }: Beam) {
     return {
         mass,
         cost: 4 * mass,
+    };
+}
+
+function torpedoReqs({ weaponClass, arcs }: Torpedo): Reqs {
+    let mass: number = 4;
+
+    if (isBroadside(arcs)) {
+        mass += 2;
+    } else {
+        mass += arcs.length - 1;
+    }
+
+    mass = mass * Math.pow(2, weaponClass - 1);
+
+    return {
+        mass,
+        cost: 3 * mass,
     };
 }

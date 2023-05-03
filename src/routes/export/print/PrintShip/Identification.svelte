@@ -10,15 +10,14 @@
     {shipType}
   </h2>
   <div class="reqs">
-    {cost} <i>paid</i> &nbsp; {mass} <i>weight</i>
+    {reqs.cost} <i>paid</i> &nbsp; {reqs.mass} <i>weight</i>
   </div>
 </div>
 
 <script>
   export let shipClass;
   export let shipType;
-  export let cost = 0;
-  export let mass = 0;
+  export let reqs = { cost: 0, mass: 0 };
 </script>
 
 <style>
