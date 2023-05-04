@@ -30,7 +30,7 @@
   <a href="https://techblog.babyl.ca">Yanick Champoux</a>
   . Code available on
   <!-- TODO read the url from package.json -->
-  <a href="https://github.com/aotds/aotds-shipyard">Github</a>.
+  <a href={import.meta.env.HOMEPAGE}>my Gitea instance</a>.
 </p>
 
 <style>
