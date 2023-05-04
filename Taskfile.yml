@@ -47,6 +47,10 @@ tasks:
       - git checkout {{.PARENT_BRANCH}}
       - git weld -
 
+  sync:
+    cmds:
+      - rsync -av build/ 192.168.0.100:/home/docks
+
   release:
     cmds:
       - standard-version -a
