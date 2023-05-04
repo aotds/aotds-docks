@@ -20,7 +20,7 @@
       <a
         class="spaced"
         class:active={currentPath.startsWith("/export")}
-        href="/export/json">Export</a
+        href="/export/print">Export</a
       >
       <a
         class="spaced"

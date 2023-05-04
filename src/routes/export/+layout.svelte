@@ -1,5 +1,9 @@
 <nav class="m l left">
   <!-- set them as active -->
+  <a href="/export/print">
+    <i>print</i>
+    <span>print</span>
+  </a>
   <a href="/export/json">
     <i>output</i>
     <span>json</span>
@@ -7,10 +11,6 @@
   <a href="/export/yaml">
     <i>output</i>
     <span>yaml</span>
-  </a>
-  <a href="/export/print">
-    <i>print</i>
-    <span>print</span>
   </a>
   <!-- TODO
     <a>
