@@ -34,6 +34,10 @@ tasks:
     cmds:
       - histoire build
 
+  build:
+    cmds:
+      - vite build
+
   integrate:
     deps: [check]
     cmds:
