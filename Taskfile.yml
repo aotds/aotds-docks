@@ -34,6 +34,10 @@ tasks:
     cmds:
       - histoire build
 
+  build:
+    cmds:
+      - vite build
+
   integrate:
     deps: [check]
     cmds:
@@ -42,6 +46,10 @@ tasks:
       - git diff-ls  {{.PARENT_BRANCH}} | grep test
       - git checkout {{.PARENT_BRANCH}}
       - git weld -
+
+  sync:
+    cmds:
+      - rsync -av build/ 192.168.0.100:/home/docks
 
   release:
     cmds:

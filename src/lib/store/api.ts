@@ -5,17 +5,17 @@ import { writable } from "svelte/store";
 export type Api = ReturnType<typeof ship.createStore>;
 
 export const createApi = () => {
-  const state = browser
-    ? JSON.parse(localStorage.getItem("ship") || "null")
-    : undefined;
+  const options: Partial<{ preloadedState: object }> = {};
 
-  const api = ship.createStore({
-    preloadedState: state,
-  });
+  const preloadedState = browser && localStorage.getItem("ship");
+  if (preloadedState) options.preloadedState = JSON.parse(preloadedState);
 
-  api.dispatch.restore(state);
+  const api = ship.createStore(options);
 
-  const svelteStore = writable(state);
+  const svelteStore = writable();
+  if (preloadedState) {
+    svelteStore.set(JSON.parse(preloadedState));
+  }
 
   if (browser) {
     api.subscribe(() => {
