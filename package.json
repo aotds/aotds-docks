@@ -3,6 +3,14 @@
   "version": "2.3.0",
   "type": "module",
   "private": true,
+    "repository": {
+        "type": "git",
+        "url": "https://git.babyl.ca/aotds/aotds-docks.git" 
+    },
+    "bugs": {
+        "url": "https://git.babyl.ca/aotds/aotds-docks/issues"
+    },
+    "homepage": "https://git.babyl.ca/aotds/aotds-docks",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
