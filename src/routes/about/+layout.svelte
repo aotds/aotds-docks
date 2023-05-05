@@ -1,7 +1,11 @@
 <nav class="m l left">
-  <a>
+  <a href="/about">
     <i>Question_Mark</i>
     <span>About</span>
+  </a>
+  <a href="/about/see-also">
+    <i>Read_more</i>
+    <span>Other resources</span>
   </a>
   <!-- TODO
     <a>
