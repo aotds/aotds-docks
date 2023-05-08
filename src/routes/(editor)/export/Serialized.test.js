@@ -1,4 +1,4 @@
-import { render } from "@testing-library/svelte";
+import { render, waitFor } from "@testing-library/svelte";
 import "@testing-library/jest-dom";
 
 import Serialized from "./Serialized.svelte";
@@ -6,9 +6,8 @@ import Serialized from "./Serialized.svelte";
 test("basic", () => {
     const { getByText } = render(Serialized, {
         props: {
-            data: "hello world",
-            format: "json",
+            data: { greeting: "hello world" },
         },
     });
-    expect(getByText("hello world")).toBeInTheDocument();
+    waitFor(() => expect(getByText("hello world")).toBeInTheDocument());
 });

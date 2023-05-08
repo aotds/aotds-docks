@@ -6,16 +6,25 @@
       on:error={copyError}>{copyLabel} <i>content_paste</i></button
     >
     <button on:click={handleSave}>download <i>download</i></button>
+    <div class="field suffix border">
+      <select bind:value={format}>
+        <option>json</option>
+        <option>yaml</option>
+      </select>
+      <i>arrow_drop_down</i>
+    </div>
   </nav>
-  <pre><code>{data}</code></pre>
+  <pre><code>{serialized}</code></pre>
   <a hidden {href} {download} bind:this={fileDownload} />
 </article>
 
 <script>
   import { clipboard } from "$lib/actions/clipboard.js";
+  import yaml from "yaml";
 
-  export let data = "Loading...";
-  export let format;
+  export let data = {};
+  export let serialized = "Loading...";
+  export let format = "json";
 
   let copyLabel = "clipboard";
 
@@ -37,6 +46,14 @@
   function handleSave() {
     fileDownload?.click();
   }
+
+  const serialize = async (data, format) => {
+    if (format === "json") return JSON.stringify(data, null, 2);
+
+    return yaml.stringify(data);
+  };
+
+  $: serialize(data, format).then((s) => (serialized = s));
 </script>
 
 <style>
@@ -49,5 +66,16 @@
   nav {
     position: absolute;
     right: 5em;
+  }
+  .my-switch {
+    display: flex;
+    align-items: center;
+  }
+  .my-switch > span {
+    display: inline-block;
+    font-size: var(--font-scale-10);
+  }
+  label {
+    margin: 0px 0.5rem;
   }
 </style>
