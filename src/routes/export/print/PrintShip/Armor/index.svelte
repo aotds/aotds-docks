@@ -16,10 +16,10 @@
   .cell {
     display: inline-block;
     margin-right: 0.5em;
-    width: 1em;
-    height: 1em;
+    width: 1.4rem;
+    height: 1.4rem;
     border: 1px solid black;
-    border-radius: 0.5em;
+    border-radius: 1rem;
   }
   .layers {
     display: flex;

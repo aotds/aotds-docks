@@ -20,8 +20,8 @@ tasks:
       - vitest run -u src
 
   check:
-    deps:
-      - histoire:build
+    # deps:
+    #   - histoire:build
     cmds:
       - { task: test }
 
@@ -50,6 +50,8 @@ tasks:
   sync:
     cmds:
       - rsync -av build/ 192.168.0.100:/home/docks
+
+  open: firefox https://docks.babyl.ca
 
   release:
     cmds:

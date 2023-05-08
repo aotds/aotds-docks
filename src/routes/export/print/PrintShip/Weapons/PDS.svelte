@@ -2,6 +2,7 @@
 
 <style>
   img {
-    height: 2em;
+    height: 1.4rem;
+    margin: 0px 0.5rem;
   }
 </style>

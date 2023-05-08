@@ -1,7 +1,3 @@
-<h1>
-  ship name: <div class="fill" />
-</h1>
-
 <div class="details">
   <h2>
     {#if shipClass}
@@ -13,6 +9,10 @@
     {reqs.cost} <i>paid</i> &nbsp; {reqs.mass} <i>weight</i>
   </div>
 </div>
+
+<h1>
+  ship name: <div class="fill" />
+</h1>
 
 <script>
   export let shipClass;
@@ -26,6 +26,7 @@
     display: flex;
     font-size: var(--font-scale-8);
     align-items: baseline;
+    margin-bottom: 2em;
   }
   h2 {
     font-size: var(--font-scale-7);
@@ -44,5 +45,9 @@
   .reqs {
     display: flex;
     align-items: center;
+  }
+  .details,
+  .details :global(*) {
+    font-size: var(--font-scale-9);
   }
 </style>
