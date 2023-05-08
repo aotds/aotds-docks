@@ -1,6 +1,10 @@
 @import "/fonts/faktos.css";
 @import "/fonts/dosis/dosis.css";
 
+@page {
+  size: 5.5in 8.5in;
+}
+
 @font-face {
   font-family: "Faktos";
   font-style: normal;
@@ -77,4 +81,11 @@ h3 {
 }
 h4 {
   font-size: var(--font-scale-12);
+}
+
+@media only print {
+  i {
+    font-family: var(--font-icon);
+    font-size: 16pt;
+  }
 }

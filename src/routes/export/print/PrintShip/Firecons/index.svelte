@@ -14,6 +14,7 @@
     gap: 0.5em;
   }
   img.firecon {
-    width: 1em;
+    width: 1.4rem;
+    margin: 0px 0.5rem;
   }
 </style>

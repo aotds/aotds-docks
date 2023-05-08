@@ -14,7 +14,8 @@
 
 <style>
   img {
-    width: 1em;
+    width: 1.2rem;
+    margin: 0px 0.5rem;
   }
   div {
     display: flex;

@@ -29,6 +29,6 @@
     margin-top: 1em;
   }
   img {
-    height: 2em;
+    height: 2.4rem;
   }
 </style>

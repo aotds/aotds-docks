@@ -55,13 +55,13 @@
   }
   .cell {
     display: inline-block;
-    margin-right: 0.5em;
-    width: 1.5em;
-    height: 1.5em;
+    margin-right: 0.5rem;
+    width: 1.4rem;
+    height: 1.4rem;
     border: 1px solid black;
   }
   img {
-    width: 1em;
-    margin-left: 0.2em;
+    width: 1.2rem;
+    margin-left: 0.1rem;
   }
 </style>
