@@ -57,6 +57,12 @@ body {
   box-sizing: border-box;
 }
 
+@media only screen {
+  body {
+    min-width: 1370px;
+  }
+}
+
 a {
   color: rgb(0, 100, 200);
   text-decoration: none;
