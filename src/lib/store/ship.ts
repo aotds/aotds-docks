@@ -19,117 +19,121 @@ import { adfcDux } from "./ship/weaponry/adfc";
 import { weaponsDux } from "./ship/weaponry/weapons";
 
 if (typeof process !== "undefined") {
-  process.env.UPDEEP_MODE = "dangerously_never_freeze";
+    process.env.UPDEEP_MODE = "dangerously_never_freeze";
 }
 
 const structure = new Updux({
-  initialState: {},
-  subduxes: {
-    streamlining,
-    cargo: cargoDux,
-    hull: hullDux,
-    screens: screensDux,
-    armor: armorDux,
-    carrier: carrierDux,
-  },
+    initialState: {},
+    subduxes: {
+        streamlining,
+        cargo: cargoDux,
+        hull: hullDux,
+        screens: screensDux,
+        armor: armorDux,
+        carrier: carrierDux,
+    },
 });
 
 const propulsion = new Updux({
-  initialState: {},
-  subduxes: {
-    ftl,
-    drive,
-  },
+    initialState: {},
+    subduxes: {
+        ftl,
+        drive,
+    },
 });
 
 const weaponry = new Updux({
-  initialState: {},
-  subduxes: {
-    adfc: adfcDux,
-    firecons: fireconsDux,
-    weapons: weaponsDux,
-  },
+    initialState: {},
+    subduxes: {
+        adfc: adfcDux,
+        firecons: fireconsDux,
+        weapons: weaponsDux,
+    },
 });
 
 const restore = createPayloadAction<typeof shipDux.initialState>("restore");
+const importShip =
+    createPayloadAction<typeof shipDux.initialState>("importShip");
 
 const shipDux = new Updux({
-  actions: {
-    restore,
-  },
-  initialState: {
-    schemaVersion: "1",
-  },
-  subduxes: {
-    identification,
-    structure,
-    propulsion,
-    carrier: carrierDux,
-    weaponry,
-  },
+    actions: {
+        restore,
+        importShip,
+    },
+    initialState: {
+        schemaVersion: "1",
+    },
+    subduxes: {
+        identification,
+        structure,
+        propulsion,
+        carrier: carrierDux,
+        weaponry,
+    },
 });
 
 shipDux.addMutation(restore, (state) => () => state);
+shipDux.addMutation(importShip, (state) => () => state);
 
 shipDux.addReaction((api) => {
-  return createSelector(
-    api.selectors.getFtlType,
-    api.selectors.getShipMass,
-    (type, mass) => api.dispatch.setFtlReqs(calcFtlReqs(type, mass))
-  );
+    return createSelector(
+        api.selectors.getFtlType,
+        api.selectors.getShipMass,
+        (type, mass) => api.dispatch.setFtlReqs(calcFtlReqs(type, mass))
+    );
 });
 
 shipDux.addReaction((api) => {
-  const setShipReqs = memoize((cost, usedMass) =>
-    api.dispatch.setShipReqs({ cost, usedMass })
-  );
+    const setShipReqs = memoize((cost, usedMass) =>
+        api.dispatch.setShipReqs({ cost, usedMass })
+    );
 
-  return (state) => {
-    let cost = 0;
-    let mass = 0;
+    return (state) => {
+        let cost = 0;
+        let mass = 0;
 
-    let subsystems = R.values(R.omit(state, ["identification"]));
+        let subsystems = R.values(R.omit(state, ["identification"]));
 
-    while (subsystems.length > 0) {
-      const subsystem = subsystems.shift();
-      if (typeof subsystem !== "object") continue;
+        while (subsystems.length > 0) {
+            const subsystem = subsystems.shift();
+            if (typeof subsystem !== "object") continue;
 
-      if (subsystem.reqs) {
-        cost += subsystem.reqs.cost ?? 0;
-        mass += subsystem.reqs.mass ?? 0;
-      }
+            if (subsystem.reqs) {
+                cost += subsystem.reqs.cost ?? 0;
+                mass += subsystem.reqs.mass ?? 0;
+            }
 
-      subsystems.push(...Object.values(subsystem));
-    }
+            subsystems.push(...Object.values(subsystem));
+        }
 
-    if (Number.isNaN(cost)) {
-      console.log(state.weaponry.weapons);
-      throw new Error();
-    }
+        if (Number.isNaN(cost)) {
+            console.log(state.weaponry.weapons);
+            throw new Error();
+        }
 
-    setShipReqs(cost, mass);
-  };
+        setShipReqs(cost, mass);
+    };
 });
 
 shipDux.addReaction((api) =>
-  createSelector(
-    api.selectors.getShipMass,
-    (state) => state.propulsion.drive.rating,
-    (state) => state.propulsion.drive.advanced,
-    (mass, rating, advanced) =>
-      api.dispatch.setDriveReqs(calcDriveReqs(mass, rating, advanced))
-  )
+    createSelector(
+        api.selectors.getShipMass,
+        (state) => state.propulsion.drive.rating,
+        (state) => state.propulsion.drive.advanced,
+        (mass, rating, advanced) =>
+            api.dispatch.setDriveReqs(calcDriveReqs(mass, rating, advanced))
+    )
 );
 
 shipDux.addReaction((api) =>
-  createSelector(
-    //    (state) => state,
-    api.selectors.getShipMass,
-    api.selectors.getStreamlining,
-    (mass, type) => {
-      api.dispatch.setStreamliningReqs(calcStreamliningReqs(type, mass));
-    }
-  )
+    createSelector(
+        //    (state) => state,
+        api.selectors.getShipMass,
+        api.selectors.getStreamlining,
+        (mass, type) => {
+            api.dispatch.setStreamliningReqs(calcStreamliningReqs(type, mass));
+        }
+    )
 );
 
 shipDux.addReaction(screensReqsReaction);

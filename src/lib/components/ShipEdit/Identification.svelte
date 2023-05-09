@@ -28,6 +28,7 @@
   import Field from "$lib/components/Field.svelte";
   import { candidateShipTypes } from "./Identification/shipTypes.js";
   import ShipCost from "./Identification/ShipCost.svelte";
+  import shipDux from "$lib/store/ship";
 
   export let shipClass = "";
   export let shipType = "";
