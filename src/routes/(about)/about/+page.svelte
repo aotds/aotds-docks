@@ -26,12 +26,12 @@
 
 <p>
   Written by
-  <!-- TODO change link -->
   <a href="https://techblog.babyl.ca">Yanick Champoux</a>
   . Code available on
-  <!-- TODO read the url from package.json -->
   <a href={import.meta.env.HOMEPAGE}>my Gitea instance</a>.
 </p>
+
+<p>Found a bug? You can report it <a href={import.meta.env.BUGS}>here</a>.</p>
 
 <style>
   h2 {
