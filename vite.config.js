@@ -11,6 +11,7 @@ const config = {
     define: {
         "import.meta.env.PACKAGE_VERSION": JSON.stringify(packageJson.version),
         "import.meta.env.HOMEPAGE": JSON.stringify(packageJson.homepage),
+        "import.meta.env.BUGS": JSON.stringify(packageJson.bugs.url),
     },
 };
 
