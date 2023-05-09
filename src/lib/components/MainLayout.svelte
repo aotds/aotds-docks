@@ -7,7 +7,7 @@
     <div class="tabs in left-align">
       <a
         class="spaced"
-        class:active={currentPath.startsWith("/editor")}
+        class:active={!currentPath.startsWith("/about")}
         href="/editor">Editor</a
       >
       <!--
@@ -17,11 +17,6 @@
         href="/import">Import</a
       >
       -->
-      <a
-        class="spaced"
-        class:active={currentPath.startsWith("/export")}
-        href="/export/print">Export</a
-      >
       <a
         class="spaced"
         class:active={currentPath.startsWith("/about")}
