@@ -1,0 +1,60 @@
+project:
+  name: "AotDS: The Docks"
+  homepage: https://git.babyl.ca/yanick/aotds-docks
+  with_stats: true
+  ticket_url: null
+releases:
+  - version: NEXT
+    changes: []
+  - version: 3.0.0
+    date: 2023-05-09
+    changes:
+      - major rewrite.
+  - version: 2.3.0
+    date: 2022-04-17
+    changes:
+      - type: feat
+        desc: add 'reset ship' button
+      - type: feat
+        desc: add changelog to app
+      - type: feat
+        desc: add version to About component
+  - version: 2.2.0
+    date: 2022-04-11
+    changes:
+      - type: feat
+        desc: allow to edit the print layout
+  - |
+    ## 2.1.0 (2022-04-07)
+
+
+    ### Features
+
+    * add localStorage memory 
+    * can move main system comps in the print output 
+
+
+    * add standard-version
+change_types:
+  - title: ""
+    level: minor
+    keywords:
+      - ""
+  - title: Features
+    level: minor
+    keywords:
+      - feat
+  - title: Bug fixes
+    level: patch
+    keywords:
+      - fix
+  - title: Package maintenance
+    level: patch
+    keywords:
+      - chore
+      - maint
+      - refactor
+  - title: Statistics
+    level: patch
+    keywords:
+      - stats
