@@ -11,7 +11,8 @@ const config = {
     ssr: {},
     optimizeDeps: {},
     define: {
-        "import.meta.env.PACKAGE_VERSION": git.gitDescribeSync().semverString,
+        "import.meta.env.PACKAGE_VERSION":
+            '"' + git.gitDescribeSync().semverString + '"',
         "import.meta.env.HOMEPAGE": JSON.stringify(packageJson.homepage),
         "import.meta.env.BUGS": JSON.stringify(packageJson.bugs.url),
     },

@@ -5,7 +5,9 @@ project:
   ticket_url: null
 releases:
   - version: NEXT
-    changes: []
+    changes:
+      - desc: add version and changelog to the about section
+        type: feat
   - version: 3.0.0
     date: 2023-05-09
     changes:
