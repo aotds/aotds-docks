@@ -41,11 +41,14 @@ tasks:
 
   integrate:
     deps: [check]
+    preconditions:
+      - sh: git is-clean
+        msg: checkout not clean
+      - sh: git diff-ls  {{.PARENT_BRANCH}} | grep test
+        msg: no test was added
+      - sh: git diff-ls  {{.PARENT_BRANCH}} | grep CHANGELOG.yml
+        msg: no changelog entry detected
     cmds:
-      - git is-clean
-      # did we had tests?
-      - git diff-ls  {{.PARENT_BRANCH}} | grep test
-      - git checkout {{.PARENT_BRANCH}}
       - git weld -
 
   sync:
