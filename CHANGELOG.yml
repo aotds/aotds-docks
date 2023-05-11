@@ -4,10 +4,16 @@ project:
   with_stats: true
   ticket_url: null
 releases:
-  - version: NEXT
+  - version: 3.1.0
     changes:
       - desc: add version and changelog to the about section
         type: feat
+      - desc: add heavy missiles
+        type: feat
+      - type: stats
+        desc: |
+          code churn: 21 files changed, 458 insertions(+), 29 deletions(-)
+    date: 2023-05-11
   - version: 3.0.0
     date: 2023-05-09
     changes:

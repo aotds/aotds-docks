@@ -34,9 +34,16 @@ tasks:
     cmds:
       - histoire build
 
-  build:
+  changelog:
+    sources: [CHANGELOG.yml]
+    generates: [CHANGELOG.md]
     cmds:
+      - changelord print --no-next > CHANGELOG.md
       - changelord print --no-next > src/routes/\(about\)/about/changelog/changelog.svx
+
+  build:
+    deps: [changelog]
+    cmds:
       - vite build
 
   integrate:
@@ -57,14 +64,3 @@ tasks:
       - rsync -av build/ 192.168.0.100:/home/docks
 
   open: firefox https://docks.babyl.ca
-
-  release:
-    cmds:
-      - standard-version -a
-
-  changelog:
-    sources: [CHANGELOG.md]
-    generates: [src/lib/components/Changelog.svelte]
-    cmds:
-      - pnpx showdown makehtml -i CHANGELOG.md -o src/lib/components/Changelog.svelte
-      - git add src/lib/components/Changelog.svelte

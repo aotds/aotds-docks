@@ -1,5 +1,17 @@
 # Changelog for [AotDS: The Docks][homepage]
 
+## 3.1.0 2023-05-11
+
+
+### Features
+
+  * add version and changelog to the about section
+  * add heavy missiles
+
+### Statistics
+
+  * code churn: 21 files changed, 458 insertions(+), 29 deletions(-)
+
 
 
 ## 3.0.0 2023-05-09

@@ -1,22 +1,41 @@
-# Changelog
+# Changelog for [AotDS: The Docks][homepage]
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
-
-## 2.3.0 (2022-04-17)
+## 3.1.0 2023-05-11
 
 
 ### Features
 
-* add 'reset ship' button 
-* add changelog to app 
-* add version to About component 
+  * add version and changelog to the about section
+  * add heavy missiles
 
-## 2.2.0 (2022-04-11)
+### Statistics
+
+  * code churn: 21 files changed, 458 insertions(+), 29 deletions(-)
+
+
+
+## 3.0.0 2023-05-09
+
+  * major rewrite.
+
+
+## 2.3.0 2022-04-17
 
 
 ### Features
 
-* allow to edit the print layout 
+  * add 'reset ship' button
+  * add changelog to app
+  * add version to About component
+
+
+## 2.2.0 2022-04-11
+
+
+### Features
+
+  * allow to edit the print layout
+
 
 ## 2.1.0 (2022-04-07)
 
@@ -27,4 +46,11 @@ All notable changes to this project will be documented in this file. See [standa
 * can move main system comps in the print output 
 
 
-* add standard-version 
+* add standard-version
+
+
+
+
+
+
+    [homepage]: https://git.babyl.ca/yanick/aotds-docks
