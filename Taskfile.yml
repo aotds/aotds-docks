@@ -49,6 +49,7 @@ tasks:
       - sh: git diff-ls  {{.PARENT_BRANCH}} | grep CHANGELOG.yml
         msg: no changelog entry detected
     cmds:
+      - git checkout {{.PARENT_BRANCH}}
       - git weld -
 
   sync:
