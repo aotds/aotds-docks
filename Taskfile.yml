@@ -36,6 +36,7 @@ tasks:
 
   build:
     cmds:
+      - changelord print --no-next > src/routes/\(about\)/about/changelog/changelog.svx
       - vite build
 
   integrate:
@@ -56,14 +57,10 @@ tasks:
   release:
     cmds:
       - standard-version -a
+
   changelog:
     sources: [CHANGELOG.md]
     generates: [src/lib/components/Changelog.svelte]
     cmds:
       - pnpx showdown makehtml -i CHANGELOG.md -o src/lib/components/Changelog.svelte
       - git add src/lib/components/Changelog.svelte
-
-  default:
-    cmds:
-      - echo "{{.GREETING}}"
-    silent: true
