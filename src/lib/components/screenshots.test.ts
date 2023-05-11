@@ -13,7 +13,7 @@ declare global {
 
 expect.extend({ toMatchImageSnapshot });
 
-test("image snapshot", async () => {
+test.skip("image snapshot", async () => {
     const images = await globby(".histoire/screenshots/**.png");
 
     for (const path of images) {

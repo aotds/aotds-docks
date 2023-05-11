@@ -3,6 +3,10 @@
     <i>Question_Mark</i>
     <span>About</span>
   </a>
+  <a href="/about/changelog">
+    <i>Format_List_Bulleted</i>
+    <span>Changelog</span>
+  </a>
   <a href="/about/see-also">
     <i>Read_more</i>
     <span>Other resources</span>

@@ -1,11 +1,7 @@
-<h2>Welcome to the docks!</h2>
-
-<!-- TODO
-  <p class="version">
-    <span>version {import.meta.env.PACKAGE_VERSION}</span>
-    <a>changelog</a>
-  </p>
-  -->
+<div class="header">
+  <h2>Welcome to the docks!</h2>
+  <div>version {import.meta.env.PACKAGE_VERSION}</div>
+</div>
 
 <p>
   The Docks is a ship builder for the game
@@ -36,10 +32,18 @@
 <style>
   h2 {
     margin-bottom: 1.5rem;
+    flex: 1;
   }
   p {
     font-size: var(--font-scale-11);
     margin-bottom: 1.5rem;
     margin-left: 1rem;
+  }
+  .header {
+    display: flex;
+    align-items: baseline;
+  }
+  .header div {
+    font-size: var(--font-scale-11);
   }
 </style>

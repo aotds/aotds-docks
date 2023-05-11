@@ -36,14 +36,19 @@ tasks:
 
   build:
     cmds:
+      - changelord print --no-next > src/routes/\(about\)/about/changelog/changelog.svx
       - vite build
 
   integrate:
     deps: [check]
+    preconditions:
+      - sh: git is-clean
+        msg: checkout not clean
+      - sh: git diff-ls  {{.PARENT_BRANCH}} | grep test
+        msg: no test was added
+      - sh: git diff-ls  {{.PARENT_BRANCH}} | grep CHANGELOG.yml
+        msg: no changelog entry detected
     cmds:
-      - git is-clean
-      # did we had tests?
-      - git diff-ls  {{.PARENT_BRANCH}} | grep test
       - git checkout {{.PARENT_BRANCH}}
       - git weld -
 
@@ -56,14 +61,10 @@ tasks:
   release:
     cmds:
       - standard-version -a
+
   changelog:
     sources: [CHANGELOG.md]
     generates: [src/lib/components/Changelog.svelte]
     cmds:
       - pnpx showdown makehtml -i CHANGELOG.md -o src/lib/components/Changelog.svelte
       - git add src/lib/components/Changelog.svelte
-
-  default:
-    cmds:
-      - echo "{{.GREETING}}"
-    silent: true
