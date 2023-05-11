@@ -5,6 +5,7 @@ import Scattergun from "./Scattergun.svelte";
 import Needlebeam from "./Needlebeam.svelte";
 import Graser from "./Graser/index.svelte";
 import Torpedo from "./Torpedo/index.svelte";
+import HeavyMissile from "./HeavyMissile/index.svelte";
 
 export default {
     torpedo: Torpedo,
@@ -14,4 +15,5 @@ export default {
     pds: PDS,
     scattergun: Scattergun,
     needle: Needlebeam,
+    heavyMissile: HeavyMissile,
 };
