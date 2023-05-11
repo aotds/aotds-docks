@@ -19,6 +19,7 @@
   import Needle from "./Needle.svelte";
   import Graser from "./Graser/index.svelte";
   import Torpedo from "./Torpedo/index.svelte";
+  import Missile from "./HeavyMissile/index.svelte";
 
   const component = {
     beam: Beam,
@@ -28,6 +29,7 @@
     needle: Needle,
     graser: Graser,
     torpedo: Torpedo,
+    heavyMissile: Missile,
   };
 
   export let reqs = {};

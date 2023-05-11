@@ -35,6 +35,16 @@ export const weaponTypes = [
         reqs: { mass: 2, cost: 6 },
         initial: { arc: "F" },
     },
+    {
+        name: "heavy missile",
+        type: "missile",
+        reqs: missileReqs,
+        initial: {
+            arcs: ["FS", "F", "FP"],
+            extended: false,
+            multiState: false,
+        },
+    },
 ];
 
 const weaponsSlice = createSlice({
