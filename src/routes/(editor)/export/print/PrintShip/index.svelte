@@ -5,6 +5,8 @@
 <div class="print-output">
   <Identification {...identification} />
 
+  <HeavyMissiles {heavyMissiles} />
+
   <Beams {beams} />
 
   <Weapons {weapons} />
@@ -49,6 +51,7 @@
   import Cargo from "./Cargo.svelte";
   import PDS from "./Weapons/PDS.svelte";
   import Beams from "./Weapons/Beams.svelte";
+  import HeavyMissiles from "./Weapons/HeavyMissiles.svelte";
 
   export let identification = {};
   export let propulsion = {};
@@ -62,7 +65,9 @@
   $: weapons = weaponry?.weapons ?? [];
   $: weapons = u.reject(
     weapons,
-    u.matches({ specs: { type: (t) => ["pds", "beam"].includes(t) } })
+    u.matches({
+      specs: { type: (t) => ["pds", "beam", "heavyMissiles"].includes(t) },
+    })
   );
 
   $: pds = (weaponry?.weapons ?? []).filter(
@@ -70,6 +75,9 @@
   );
   $: beams = (weaponry?.weapons ?? []).filter(
     u.matches({ specs: { type: "beam" } })
+  );
+  $: heavyMissiles = (weaponry?.weapons ?? []).filter(
+    u.matches({ specs: { type: "heavyMissiles" } })
   );
 </script>
 

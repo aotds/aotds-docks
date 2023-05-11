@@ -27,6 +27,13 @@ type Scattergun = { type: "scattergun" };
 
 type Needle = { type: "needle"; arc: Arc };
 
+type HeavyMissile = {
+    type: "heavyMissile";
+    arcs: Arc[];
+    extended: boolean;
+    multiStage: boolean;
+};
+
 type Graser = {
     type: "graser";
     weaponClass: 1 | 2 | 3;
@@ -46,7 +53,8 @@ export type Weapon =
     | Scattergun
     | Needle
     | Graser
-    | Torpedo;
+    | Torpedo
+    | HeavyMissile;
 
 export const weaponTypes = [
     {
@@ -119,6 +127,17 @@ export const weaponTypes = [
         type: "needle",
         reqs: { mass: 2, cost: 6 },
         initial: { arc: "F", type: "needle" },
+    },
+    {
+        name: "heavy missile",
+        type: "heavyMissile",
+        reqs: missileReqs,
+        initial: {
+            arcs: ["FP", "F", "FS"],
+            extended: false,
+            multiStage: false,
+            type: "heavyMissile",
+        },
     },
 ];
 
@@ -211,6 +230,21 @@ function graserReqs({ weaponClass, arcs }: Graser) {
         mass,
         cost: 4 * mass,
     };
+}
+
+function missileReqs({ extended, multiStage }: HeavyMissile): Reqs {
+    let mass = 2;
+    let cost = 6;
+    if (extended) {
+        mass += 1;
+        cost += 3;
+    }
+    if (multiStage) {
+        mass += 2;
+        cost *= 2;
+    }
+
+    return { cost, mass };
 }
 
 function torpedoReqs({ weaponClass, arcs }: Torpedo): Reqs {
