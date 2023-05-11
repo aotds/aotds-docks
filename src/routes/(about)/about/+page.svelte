@@ -1,6 +1,6 @@
 <div class="header">
   <h2>Welcome to the docks!</h2>
-  <div>version {`import.meta.env.PACKAGE_VERSION`}</div>
+  <div>version {import.meta.env.PACKAGE_VERSION}</div>
 </div>
 
 <p>
