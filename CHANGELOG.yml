@@ -4,6 +4,10 @@ project:
   with_stats: true
   ticket_url: null
 releases:
+  - version: NEXT
+    changes:
+      - desc: add SMRs
+        type: feat
   - version: 3.1.0
     changes:
       - desc: add version and changelog to the about section

@@ -5,7 +5,15 @@
 <div class="print-output">
   <Identification {...identification} />
 
-  <HeavyMissiles {heavyMissiles} />
+  <div class="weapon-group">
+    {#each smrs as smr (smr.id)}
+      <SalvoMissileRack {...smr.specs} />
+    {/each}
+  </div>
+
+  <div class="weapon-group">
+    <HeavyMissiles {heavyMissiles} />
+  </div>
 
   <Beams {beams} />
 
@@ -52,6 +60,7 @@
   import PDS from "./Weapons/PDS.svelte";
   import Beams from "./Weapons/Beams.svelte";
   import HeavyMissiles from "./Weapons/HeavyMissiles.svelte";
+  import SalvoMissileRack from "./Weapons/SMR/index.svelte";
 
   export let identification = {};
   export let propulsion = {};
@@ -66,7 +75,9 @@
   $: weapons = u.reject(
     weapons,
     u.matches({
-      specs: { type: (t) => ["pds", "beam", "heavyMissiles"].includes(t) },
+      specs: {
+        type: (t) => ["smr", "pds", "beam", "heavyMissile"].includes(t),
+      },
     })
   );
 
@@ -77,7 +88,10 @@
     u.matches({ specs: { type: "beam" } })
   );
   $: heavyMissiles = (weaponry?.weapons ?? []).filter(
-    u.matches({ specs: { type: "heavyMissiles" } })
+    u.matches({ specs: { type: "heavyMissile" } })
+  );
+  $: smrs = (weaponry?.weapons ?? []).filter(
+    u.matches({ specs: { type: "smr" } })
   );
 </script>
 
@@ -112,5 +126,10 @@
   .disclaimer {
     text-align: center;
     margin-bottom: 1rem;
+  }
+  .weapon-group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
   }
 </style>
