@@ -20,6 +20,7 @@
   import Graser from "./Graser/index.svelte";
   import Torpedo from "./Torpedo/index.svelte";
   import Missile from "./HeavyMissile/index.svelte";
+  import SalvoMissileRack from "./SalvoMissileRack.svelte";
 
   const component = {
     beam: Beam,
@@ -30,6 +31,7 @@
     graser: Graser,
     torpedo: Torpedo,
     heavyMissile: Missile,
+    smr: SalvoMissileRack,
   };
 
   export let reqs = {};

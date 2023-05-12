@@ -34,6 +34,12 @@ type HeavyMissile = {
     multiStage: boolean;
 };
 
+type SalvoMissileRack = {
+    type: "salvoMissileRack";
+    arcs: Arc[];
+    extended: boolean;
+};
+
 type Graser = {
     type: "graser";
     weaponClass: 1 | 2 | 3;
@@ -137,6 +143,16 @@ export const weaponTypes = [
             extended: false,
             multiStage: false,
             type: "heavyMissile",
+        },
+    },
+    {
+        name: "salvo missile rack",
+        type: "smr",
+        reqs: smrReqs,
+        initial: {
+            arcs: ["FP", "F", "FS"],
+            extended: false,
+            type: "smr",
         },
     },
 ];
@@ -245,6 +261,15 @@ function missileReqs({ extended, multiStage }: HeavyMissile): Reqs {
     }
 
     return { cost, mass };
+}
+
+function smrReqs({ extended }: SalvoMissileRack): Reqs {
+    let mass = 4;
+    if (extended) mass += 1;
+    return {
+        mass,
+        cost: 3 * mass,
+    };
 }
 
 function torpedoReqs({ weaponClass, arcs }: Torpedo): Reqs {
