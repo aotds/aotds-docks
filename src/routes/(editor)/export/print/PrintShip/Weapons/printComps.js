@@ -7,6 +7,7 @@ import Graser from "./Graser/index.svelte";
 import Torpedo from "./Torpedo/index.svelte";
 import HeavyMissile from "./HeavyMissile/index.svelte";
 import SalvoMissileRack from "./SMR/index.svelte";
+import SalvoMissileLauncher from "./SML/index.svelte";
 
 export default {
     torpedo: Torpedo,
@@ -18,4 +19,5 @@ export default {
     needle: Needlebeam,
     heavyMissile: HeavyMissile,
     smr: SalvoMissileRack,
+    sml: SalvoMissileLauncher,
 };

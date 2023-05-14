@@ -7,7 +7,7 @@ import git from "git-describe";
 /** @type {import('vite').UserConfig} */
 const config = {
     plugins: [sveltekit()],
-    //  publicDir: "./static",
+    publicDir: "./static",
     ssr: {},
     optimizeDeps: {},
     define: {

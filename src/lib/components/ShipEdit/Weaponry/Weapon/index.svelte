@@ -2,7 +2,12 @@
   <div class="weapon_row">
     <a on:click={remove}><i>Delete</i> </a>
 
-    <svelte:component this={component[type]} {...specs} on:change={update} />
+    <svelte:component
+      this={component[type]}
+      {...specs}
+      {nbrMissileMagazines}
+      on:change={update}
+    />
   </div>
 </ShipItem>
 
@@ -21,6 +26,7 @@
   import Torpedo from "./Torpedo/index.svelte";
   import Missile from "./HeavyMissile/index.svelte";
   import SalvoMissileRack from "./SalvoMissileRack.svelte";
+  import SalvoMissileLauncher from "./SML/index.svelte";
 
   const component = {
     beam: Beam,
@@ -32,11 +38,13 @@
     torpedo: Torpedo,
     heavyMissile: Missile,
     smr: SalvoMissileRack,
+    sml: SalvoMissileLauncher,
   };
 
   export let reqs = {};
   export let specs = {};
   export let id;
+  export let nbrMissileMagazines = 0;
 
   const api = getContext("api");
 

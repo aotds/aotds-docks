@@ -17,6 +17,7 @@ import { armorDux } from "./ship/structure/armor";
 import { fireconsDux } from "./ship/weaponry/firecons";
 import { adfcDux } from "./ship/weaponry/adfc";
 import { weaponsDux } from "./ship/weaponry/weapons";
+import { weaponryDux } from "./ship/weaponry";
 
 if (typeof process !== "undefined") {
     process.env.UPDEEP_MODE = "dangerously_never_freeze";
@@ -42,15 +43,6 @@ const propulsion = new Updux({
     },
 });
 
-const weaponry = new Updux({
-    initialState: {},
-    subduxes: {
-        adfc: adfcDux,
-        firecons: fireconsDux,
-        weapons: weaponsDux,
-    },
-});
-
 const restore = createPayloadAction<typeof shipDux.initialState>("restore");
 const importShip =
     createPayloadAction<typeof shipDux.initialState>("importShip");
@@ -68,7 +60,7 @@ const shipDux = new Updux({
         structure,
         propulsion,
         carrier: carrierDux,
-        weaponry,
+        weaponry: weaponryDux,
     },
 });
 

@@ -40,6 +40,18 @@ type SalvoMissileRack = {
     extended: boolean;
 };
 
+type MissileMagazine = {
+    id: number;
+    maxAmmo: number;
+    extended: boolean;
+};
+
+type SalvoMissileLauncher = {
+    type: "salvoMissileLauncher";
+    arcs: Arc[];
+    missileMagazineId: number;
+};
+
 type Graser = {
     type: "graser";
     weaponClass: 1 | 2 | 3;
@@ -60,7 +72,8 @@ export type Weapon =
     | Needle
     | Graser
     | Torpedo
-    | HeavyMissile;
+    | HeavyMissile
+    | SalvoMissileLauncher;
 
 export const weaponTypes = [
     {
@@ -153,6 +166,16 @@ export const weaponTypes = [
             arcs: ["FP", "F", "FS"],
             extended: false,
             type: "smr",
+        },
+    },
+    {
+        name: "salvo missile launcher",
+        type: "sml",
+        reqs: { cost: 9, mass: 3 },
+        initial: {
+            arcs: ["FP", "F", "FS"],
+            type: "sml",
+            missileMagazineId: 1,
         },
     },
 ];
