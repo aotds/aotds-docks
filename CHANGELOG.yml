@@ -8,6 +8,8 @@ releases:
     changes:
       - desc: add SMRs
         type: feat
+      - desc: add SMLs
+        type: feat
   - version: 3.1.0
     changes:
       - desc: add version and changelog to the about section

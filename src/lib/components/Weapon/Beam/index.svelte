@@ -46,8 +46,6 @@
   let nbr_arcs = 6;
   $: nbr_arcs = arc_options[weapon_class][0];
 
-  $: console.log({ arcs, nbr_arcs });
-
   $: if (arcs.length !== nbr_arcs) {
     if (nbr_arcs === "broadside") {
       arcs = all_arcs.filter((arc) => arc.length === 1);

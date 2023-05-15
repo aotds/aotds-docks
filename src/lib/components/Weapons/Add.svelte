@@ -97,8 +97,6 @@
     arcs.forEach((arc) => (new_arcs[arc] = false));
 
     _.range(nbr_arcs).forEach((i) => {
-      console.log(first_index);
-      console.log(selected_arc);
       new_arcs[arcs[first_index]] = true;
       first_index = (first_index + 1) % arcs.length;
     });

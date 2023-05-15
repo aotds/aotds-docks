@@ -101,6 +101,7 @@ exports[`state has the expected shape 1`] = `
       },
       "stations": 0,
     },
+    "missileMagazines": [],
     "weapons": [],
   },
 }

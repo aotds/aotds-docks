@@ -15,6 +15,15 @@
     <HeavyMissiles {heavyMissiles} />
   </div>
 
+  <div class="weapon-group">
+    {#each Object.keys(smls) as magId (magId)}
+      <SML
+        launchers={smls[magId].map(R.prop("specs"))}
+        magazine={magazines.find(({ id }) => id == magId)}
+      />
+    {/each}
+  </div>
+
   <Beams {beams} />
 
   <Weapons {weapons} />
@@ -61,6 +70,8 @@
   import Beams from "./Weapons/Beams.svelte";
   import HeavyMissiles from "./Weapons/HeavyMissiles.svelte";
   import SalvoMissileRack from "./Weapons/SMR/index.svelte";
+  import SML from "./Weapons/SML/index.svelte";
+  import * as R from "remeda";
 
   export let identification = {};
   export let propulsion = {};
@@ -76,10 +87,12 @@
     weapons,
     u.matches({
       specs: {
-        type: (t) => ["smr", "pds", "beam", "heavyMissile"].includes(t),
+        type: (t) => ["sml", "smr", "pds", "beam", "heavyMissile"].includes(t),
       },
     })
   );
+
+  $: magazines = weaponry.missileMagazines;
 
   $: pds = (weaponry?.weapons ?? []).filter(
     u.matches({ specs: { type: "pds" } })
@@ -92,6 +105,10 @@
   );
   $: smrs = (weaponry?.weapons ?? []).filter(
     u.matches({ specs: { type: "smr" } })
+  );
+  $: smls = R.groupBy(
+    (weaponry?.weapons ?? []).filter(u.matches({ specs: { type: "sml" } })),
+    ({ specs: { missileMagazineId } }) => missileMagazineId
   );
 </script>
 
