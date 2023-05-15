@@ -54,7 +54,6 @@
 
   $: if (!arc_options[weaponClass].includes(nbrArcs)) {
     nbrArcs = arc_options[weaponClass][0];
-    console.log({ nbrArcs, label: "in if" });
   }
 
   const broadside = ["FS", "FP", "AP", "AS"];
@@ -72,7 +71,6 @@
       );
     }
 
-    $: console.log({ newArcs, arcs });
     if (
       arcs.length !== newArcs.length ||
       arcs.length !== R.intersection(arcs, newArcs).length
@@ -82,8 +80,6 @@
   }
 
   $: if (arcs.length !== nbrArcs) setArcs(arcs[0]);
-
-  $: console.log("it changed!", arcs);
 
   const dispatch = createEventDispatcher();
 

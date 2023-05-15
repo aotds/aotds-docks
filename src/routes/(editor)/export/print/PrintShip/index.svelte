@@ -93,7 +93,6 @@
   );
 
   $: magazines = weaponry.missileMagazines;
-  $: console.log({ magazines });
 
   $: pds = (weaponry?.weapons ?? []).filter(
     u.matches({ specs: { type: "pds" } })
@@ -107,14 +106,10 @@
   $: smrs = (weaponry?.weapons ?? []).filter(
     u.matches({ specs: { type: "smr" } })
   );
-  $: console.log(
-    (weaponry?.weapons ?? []).filter(u.matches({ specs: { type: "sml" } }))
-  );
   $: smls = R.groupBy(
     (weaponry?.weapons ?? []).filter(u.matches({ specs: { type: "sml" } })),
     ({ specs: { missileMagazineId } }) => missileMagazineId
   );
-  $: console.log({ smls });
 </script>
 
 <style>

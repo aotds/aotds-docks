@@ -45,8 +45,6 @@ test("sml and magazine", () => {
 
     expect(store.getState().missileMagazines).toHaveLength(2);
 
-    console.log(store.getState());
-
     expect(store.getState().weapons[1].specs.missileMagazineId).toEqual(2);
     expect(store.getState().missileMagazines[1].id).toEqual(2);
 });

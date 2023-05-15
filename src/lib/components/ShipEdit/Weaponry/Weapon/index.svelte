@@ -53,7 +53,6 @@
   const remove = () => api?.dispatch?.removeWeapon?.(id);
 
   const update = ({ detail }) => {
-    console.log({ id, type });
     api?.dispatch?.setWeapon?.(id, {
       type,
       ...detail,

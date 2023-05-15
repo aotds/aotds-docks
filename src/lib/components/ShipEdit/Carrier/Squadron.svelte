@@ -26,7 +26,6 @@
 
   export let { dispatch } = getContext("api");
 
-  $: console.log(type);
   $: dispatch.setSquadronType({ type, id });
 </script>
 
