@@ -4,12 +4,16 @@ project:
   with_stats: true
   ticket_url: null
 releases:
-  - version: NEXT
+  - version: 3.2.0
     changes:
       - desc: add SMRs
         type: feat
       - desc: add SMLs
         type: feat
+      - type: stats
+        desc: |
+          code churn: 29 files changed, 821 insertions(+), 206 deletions(-)
+    date: 2023-05-15
   - version: 3.1.0
     changes:
       - desc: add version and changelog to the about section

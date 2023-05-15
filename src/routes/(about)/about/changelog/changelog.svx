@@ -1,5 +1,19 @@
 # Changelog for [AotDS: The Docks][homepage]
 
+## 3.2.0 2023-05-15
+
+
+### Features
+
+  * add SMRs
+  * add SMLs
+
+### Statistics
+
+  * code churn: 29 files changed, 821 insertions(+), 206 deletions(-)
+
+
+
 ## 3.1.0 2023-05-11
 
 

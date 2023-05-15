@@ -39,7 +39,7 @@ tasks:
     generates: [CHANGELOG.md]
     cmds:
       - changelord print --no-next > CHANGELOG.md
-      - changelord print --no-next > src/routes/\(about\)/about/changelog/changelog.svx
+      - changelord print --no-next > 'src/routes/(about)/about/changelog/changelog.svx'
 
   build:
     deps: [changelog]
@@ -58,6 +58,12 @@ tasks:
     cmds:
       - git checkout {{.PARENT_BRANCH}}
       - git weld -
+
+  publish:
+    cmds:
+      - { task: build }
+      # tag
+      - { task: sync }
 
   sync:
     cmds:
