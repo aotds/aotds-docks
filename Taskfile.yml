@@ -59,6 +59,10 @@ tasks:
       - git checkout {{.PARENT_BRANCH}}
       - git weld -
 
+  analyzer:
+    cmds:
+      - vite-bundle-visualizer
+
   publish:
     cmds:
       - { task: build }
