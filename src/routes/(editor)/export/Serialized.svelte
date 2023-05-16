@@ -1,7 +1,7 @@
 <article>
   <nav>
     <button
-      use:clipboard={{ text: data }}
+      use:clipboard={{ text: serialized }}
       on:copied={copied}
       on:error={copyError}>{copyLabel} <i>content_paste</i></button
     >
