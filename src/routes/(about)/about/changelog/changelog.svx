@@ -1,5 +1,18 @@
 # Changelog for [AotDS: The Docks][homepage]
 
+## 3.2.1 2023-05-16
+
+
+### Bug fixes
+
+  * clipboard copy the serialized data
+
+### Statistics
+
+  * code churn: 4 files changed, 31 insertions(+), 2 deletions(-)
+
+
+
 ## 3.2.0 2023-05-15
 
 

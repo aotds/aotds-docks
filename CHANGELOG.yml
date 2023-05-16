@@ -4,10 +4,14 @@ project:
   with_stats: true
   ticket_url: null
 releases:
-  - version: NEXT
+  - version: 3.2.1
     changes:
       - desc: clipboard copy the serialized data
         type: fix
+      - type: stats
+        desc: |
+          code churn: 4 files changed, 31 insertions(+), 2 deletions(-)
+    date: 2023-05-16
   - version: 3.2.0
     changes:
       - desc: add SMRs
