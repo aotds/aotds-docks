@@ -4,6 +4,10 @@ project:
   with_stats: true
   ticket_url: null
 releases:
+  - version: NEXT
+    changes:
+      - desc: clipboard copy the serialized data
+        type: fix
   - version: 3.2.0
     changes:
       - desc: add SMRs
